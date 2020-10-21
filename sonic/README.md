@@ -1,6 +1,6 @@
 # Analyzing Sonic Fan Art
 
-# 9-5-2020
+### 9-5-2020
 I used BeautifulSoup to scrape DeviantArt and scikit-learn and gephi to build a word network.
 | Platform | Link |
 |-|-|
