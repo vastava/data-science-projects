@@ -1,0 +1,272 @@
+---
+title: "INDENG142 Predicting NBA MVP"
+author: "CASEY LI"
+date: "12/17/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(rpart)
+library(rpart.plot)
+library(caret)
+library(randomForest)
+library(gbm)
+library(caTools)
+library(dplyr)
+library(ggplot2)
+library(GGally)
+library(car)
+library(leaps)
+```
+
+# Data loading and cleaning and splitting
+
+```{r data}
+# loading data 
+set.seed(679)
+
+# we cleaned this csv already
+nba_csv <- read.csv("NBAStats (1).csv")
+summary(nba_csv)
+
+#variable selection
+nba_csv <- select(nba_csv, fg_pct, fg3_pct, ft_pct, 
+                  trb_per_g, ast_per_g, stl_per_g, blk_per_g, 
+                  per, ts_pct, usg_pct, ws, bpm, vorp, season, 
+                  age, award_share, win_pct, pts_per_g)
+
+#separate to training vs. testing set
+nba_csv.train <- filter(nba_csv, season != "2018-19")
+nba_csv.test <- filter(nba_csv, season == "2018-19")
+
+nba_csv.train <- select(nba_csv.train, -season)
+nba_csv.test <- select(nba_csv.test, -season)
+```
+
+# Baseline linear model 
+```{r baseline}
+# baseline model -----------------------------------------------------------
+baseline <- mean(nba_csv.train$award_share)
+pred.base <- rep(baseline, nrow(nba_csv.test))
+
+# OSR2 
+SSE <-  sum((nba_csv.test$award_share - pred.base)^2)
+SST = sum((nba_csv.test$award_share - mean(nba_csv.train$award_share))^2)
+OSR2 = 1 - SSE/SST
+OSR2 #0 as expected! since sse = sst
+```
+
+# Naive linear regression 
+```{r naive linear}
+##linear regression model
+testlm <- lm(award_share ~ ., data = nba_csv.train)
+summary(testlm)
+testlm$coefficients
+testlm$fitted.values
+
+## testing multicollinearity
+vif(testlm)
+
+## predicting
+predictions_testlm <- predict(testlm, newdata=nba_csv.test)
+predictions_testlm
+nba_csv.test
+
+SSE <-  sum((nba_csv.test$award_share - predictions_testlm)^2)
+SST = sum((nba_csv.test$award_share - mean(nba_csv.train$award_share))^2)
+OSR2 = 1 - SSE/SST
+OSR2 #0.5684896
+```
+
+# Backwards stepwise linear regression 
+```{r bswr}
+# backwards stepwise regression --------------------------------------------
+set.seed(679)
+
+# training model 
+step.model <- train(award_share ~., data = nba_csv.train,
+                    method = "leapBackward", 
+                    tuneGrid = data.frame(nvmax = 1:17),
+                    trControl = trainControl(method = "cv", number = 5)
+)
+step.model$results
+step.model$bestTune
+
+summary(step.model$finalModel) # tells us which variables to include 
+coef(step.model$finalModel, id = 9)
+ 
+#building final linear model 
+bswr.mod <- lm(award_share ~ fg_pct +  trb_per_g + ast_per_g + stl_per_g + 
+                 ts_pct + ws + bpm + win_pct + pts_per_g, 
+               data = nba_csv.train)
+summary(bswr.mod)
+
+vif(bswr.mod) # acceptable vifs 
+
+# testing for OSR2 
+pred.bswr <- predict(bswr.mod, newdata=nba_csv.test)
+pred.bswr
+nba_csv.test$award_share
+
+SSE <-  sum((nba_csv.test$award_share - pred.bswr)^2)
+SST = sum((nba_csv.test$award_share - mean(nba_csv.train$award_share))^2)
+OSR2 = 1 - SSE/SST
+OSR2 # 0.5691312 # slight improvement! 
+```
+
+# Random forests -- basic and cross-validated 
+```{r rf}
+##basic random forest model
+set.seed(144)
+mod.rf <- randomForest(award_share ~ ., data = nba_csv.train, mtry = 5, nodesize = 5, ntree = 500)
+pred.rf <- predict(mod.rf, newdata = nba_csv.test) # just to illustrate
+
+importance(mod.rf) #most important features: ws, vorp, win_pct, bpm
+
+#cross validation on mtry
+set.seed(849)
+train.rf <- train(award_share ~ .,
+                  data = nba_csv.train,
+                  method = "rf",
+                  tuneGrid = data.frame(mtry=1:16),
+                  trControl = trainControl(method="cv",
+                                           number=5, verboseIter = TRUE),
+                  metric = "RMSE")
+train.rf #mtry=12
+best.rf <- train.rf$finalModel
+pred.best.rf <- predict(best.rf, newdata = nba_csv.test) # can use same model matrix
+
+ggplot(train.rf$results, aes(x = mtry, y = Rsquared)) + geom_point(size = 3) + 
+  ylab("CV Rsquared") + theme_bw() + theme(axis.title=element_text(size=18), axis.text=element_text(size=18))
+
+SSE = sum((nba_csv.test$award_share - pred.best.rf)^2)
+SST = sum((nba_csv.test$award_share - mean(nba_csv.train$award_share))^2)
+OSR2 = 1 - SSE/SST
+OSR2 #0.7677164
+```
+
+# Boosting -- basic and cross-validated 
+```{r boosting}
+#boosting model
+mod.boost <- gbm(award_share ~ .,
+                 data = nba_csv.train,
+                 distribution = "gaussian",
+                 n.trees = 1000,
+                 shrinkage = 0.001,
+                 interaction.depth = 2)
+
+pred.boost <- predict(mod.boost, newdata = nba_csv.test, n.trees=1000)
+
+pred.boost.earlier <- predict(mod.boost, newdata = nba_csv.test, n.trees=330)
+
+summary(mod.boost) #most influential features are ws, vorp, per, win_pct
+
+#cross validation on n.trees and interaction depth
+tGrid = expand.grid(n.trees = (1:75)*500, interaction.depth = c(1,2,4,6,8,10),
+                    shrinkage = 0.001, n.minobsinnode = 10)
+
+set.seed(849)
+train.boost <- train(award_share ~ .,
+                     data = nba_csv.train,
+                     method = "gbm",
+                     tuneGrid = tGrid,
+                     trControl = trainControl(method="cv", number=5,
+                                              verboseIter = TRUE),
+                     metric = "RMSE",
+                     distribution = "gaussian")
+train.boost #ntrees=4000,interaction.depth=4
+best.boost <- train.boost$finalModel
+pred.best.boost <- predict(best.boost, newdata = nba_csv.test, n.trees = 4000) # can use same model matrix
+
+ggplot(train.boost$results, aes(x = n.trees, y = Rsquared, colour = as.factor(interaction.depth))) + geom_line() +
+  ylab("CV Rsquared") + theme_bw() + theme(axis.title=element_text(size=18), axis.text=element_text(size=18)) +
+  scale_color_discrete(name = "interaction.depth")
+
+SSE = sum((nba_csv.test$award_share - pred.best.boost)^2)
+SST = sum((nba_csv.test$award_share - mean(nba_csv.train$award_share))^2)
+OSR2 = 1 - SSE/SST
+OSR2 #0.8231889
+```
+
+# Bootstrapping for performance metrics 
+```{r bootstrapping}
+library(boot)
+
+boot_osr <- function(data, index) {
+  labels <- data$label[index]
+  predictions <- data$prediction[index]
+  return(1 - (sum((labels - predictions)^2)/
+                sum((labels - mean(data$label))^2)))
+}
+
+boot_mae <- function(data, index) {
+  labels <- data$label[index]
+  predictions <- data$prediction[index]
+  return(mean(abs(labels-predictions)))
+}
+
+boot_rmse <- function(data, index) {
+  labels <- data$label[index]
+  predictions <- data$prediction[index]
+  return(sqrt(mean((labels-predictions)^2)))
+}
+
+boot_all_metrics <- function(data, index) {
+  osr = boot_osr(data, index)
+  mae = boot_mae(data, index)
+  rmse = boot_rmse(data, index)
+  return(c(osr, mae, rmse))
+}
+
+big_B = 10000
+
+##baseline model
+#predict.baseline = rep(mean_obs, nrow(nba_csv.test))
+#baseline_df = data.frame(labels = nba_csv.test$award_share, predictions = predict.baseline)
+#set.seed(6829)
+#Baseline_boot = boot(baseline_df, boot_all_metrics, R = big_B)
+#Baseline_boot
+#boot.ci(Baseline_boot, index = 1, type = "basic")
+#boot.ci(Baseline_boot, index = 2, type = "basic")
+#boot.ci(Baseline_boot, index = 3, type = "basic")
+
+##naive lin reg
+lin_df = data.frame(labels = nba_csv.test$award_share, predictions = predictions_testlm)
+set.seed(342)
+
+Lin_boot = boot(lin_df, boot_all_metrics, R = big_B)
+Lin_boot
+boot.ci(Lin_boot, index = 1, type = "basic")
+boot.ci(Lin_boot, index = 2, type = "basic")
+boot.ci(Lin_boot, index = 3, type = "basic")
+
+##backwards stepwise lin reg
+stepwise_df = data.frame(labels = nba_csv.test$award_share, predictions =  pred.bswr)
+set.seed(342)
+Step_boot = boot(stepwise_df, boot_all_metrics, R = big_B)
+Step_boot
+boot.ci(Step_boot, index = 1, type = "basic")
+boot.ci(Step_boot, index = 2, type = "basic")
+boot.ci(Step_boot, index = 3, type = "basic")
+
+##random forest
+rf_df = data.frame(labels = nba_csv.test$award_share, predictions = pred.best.rf)
+set.seed(6722)
+RF_boot = boot(rf_df, boot_all_metrics, R = big_B)
+RF_boot
+boot.ci(RF_boot, index = 1, type = "basic")
+boot.ci(RF_boot, index = 2, type = "basic")
+boot.ci(RF_boot, index = 3, type = "basic")
+
+##boosting
+boost_df = data.frame(labels = nba_csv.test$award_share, predictions = pred.best.boost)
+set.seed(9391)
+Boost_boot = boot(boost_df, boot_all_metrics, R = big_B)
+Boost_boot
+boot.ci(Boost_boot, index = 1, type = "basic")
+boot.ci(Boost_boot, index = 2, type = "basic")
+boot.ci(Boost_boot, index = 3, type = "basic")
+```
+

@@ -1,0 +1,3 @@
+The <a href="basiclinearmodel_142finalproject.R">linear model file</a> contains the code for the naive linear regression model we applied on our dataset. We improved upon this model and applied backwards stepwise regressio, and  also constructed a basic random forests model and a cross-validated model in <a href="lin_bswr_rf_boost_dec18.R">this</a> file. Finally, we constructed bootstrapped confidence intervals to assess the performance of each of these models in <a href="project_bootstrap_dec19.R">this</a> file.
+
+The "complete code submission" pdf contains all of these R scripts — and their outputs — in one document.
