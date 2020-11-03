@@ -1,0 +1,1219 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<!-- Load d3.js -->
+<script src="https://d3js.org/d3.v4.js"></script>
+<script src="https://unpkg.com/d3-regression@1.3.4/dist/d3-regression.min.js"></script>
+
+<style>
+
+/*.top {
+  float: left;
+}*/
+.top {
+  float: left;
+}
+#crime_plot, #income_plot {
+  float: left;
+}
+body {
+  font-family: Helvetica Neue;
+  background-color: #343434;
+  color: white;
+  width: 66%;
+  margin: auto;
+}
+
+body p {
+  font-size: 14px
+}
+
+text {
+  color: white;
+  fill: white;
+}
+
+p {
+  display: block;
+}
+
+path, line {
+/*  fill:white;
+*/  stroke: white;
+}
+
+.first {
+  stroke: red;
+}
+
+#corr_matrix {
+  margin: auto;
+}
+
+svg {
+  display: block;
+  margin: auto;
+}
+
+.clearfix:after {
+    content: ".";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
+}
+
+.clearfix {
+    display: inline-block;
+}
+
+html[xmlns] .clearfix {
+    display: block;
+}
+
+* html .clearfix {
+    height: 1%;
+}
+
+.about {
+  background: #E8EAED;
+  border-radius: 0.2rem;
+  border: 1px solid #ccc;
+  whitespace: pre-wrap;
+  padding: 0.5rem;
+  margin: 1.5rem 0 3rem 0;
+/*  font-family: ;
+*/  color: black;
+}
+
+.footer text {
+  color: black;
+}
+
+
+#tooltip_scatter, #tooltip_resid, #tooltip_multi_resid {
+    position: absolute;
+    width: 150px;
+    height: auto;
+    padding: 10px;
+    background-color: white;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    -webkit-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+    -moz-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+    pointer-events: none;
+  }
+  
+  .hidden {
+    display: none;
+  }
+  
+  #tooltip_scatter p, #tooltip_resid p, #tooltip_multi_resid p {
+    color: black;
+    fill-color: black;
+    margin: 0;
+    font-family: sans-serif;
+    font-size: 12px;
+    line-height: 16px;
+  }
+
+  .city {
+    font-weight: bold;
+  }
+/*.center {
+  margin: auto;
+}*/
+
+</style>
+<!-- Create a div where the graph will take place -->
+<!-- <input type="image" id="pluto" src="pluto.jpg" alt="pluto" width="150px" height="150px" style="margin-left: 45%;" onclick="function()"/>
+ -->
+ <body id="page">
+  <h1>Analyzing police presence</h1>
+  <p>In the wake of George Floyd, Breonna Taylor and Ahmaud Arbery’s tragic deaths, thousands have marched in protest of police brutality across the U.S. and beyond. Their deaths have reignited discussions surrounding the  ongoing violence and discrimination Black Americans experience, and have been experiencing, at the hands of authority for over 400 years in this country.</p>
+  <p>And to be clear — Black people and activists never stopped having these discussions. Black Lives Matter is a sustained movement that, most of the time, receives very little of the public’s attention. So while calls for police accountability are in the national spotlight, I think it’s important that we listen to Black people who have consistently been in this space, and who understand bias in policing far more than those of us who are newly passionate about the issue.</p>
+  <p>I think we intuitively feel that Black communities face heavier police presences than middle/white America does. Living in a suburb, I can count the number of times I’ve even seen a cop car on one hand. I was surprised to see few accessible data points on this issue, so went and analyzed the data myself — here are my findings:</p>
+  <h2>Mapping police presence</h2>
+  <p>These maps compare the number of police officers in a city’s department per 1,000 residents against three factors — race, crime rate and median income. Interact with the maps below, and click each respective button to change the county-level layer.</p>
+  <button id="race" onclick="function()">Race</button>
+ <button id="crime" onclick="function()">Crime Rate</button>
+  <button id="income" onclick="function()">Median Income</button>
+ <iframe id="embed-map" src="race_map.html" width="100%" height="500px"></iframe>
+<h2>Correlation between Police Presence and Race, Crime rates, Income</h2>
+<p>The following analysis considers data from the 100 most populated cities and metropolitan areas in the U.S.</p>
+<div id="scatter_plots" width="100%" class="clearfix">
+  <div id="tooltip_scatter" class="hidden">
+        <p><span class = "city">Important Label Heading</span></p>
+        <p><span class ="info">100</span></p>
+  </div>  
+</div>
+<p>The percentage of a population that is Black, number of known offenses per 1,000 residents and median household income all, to some degree, have a relationship with the number of police officers per 1,000 residents in a given city. The r² values are low, but not insignificant. And it’s worth noting that according to these simple linear regressions, Black populations have the strongest correlation with police presence — even more so than crime rates.</p>
+<p>And here are the residual plots for each of the variables:</p>
+<div id="resid_plots" width="100%" class="clearfix">
+  <div id="tooltip_resid" class="hidden">
+        <p><span class = "city">Important Label Heading</span></p>
+        <p><span class="info">100</span></p>
+  </div> 
+</div>
+<p>After combining these variables to do a multiple regression, it’s clear that a relationship exists between police presence and these three variables. The r² value of the multiple regression is 0.93, meaning that 93% of the variance in police presence can be explained by race, income and crime rates. The Mean Absolute Error is considerably lower as well.</p>
+<p>The residual plots below are effectively the same graph repeated three times. I changed the x-axes for easier comparison with the residual plots from the simple linear regression above.</p>
+<div id="multi_plots" class="clearfix">
+  <div id="tooltip_multi_resid" class="hidden">
+        <p><span class = "city">Important Label Heading</span></p>
+        <p><span class="info">100</span></p>
+  </div> 
+</div>
+<p>And for good measure, here’s the correlation matrix:</p>
+<div id="corr_matrix"></div>
+<p>Again, Black populations emerge as the most statistically significant variable in explaining this relationship.</p>
+<p>On a closing note, the political, historical and personal experiences of non-Black people are not enough to inform our understanding of racism in this country. The way you understand the world, contemporary issues and the people in it, are shaped by the people you listen to and those you don’t.</p>
+<p>Your view of the police and your trust in them may depend on whether or not you live in a heavily-policed community. This analysis is far from comprehensive, but looking at the data, it’s easy to see why Black people may have differing views than the average American, and harbor deep mistrust for institutions like the police.</p>
+
+<p>In moments like these, it’s our job as non-Black people to listen — then act.</p>
+
+<div class='about'>
+          <h2><b>About</b></h2>
+          <p>The police employee and known offenses to law enforcement data is from the <a href="https://ucr.fbi.gov/crime-in-the-u.s/2018/crime-in-the-u.s.-2018">2018 FBI Uniform Crime Report</a>. The income and race data is from the <a href="https://data.census.gov/cedsci/">U.S. Census</a>.
+            </p>
+          <p>This project is open-source on <a href="https://github.com/vastava/police-presence">Github</a>. More info on the data and methodology used for this project can be found there.</p>
+          <a href="https://twitter.com/anjalii_shrivas?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-count="false">Follow @anjalii_shrivas</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+          <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+        </div>
+</div>
+</body>
+<!-- <div id="income_plot"></div>
+ -->
+
+<script>
+
+console.log(document.getElementById('page').offsetWidth)
+// set the dimensions and margins of the graph
+var margin = {top: 10, right: 30, bottom: 40, left: 60},
+    page = document.getElementById('page').offsetWidth,
+    width = (page - 300)/3,
+    height = width;
+
+    // width = 360 - margin.left - margin.right,
+    // height = 310 - margin.top - margin.bottom;
+        //1313
+// append the race_svg object to the body of the page
+var race_svg = d3.select("#scatter_plots")
+  .attr("height", height)
+  .append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+    .attr("class", "top")
+  .append("g")
+    .attr("transform",
+          "translate(" + margin.left + "," + margin.top + ")");
+var race_resid_svg = d3.select("#resid_plots")
+  .append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+    .attr("class", "top")
+  .append("g")
+    .attr("transform",
+          "translate(" + margin.left + "," + margin.top + ")");
+
+var crime_svg = d3.select("#scatter_plots")
+  .append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+    .attr("class", "top")
+  .append("g")
+    .attr("transform",
+          "translate(" + margin.left + "," + margin.top + ")");
+var crime_resid_svg = d3.select("#resid_plots")
+  .append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+    .attr("class", "top")
+  .append("g")
+    .attr("transform",
+          "translate(" + margin.left + "," + margin.top + ")");
+
+
+var income_svg = d3.select("#scatter_plots")
+  .append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+    .attr("class", "top")
+  .append("g")
+    .attr("transform",
+          "translate(" + margin.left + "," + margin.top + ")");
+var income_resid_svg = d3.select("#resid_plots")
+  .append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+    .attr("class", "top")
+  .append("g")
+    .attr("transform",
+          "translate(" + margin.left + "," + margin.top + ")");
+
+var multi_resid_race_svg = d3.select("#multi_plots")
+  .append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+    .attr("class", "top")
+  .append("g")
+    .attr("transform",
+          "translate(" + margin.left + "," + margin.top + ")");
+
+var multi_resid_crime_svg = d3.select("#multi_plots")
+  .append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+    .attr("class", "top")
+  .append("g")
+    .attr("transform",
+          "translate(" + margin.left + "," + margin.top + ")");
+
+var multi_resid_income_svg = d3.select("#multi_plots")
+  .append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+    .attr("class", "top")
+  .append("g")
+    .attr("transform",
+          "translate(" + margin.left + "," + margin.top + ")");
+
+// var margin = {top: 100, right: 20, bottom: 20, left: 100},
+//     width = 330 - margin.left - margin.right,
+//     height = 330 - margin.top - margin.bottom
+
+var corr_matrix_svg = d3.select("#corr_matrix")
+  .append("svg")
+    .attr("width", 330)
+    .attr("height", 330)
+    .attr("class", "center")
+  .append("g")
+    .attr("transform", "translate(" + 100 + "," + 100 + ")");
+
+  document.getElementById('crime').onclick = function() {
+    document.getElementById("embed-map").src = "crime_map.html";     
+  }
+
+  document.getElementById('race').onclick = function() {
+    document.getElementById("embed-map").src = "race_map.html";     
+  }
+
+  document.getElementById('income').onclick = function() {
+    document.getElementById("embed-map").src = "income_map.html";     
+  }
+
+//Read the data
+d3.csv("https://raw.githubusercontent.com/vastava/police-presence/master/data/race_comparison_trimmed.csv", function(data) {
+
+  data = data.map(function(d) {
+      // console.log(d)
+      d.City = d.City;
+      d.metro_black = +d.metro_black;
+      d.police_per_1k = +d.police_per_1k;
+      d.offenses_per_1k = +d.offenses_per_1k;
+      d.median_income = +d.median_income;
+      d.multi_resid = +d.multi_resid;
+      d.race_resid = 0.057386*(+d.metro_black) + 2.21962 - +d.police_per_1k;
+      d.offenses_resid = 0.011572*(+d.offenses_per_1k) + 1.94654 - +d.police_per_1k;
+      d.income_resid = .000012122*(+d.median_income) + 2.08903 - +d.police_per_1k;
+      // console.log((d))
+      return d;
+  });
+
+mae_race = d3.mean(data, function(d) { return Math.abs(+d.race_resid); })
+mae_offenses = d3.mean(data, function(d) { return Math.abs(+d.offenses_resid); })
+mae_income = d3.mean(data, function(d) { return Math.abs(+d.income_resid); })
+mae_multi = d3.mean(data, function(d) { return Math.abs(+d.multi_resid); })
+
+  // Add X axis
+  var x_race = d3.scaleLinear()
+    .domain([0, d3.max(data, function(d) { return +d.metro_black; })])
+    .range([ 0, width ]);
+  race_svg.append("g")
+    .attr("transform", "translate(0," + height + ")")
+    .call(d3.axisBottom(x_race));
+  race_resid_svg.append("g")
+    .attr("transform", "translate(0," + height + ")")
+    .call(d3.axisBottom(x_race));  
+  multi_resid_race_svg.append("g")
+    .attr("transform", "translate(0," + height + ")")
+    .call(d3.axisBottom(x_race));
+  race_svg.append("text")             
+      .attr("transform",
+            "translate(" + (width/2) + " ," + 
+                           (height + margin.top + 20) + ")")
+      .style("text-anchor", "middle")
+      .text("Percentage of Population that is Black")
+      .attr("font-size", "10px")
+  race_resid_svg.append("text")             
+      .attr("transform",
+            "translate(" + (width/2) + " ," + 
+                           (height + margin.top + 20) + ")")
+      .style("text-anchor", "middle")
+      .text("Percentage of Population that is Black")
+      .attr("font-size", "10px")
+  multi_resid_race_svg.append("text")             
+      .attr("transform",
+            "translate(" + (width/2) + " ," + 
+                           (height + margin.top + 20) + ")")
+      .style("text-anchor", "middle")
+      .text("Percentage of Population that is Black")
+      .attr("font-size", "10px")
+
+  var x_crime = d3.scaleLinear()
+    .domain([0, d3.max(data, function(d) { return +d.offenses_per_1k; })])
+    .range([ 0, width ]);
+  crime_svg.append("g")
+    .attr("transform", "translate(0," + height + ")")
+    .call(d3.axisBottom(x_crime));
+  crime_resid_svg.append("g")
+    .attr("transform", "translate(0," + height + ")")
+    .call(d3.axisBottom(x_crime));
+  multi_resid_crime_svg.append("g")
+    .attr("transform", "translate(0," + height + ")")
+    .call(d3.axisBottom(x_crime));
+  crime_svg.append("text")             
+      .attr("transform",
+            "translate(" + (width/2) + " ," + 
+                           (height + margin.top + 20) + ")")
+      .style("text-anchor", "middle")
+      .text("Number of Known Legal Offenses per 1k City Residents")
+      .attr("font-size", "10px")
+  crime_resid_svg.append("text")             
+      .attr("transform",
+            "translate(" + (width/2) + " ," + 
+                           (height + margin.top + 20) + ")")
+      .style("text-anchor", "middle")
+      .text("Number of Known Legal Offenses per 1k City Residents")
+      .attr("font-size", "10px")
+  multi_resid_crime_svg.append("text")             
+      .attr("transform",
+            "translate(" + (width/2) + " ," + 
+                           (height + margin.top + 20) + ")")
+      .style("text-anchor", "middle")
+      .text("Number of Known Legal Offenses per 1k City Residents")
+      .attr("font-size", "10px")
+
+  var x_income = d3.scaleLinear()
+    .domain([0, d3.max(data, function(d) { return +d.median_income; })])
+    .range([ 0, width ]);
+  income_svg.append("g")
+    .attr("transform", "translate(0," + height + ")")
+    .call(d3.axisBottom(x_income).ticks(7));
+  income_resid_svg.append("g")
+    .attr("transform", "translate(0," + height + ")")
+    .call(d3.axisBottom(x_income).ticks(7));
+  multi_resid_income_svg.append("g")
+    .attr("transform", "translate(0," + height + ")")
+    .call(d3.axisBottom(x_income).ticks(7));
+
+  income_svg.append("text")             
+      .attr("transform",
+            "translate(" + (width/2) + " ," + 
+                           (height + margin.top + 20) + ")")    
+      .style("text-anchor", "middle")
+      .text("Median Household Income of City")
+      .attr("font-size", "10px")
+  income_resid_svg.append("text")             
+      .attr("transform",
+            "translate(" + (width/2) + " ," + 
+                           (height + margin.top + 20) + ")")    
+      .style("text-anchor", "middle")
+      .text("Median Household Income of City")
+      .attr("font-size", "10px")
+  multi_resid_income_svg.append("text")             
+      .attr("transform",
+            "translate(" + (width/2) + " ," + 
+                           (height + margin.top + 20) + ")")    
+      .style("text-anchor", "middle")
+      .text("Median Household Income of City")
+      .attr("font-size", "10px")
+
+  // Add Y axis
+  var y = d3.scaleLinear()
+    .domain([0, d3.max(data, function(d) { return +d.police_per_1k; })])
+    .range([ height, 0]);
+  race_svg.append("g")
+    .call(d3.axisLeft(y));
+  crime_svg.append("g")
+    .call(d3.axisLeft(y))
+  income_svg.append("g")
+    .call(d3.axisLeft(y))
+
+  var y_resid = d3.scaleLinear()
+    .domain([-4, 4])
+    .range([ height, 0]);
+  race_resid_svg.append("g")
+    .call(d3.axisLeft(y_resid));
+  crime_resid_svg.append("g")
+    .call(d3.axisLeft(y_resid));
+  income_resid_svg.append("g")
+    .call(d3.axisLeft(y_resid));
+  multi_resid_race_svg.append("g")
+    .call(d3.axisLeft(y_resid))
+  race_svg.append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 15 - margin.left)
+      .attr("x",0 - (height / 2))
+      .attr("dy", "1em")
+      .style("text-anchor", "middle")
+      .text("Number of Police Officers per 1k City Residents")
+      .attr("font-size", "10px")
+  crime_svg.append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 15 - margin.left)
+      .attr("x",0 - (height / 2))
+      .attr("dy", "1em")
+      .style("text-anchor", "middle")
+      .text("Number of Police Officers per 1k City Residents")
+      .attr("font-size", "10px")
+  income_svg.append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 15 - margin.left)
+      .attr("x",0 - (height / 2))
+      .attr("dy", "1em")
+      .style("text-anchor", "middle")
+      .text("Number of Police Officers per 1k City Residents")
+      .attr("font-size", "10px")
+
+  race_resid_svg.append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 15 - margin.left)
+      .attr("x",0 - (height / 2))
+      .attr("dy", "1em")
+      .style("text-anchor", "middle")
+      .text("Residuals (Simple Linear Regression)")
+      .attr("font-size", "10px")
+  crime_resid_svg.append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 15 - margin.left)
+      .attr("x",0 - (height / 2))
+      .attr("dy", "1em")
+      .style("text-anchor", "middle")
+      .text("Residuals (Simple Linear Regression)")
+      .attr("font-size", "10px")
+  income_resid_svg.append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 15 - margin.left)
+      .attr("x",0 - (height / 2))
+      .attr("dy", "1em")
+      .style("text-anchor", "middle")
+      .text("Residuals (Simple Linear Regression)")
+      .attr("font-size", "10px")    
+
+  multi_resid_race_svg.append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 15 - margin.left)
+      .attr("x",0 - (height / 2))
+      .attr("dy", "1em")
+      .style("text-anchor", "middle")
+      .text("Residuals (Multiple Linear Regression)")
+      .attr("font-size", "10px")        
+  // Add dots
+  race_svg.append('g')
+    .selectAll("dot")
+    .data(data.filter(function(d){return d.police_per_1k > 0}))
+    .enter()
+    .append("circle")
+      .attr("cx", function (d) { return x_race(d.metro_black); } )
+      .attr("cy", function (d) { return y(d.police_per_1k); } )
+      .attr("r", 3)
+      .style("fill", "#98b5d8")
+      .style("stroke", "#5186c8")
+      .on("mouseover", function(d) {  
+               var xPosition = parseFloat(d3.event.pageX) +  10;
+               var yPosition = parseFloat(d3.event.pageY)-10;
+               //Update the tooltip position and value
+               d3.select("#tooltip_scatter")
+                 .style("left", xPosition + "px")
+                 .style("top", yPosition + "px") 
+                 // .style("translate", transform)          
+                 .select(".city")
+                 .text(d.City)           
+                 .attr("font-weight", "bold")
+               d3.select("#tooltip_scatter")
+                 .select(".info")
+                 .text("In " + d.City + ", there are " + d.police_per_1k.toFixed(2) + " officers per 1,000 residents. " + d.metro_black.toFixed(2) + "% of the population is Black.")
+
+                 // .select("#date")
+                 // .text(d.Trump_Date);
+              
+               //Show the tooltip
+               d3.select("#tooltip_scatter").classed("hidden", false);
+
+              })
+         .on("mouseout", function() {  
+               //Hide the tooltip
+               d3.select(this).raise();
+               d3.select("#tooltip_scatter").classed("hidden", true);
+               
+              });
+
+   maxnum = d3.max(data, function(d) {return +d.police_per_1k});
+
+   maxnum_race = d3.max(data, function(d) { return +d.metro_black; });
+
+  race_svg
+       .append("line")
+         .attr("x1", x_race(0) )
+         .attr("x2", x_race(maxnum_race) )
+         .attr("y1", y(2.21962))
+         .attr("y2", y(0.057386*maxnum_race + 2.21962))
+         .attr("stroke", "red")
+         .attr("stroke-width", 1.5)
+         .attr("stroke-dasharray", "2")
+         .attr("class", "first")
+
+  race_svg
+      .append("text")
+      .text("r² = 0.290468")
+      .attr("x", x_race(maxnum_race))
+      .attr("text-anchor", "end")
+      .attr("y", y(6.1))
+      .attr("font-size", "12px")
+
+  race_resid_svg
+      .append("text")
+      .text("Mean Absolute Error = " + mae_race.toFixed(2))
+      .attr("x", x_race(maxnum_race/2))
+      .attr("text-anchor", "middle")
+      .attr("y", y(6.1))
+      .attr("font-size", "12px")
+
+  crime_svg.append('g')
+    .selectAll("dot")
+    .data(data.filter(function(d){return d.police_per_1k > 0 & d.offenses_per_1k > 0}))
+    .enter()
+    .append("circle")
+      .attr("cx", function (d) { return x_crime(d.offenses_per_1k); } )
+      .attr("cy", function (d) { return y(d.police_per_1k); } )
+      .attr("r", 3)
+      .style("fill", "#98b5d8")
+      .style("stroke", "#5186c8")
+      .on("mouseover", function(d) {  
+               var xPosition = parseFloat(d3.event.pageX) +  10;
+               var yPosition = parseFloat(d3.event.pageY)-10;
+               //Update the tooltip position and value
+               d3.select("#tooltip_scatter")
+                 .style("left", xPosition + "px")
+                 .style("top", yPosition + "px") 
+                 // .style("translate", transform)          
+                 .select(".city")
+                 .text(d.City)           
+                 .attr("font-weight", "bold")
+               d3.select("#tooltip_scatter")
+                 .select(".info")
+                 .text("In " + d.City + ", there are " + d.police_per_1k.toFixed(2) + " officers per 1,000 residents. " + d.offenses_per_1k.toFixed(2) + " offenses were committed per 1,000 residents in 2018.")
+
+                 // .select("#date")
+                 // .text(d.Trump_Date);
+              
+               //Show the tooltip
+               d3.select("#tooltip_scatter").classed("hidden", false);
+
+              })
+         .on("mouseout", function() {  
+               //Hide the tooltip
+               d3.select(this).raise();
+               d3.select("#tooltip_scatter").classed("hidden", true);
+               
+              });
+
+   maxnum_crime = d3.max(data, function(d) { return +d.offenses_per_1k; }) + 5;
+
+   crime_svg
+       .append("line")
+         .attr("x1", x_crime(0) )
+         .attr("x2", x_crime(maxnum_crime) )
+         .attr("y1", y(1.94654))
+         .attr("y2", y(0.011572*maxnum_crime + 1.94654))
+         .attr("stroke", "red")
+         .attr("stroke-width", 1.5)
+         .attr("stroke-dasharray", "2")
+         .attr("class", "first")
+  crime_svg
+      .append("text")
+      .text("r² = 0.123933")
+      .attr("x", x_crime(maxnum_crime - 5))
+      .attr("text-anchor", "end")
+      .attr("y", y(6.1))
+      .attr("font-size", "12px")
+  crime_resid_svg
+      .append("text")
+      .text("Mean Absolute Error = " + mae_offenses.toFixed(2))
+      .attr("x", x_crime(maxnum_crime/2))
+      .attr("text-anchor", "middle")
+      .attr("y", y(6.1))
+      .attr("font-size", "12px")
+  income_svg.append('g')
+    .selectAll("dot")
+    .data(data.filter(function(d){return d.police_per_1k > 0}))
+    .enter()
+    .append("circle")
+      .attr("cx", function (d) { return x_income(d.median_income); } )
+      .attr("cy", function (d) { return y(d.police_per_1k); } )
+      .attr("r", 3)
+      .style("fill", "#98b5d8")
+      .style("stroke", "#5186c8")
+      .on("mouseover", function(d) {  
+               var xPosition = parseFloat(d3.event.pageX) +  10;
+               var yPosition = parseFloat(d3.event.pageY)-10;
+               //Update the tooltip position and value
+               d3.select("#tooltip_scatter")
+                 .style("left", xPosition + "px")
+                 .style("top", yPosition + "px") 
+                 // .style("translate", transform)          
+                 .select(".city")
+                 .text(d.City)           
+                 .attr("font-weight", "bold")
+               d3.select("#tooltip_scatter")
+                 .select(".info")
+                 .text("In " + d.City + ", there are " + d.police_per_1k.toFixed(2) + " officers per 1,000 residents. The median household income is $" + String(d.median_income).replace(/(.)(?=(\d{3})+$)/g,'$1,') + ".")
+
+                 // .select("#date")
+                 // .text(d.Trump_Date);
+              
+               //Show the tooltip
+               d3.select("#tooltip_scatter").classed("hidden", false);
+
+              })
+         .on("mouseout", function() {  
+               //Hide the tooltip
+               d3.select(this).raise();
+               d3.select("#tooltip_scatter").classed("hidden", true);
+               
+              });
+
+
+   maxnum_income = d3.max(data, function(d) { return +d.median_income; }) + 5;
+
+   income_svg
+       .append("line")
+         .attr("x1", x_income(0) )
+         .attr("x2", x_income(maxnum_income) )
+         .attr("y1", y(2.08903))
+         .attr("y2", y(.000012122*maxnum_income + 2.08903))
+         .attr("stroke", "red")
+         .attr("stroke-width", 1.5)
+         .attr("stroke-dasharray", "2")
+         .attr("class", "first")
+  income_svg
+      .append("text")
+      .text("r² = 0.0190322")
+      .attr("x", x_income(maxnum_income))
+      .attr("text-anchor", "end")
+      .attr("y", y(6.1))
+      .attr("font-size", "12px")
+
+  income_resid_svg
+      .append("text")
+      .text("Mean Absolute Error = " + mae_income.toFixed(2))
+      .attr("x", x_income(maxnum_income/2))
+      .attr("text-anchor", "middle")
+      .attr("y", y(6.1))
+      .attr("font-size", "12px")
+
+
+  race_resid_svg.append('g')
+    .selectAll("dot")
+    .data(data.filter(function(d){return d.police_per_1k > 0}))
+    .enter()
+    .append("circle")
+      .attr("cx", function (d) { return x_race(d.metro_black); } )
+      .attr("cy", function (d) { return y_resid(d.race_resid); } )
+      .attr("r", 3)
+      .style("fill", "orange")
+      .style("stroke", "#EE762F")
+      .on("mouseover", function(d) {  
+               var xPosition = parseFloat(d3.event.pageX) +  10;
+               var yPosition = parseFloat(d3.event.pageY)-10;
+               //Update the tooltip position and value
+               d3.select("#tooltip_resid")
+                 .style("left", xPosition + "px")
+                 .style("top", yPosition + "px") 
+                 // .style("translate", transform)          
+                 .select(".city")
+                 .text(d.City)           
+                 .attr("font-weight", "bold")
+               d3.select("#tooltip_resid")
+                 .select(".info")
+                 .text("The residual error from the OLS regression is " + d.race_resid.toFixed(2) + ".")
+
+                 // .select("#date")
+                 // .text(d.Trump_Date);
+              
+               //Show the tooltip
+               d3.select("#tooltip_resid").classed("hidden", false);
+
+              })
+         .on("mouseout", function() {  
+               //Hide the tooltip
+               d3.select(this).raise();
+               d3.select("#tooltip_resid").classed("hidden", true);
+               
+              });
+
+  race_resid_svg
+    .append('line')
+      .attr("x1", 0)
+      .attr("x2", x_race(maxnum_race))
+      .attr("y1", y_resid(0))
+      .attr("y2", y_resid(0))
+      .attr("stroke-width", 1.5)
+      .attr("stroke-dasharray", "2")
+
+  crime_resid_svg.append('g')
+    .selectAll("dot")
+    .data(data.filter(function(d){return d.offenses_per_1k > 0}))
+    .enter()
+    .append("circle")
+      .attr("cx", function (d) { return x_crime(d.offenses_per_1k); } )
+      .attr("cy", function (d) { return y_resid(d.offenses_resid); } )
+      .attr("r", 3)
+      .style("fill", "orange")
+      .style("stroke", "#EE762F")
+      .on("mouseover", function(d) {  
+               var xPosition = parseFloat(d3.event.pageX) +  10;
+               var yPosition = parseFloat(d3.event.pageY)-10;
+               //Update the tooltip position and value
+               d3.select("#tooltip_resid")
+                 .style("left", xPosition + "px")
+                 .style("top", yPosition + "px") 
+                 // .style("translate", transform)          
+                 .select(".city")
+                 .text(d.City)           
+                 .attr("font-weight", "bold")
+               d3.select("#tooltip_resid")
+                 .select(".info")
+                 .text("The residual error from the OLS regression is " + d.offenses_resid.toFixed(2) + ".")
+
+                 // .select("#date")
+                 // .text(d.Trump_Date);
+              
+               //Show the tooltip
+               d3.select("#tooltip_resid").classed("hidden", false);
+
+              })
+         .on("mouseout", function() {  
+               //Hide the tooltip
+               d3.select(this).raise();
+               d3.select("#tooltip_resid").classed("hidden", true);
+               
+              });
+
+  crime_resid_svg
+    .append('line')
+      .attr("x1", 0)
+      .attr("x2", x_crime(maxnum_crime))
+      .attr("y1", y_resid(0))
+      .attr("y2", y_resid(0))
+      .attr("stroke-width", 1.5)
+      .attr("stroke-dasharray", "2")
+
+  income_resid_svg.append('g')
+    .selectAll("dot")
+    .data(data.filter(function(d){return d.police_per_1k > 0}))
+    .enter()
+    .append("circle")
+      .attr("cx", function (d) { return x_income(d.median_income); } )
+      .attr("cy", function (d) { return y_resid(d.income_resid); } )
+      .attr("r", 3)
+      .style("fill", "orange")
+      .style("stroke", "#EE762F")
+      .on("mouseover", function(d) {  
+               var xPosition = parseFloat(d3.event.pageX) +  10;
+               var yPosition = parseFloat(d3.event.pageY)-10;
+               //Update the tooltip position and value
+               d3.select("#tooltip_resid")
+                 .style("left", xPosition + "px")
+                 .style("top", yPosition + "px") 
+                 // .style("translate", transform)          
+                 .select(".city")
+                 .text(d.City)           
+                 .attr("font-weight", "bold")
+               d3.select("#tooltip_resid")
+                 .select(".info")
+                 .text("The residual error from the OLS regression is " + d.income_resid.toFixed(2) + ".")
+
+                 // .select("#date")
+                 // .text(d.Trump_Date);
+              
+               //Show the tooltip
+               d3.select("#tooltip_resid").classed("hidden", false);
+
+              })
+         .on("mouseout", function() {  
+               //Hide the tooltip
+               d3.select(this).raise();
+               d3.select("#tooltip_resid").classed("hidden", true);
+               
+              });
+
+  income_resid_svg
+    .append('line')
+      .attr("x1", 0)
+      .attr("x2", x_income(maxnum_income))
+      .attr("y1", y_resid(0))
+      .attr("y2", y_resid(0))
+      .attr("stroke-width", 1.5)
+      .attr("stroke-dasharray", "2")
+
+  multi_resid_race_svg.append('g')
+    .selectAll("dot")
+    .data(data.filter(function(d){return d.police_per_1k > 0}))
+    .enter()
+    .append("circle")
+      .attr("cx", function (d) { return x_race(d.metro_black); } )
+      .attr("cy", function (d) { return y_resid(d.multi_resid); } )
+      .attr("r", 3)
+      .style("fill", "#AACFD2")
+      .style("stroke", "#5CBBC4")
+      .on("mouseover", function(d) {  
+               var xPosition = parseFloat(d3.event.pageX) +  10;
+               var yPosition = parseFloat(d3.event.pageY)-10;
+               //Update the tooltip position and value
+               d3.select("#tooltip_multi_resid")
+                 .style("left", xPosition + "px")
+                 .style("top", yPosition + "px") 
+                 // .style("translate", transform)          
+                 .select(".city")
+                 .text(d.City)           
+                 .attr("font-weight", "bold")
+               d3.select("#tooltip_multi_resid")
+                 .select(".info")
+                 .text("The residual error from the multiple regression is " + d.multi_resid.toFixed(2) + ".")
+
+                 // .select("#date")
+                 // .text(d.Trump_Date);
+              
+               //Show the tooltip
+               d3.select("#tooltip_multi_resid").classed("hidden", false);
+
+              })
+         .on("mouseout", function() {  
+               //Hide the tooltip
+               d3.select(this).raise();
+               d3.select("#tooltip_multi_resid").classed("hidden", true);
+               
+              });
+  multi_resid_race_svg
+    .append('line')
+      .attr("x1", 0)
+      .attr("x2", x_income(maxnum_income))
+      .attr("y1", y_resid(0))
+      .attr("y2", y_resid(0))
+      .attr("stroke-width", 1.5)
+      .attr("stroke-dasharray", "2")
+
+  multi_resid_crime_svg.append('g')
+    .selectAll("dot")
+    .data(data.filter(function(d){return d.police_per_1k > 0}))
+    .enter()
+    .append("circle")
+      .attr("cx", function (d) { return x_crime(d.offenses_per_1k); } )
+      .attr("cy", function (d) { return y_resid(d.multi_resid); } )
+      .attr("r", 3)
+      .style("fill", "#AACFD2")
+      .style("stroke", "#5CBBC4")
+      .on("mouseover", function(d) {  
+               var xPosition = parseFloat(d3.event.pageX) +  10;
+               var yPosition = parseFloat(d3.event.pageY)-10;
+               //Update the tooltip position and value
+               d3.select("#tooltip_multi_resid")
+                 .style("left", xPosition + "px")
+                 .style("top", yPosition + "px") 
+                 // .style("translate", transform)          
+                 .select(".city")
+                 .text(d.City)           
+                 .attr("font-weight", "bold")
+               d3.select("#tooltip_multi_resid")
+                 .select(".info")
+                 .text("The residual error from the multiple regression is " + d.multi_resid.toFixed(2) + ".")
+
+                 // .select("#date")
+                 // .text(d.Trump_Date);
+              
+               //Show the tooltip
+               d3.select("#tooltip_multi_resid").classed("hidden", false);
+
+              })
+         .on("mouseout", function() {  
+               //Hide the tooltip
+               d3.select(this).raise();
+               d3.select("#tooltip_multi_resid").classed("hidden", true);
+               
+              });
+
+  multi_resid_crime_svg
+    .append('line')
+      .attr("x1", 0)
+      .attr("x2", x_income(maxnum_income))
+      .attr("y1", y_resid(0))
+      .attr("y2", y_resid(0))
+      .attr("stroke-width", 1.5)
+      .attr("stroke-dasharray", "2")
+
+  multi_resid_income_svg.append('g')
+    .selectAll("dot")
+    .data(data.filter(function(d){return d.police_per_1k > 0}))
+    .enter()
+    .append("circle")
+      .attr("cx", function (d) { return x_income(d.median_income); } )
+      .attr("cy", function (d) { return y_resid(d.multi_resid); } )
+      .attr("r", 3)
+      .style("fill", "#AACFD2")
+      .style("stroke", "#5CBBC4")
+      .on("mouseover", function(d) {  
+               var xPosition = parseFloat(d3.event.pageX) +  10;
+               var yPosition = parseFloat(d3.event.pageY)-10;
+               //Update the tooltip position and value
+               d3.select("#tooltip_multi_resid")
+                 .style("left", xPosition + "px")
+                 .style("top", yPosition + "px") 
+                 // .style("translate", transform)          
+                 .select(".city")
+                 .text(d.City)           
+                 .attr("font-weight", "bold")
+               d3.select("#tooltip_multi_resid")
+                 .select(".info")
+                 .text("The residual error from the multiple regression is " + d.multi_resid.toFixed(2) + ".")
+
+                 // .select("#date")
+                 // .text(d.Trump_Date);
+              
+               //Show the tooltip
+               d3.select("#tooltip_multi_resid").classed("hidden", false);
+
+              })
+         .on("mouseout", function() {  
+               //Hide the tooltip
+               d3.select(this).raise();
+               d3.select("#tooltip_multi_resid").classed("hidden", true);
+               
+              });
+
+  multi_resid_income_svg
+    .append('line')
+      .attr("x1", 0)
+      .attr("x2", x_income(maxnum_income))
+      .attr("y1", y_resid(0))
+      .attr("y2", y_resid(0))
+      .attr("stroke-width", 1.5)
+      .attr("stroke-dasharray", "2")
+
+    multi_resid_crime_svg
+      .append("text")
+      .text("r² = 0.930, Mean Absolute Error = " + mae_multi.toFixed(2))
+      .attr("x", x_race(maxnum_race))
+      .attr("text-anchor", "end")
+      .attr("y", y(6.1))
+      .attr("font-size", "12px")
+
+
+})
+
+d3.csv("https://raw.githubusercontent.com/vastava/police-presence/master/data/correlation.csv", function(error, rows) {
+
+  // Going from wide to long format
+  var data = [];
+  rows.forEach(function(d) {
+    var x = d[""];
+    delete d[""];
+    for (prop in d) {
+      var y = prop,
+        value = d[prop];
+      data.push({
+        x: x,
+        y: y,
+        value: +value
+      });
+    }
+  });
+
+// console.log(data, functin(d) )
+  var x = d3.scaleBand()
+    .domain(data.map(function(d) { return d.x; }))
+    .range([ 0, width ])
+    // .padding(1);
+  var y = d3.scaleBand()
+    .domain(data.map(function(d) { return d.y; }))
+    .range([ 0, height ])
+    // .padding(1);
+  // List of all variables and number of them
+  var domain = d3.set(data.map(function(d) { return d.x })).values()
+  var num = Math.sqrt(data.length)
+
+  // Create a color scale
+  var color = d3.scaleLinear()
+    .domain([-0.1, 0, 0.6])
+    .range(["#B22222", "#fff", "#000080"]);
+
+  // Create a size scale for bubbles on top right. Watch out: must be a rootscale!
+  var size = d3.scaleLinear()
+    .domain([0, .6])
+    .range([0, 10]);
+
+  // // X scale
+  // var x = d3.scalePoint()
+  //   .range([0, width])
+  //   .domain(domain)
+
+  // // Y scale
+  // var y = d3.scalePoint()
+  //   .range([0, height])
+  //   .domain(domain)
+
+  // Create one 'g' element for each cell of the correlogram
+  var cor = corr_matrix_svg.selectAll(".cor")
+    .data(data)
+    .enter()
+    .append("g")
+      .attr("class", "cor")
+      .attr("transform", function(d) {
+        return "translate(" + x(d.x) + "," + y(d.y) + ")";
+      });
+
+  // Low left part + Diagonal: Add the text with specific color
+  cor
+    .filter(function(d){
+      var ypos = domain.indexOf(d.y);
+      var xpos = domain.indexOf(d.x);
+      return xpos > ypos;
+    })
+    .append("rect")
+    // .attr("cy", size(0.5))
+      // .attr("r", 5)
+      .attr("width", x.bandwidth())
+      .attr("height", y.bandwidth())
+      // .attr("width", function(d){ return size(Math.abs(d.value)) })
+      // .attr("height",function(d){ return size(Math.abs(d.value)) })
+      // .style("fill", function(d){
+      //   if (d.x === d.y) {
+      //     return "#000";
+      //   } else {
+      //     return color(d.value);
+      //   }
+      // })
+      // .style("fill", "grey")
+      // .style("fill", "white")
+      .attr("stroke", "white")
+      .style("opacity", 0.8)
+
+  cor
+    .filter(function(d){
+      var ypos = domain.indexOf(d.y);
+      var xpos = domain.indexOf(d.x);
+      return xpos >= ypos;
+    })
+    .append("text")
+      .attr("y", size(0.5))
+      .text(function(d) {
+        console.log(d)
+        if (d.x === d.y) {
+          return d.value;
+        } else {
+          return d.value.toFixed(2);
+        }
+      })
+      // .text(function(d) {return d.value.toFixed(2)})
+      .style("font-size", 15)
+      // .style("text-align", "center")
+      // .attr("transform", "translate(" + y.bandwidth()/2 + "," + x.bandwidth()/2 + ")")
+      // .attr("transform", function(d) {
+      //   if (d.value == 1) {return "translate(" + y.bandwidth()/2 + "," + x.bandwidth()/2 + ")"}
+      //   else {return "translate(0," + x.bandwidth()/2 + ")"}
+      // })
+      .attr("text-anchor", "middle")
+      .attr("alignment-baseline", "middle")
+      .attr("x", x.bandwidth()/2)
+      .attr("y", y.bandwidth()/2)
+      .style("fill", function(d){
+        if (d.x === d.y) {
+          return "#FFFFFF";
+        } else {
+          return color(d.value);
+        }
+      });
+
+console.log(x)
+  // Up right part: add circles
+  cor
+    .filter(function(d){
+      var ypos = domain.indexOf(d.y);
+      var xpos = domain.indexOf(d.x);
+      return xpos <= ypos;
+    })
+    .append("rect")
+    // .attr("cy", size(0.5))
+      // .attr("r", 5)
+      .attr("width", x.bandwidth())
+      .attr("height", y.bandwidth())
+      // .attr("width", function(d){ return size(Math.abs(d.value)) })
+      // .attr("height",function(d){ return size(Math.abs(d.value)) })
+      .style("fill", function(d){
+        if (d.x === d.y) {
+          return "#343434";
+        } else {
+          return color(d.value);
+        }
+      })
+      .attr("stroke", "white")
+      .style("opacity", 0.8)
+
+  cor
+    .filter(function(d){
+      var ypos = domain.indexOf(d.y);
+      // var xpos = domain.indexOf(d.x);
+      return ypos == 0;
+    })
+    .append("text")
+        .text(function(d) {
+        if (d.x == "police_per_1k") {return "Police Officers "}
+        else if(d.x == "metro_black") {return "Black Population "}
+        else if (d.x == "offenses_per_1k") {return "Known Offenses "}
+        else
+        {return "Median Income "}})
+      .attr("font-size", "10")
+      .attr("transform", "rotate(-90) translate(5, 0)")
+      .attr("text-anchor", "start")
+      .attr("alignment-baseline", "start")
+      .attr("x", 0)
+      .attr("y", y.bandwidth()/2)
+      // .attr("transform", "")
+      .style("opacity", 0.8)
+
+  // cor.append('rect')
+  //     .attr("width", x.bandwidth())
+  //     .attr("height", y.bandwidth())
+  //     .attr("fill", "blue")
+  //     .style("stroke-width", 0);
+
+  cor
+    .filter(function(d){
+      // var ypos = domain.indexOf(d.y);
+      var xpos = domain.indexOf(d.x);
+      return xpos == 0;
+    })
+    .append("text")
+      .text(function(d) {
+        if (d.y == "police_per_1k") {return "Police Officers "}
+        else if(d.y == "metro_black") {return "Black Population "}
+        else if (d.y == "offenses_per_1k") {return "Known Offenses "}
+        else
+        {return "Median Income "}})
+      .attr("font-size", "10")
+      .attr("text-anchor", "end")
+      .attr("alignment-baseline", "end")
+      .attr("x", 0)
+      .attr("y", y.bandwidth()/2)
+
+      .attr("transform", "translate(-5, 0)")
+      // .attr("transform", "rotate(-90)")
+      .style("opacity", 0.8)
+      // .attr("text-anchor", "end")
+
+})
+
+</script>

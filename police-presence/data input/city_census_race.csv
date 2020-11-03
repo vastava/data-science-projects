@@ -1,0 +1,101 @@
+metro_geocode,metro_geoname,metro_lon,metro_lat,metro_code,metro_total,metro_white,metro_hispanic,metro_black,metro_asian,metro_amind,metro_twoplus,City,State,County,Zip,Country,Source
+35620,"New York-Newark-Jersey City, NY-NJ-PA",-74.08437,40.92033,6,100,46.34439,24.64721,15.80719,11.43804,0.17574,1.58744,New York,NY,New York County,10004,US,TIGER/Lineå¨ dataset from the US Census Bureau
+31080,"Los Angeles-Long Beach-Anaheim, CA",-118.14932,34.22097,6,100,29.47629,45.1683,6.4486,16.46581,0.18977,2.25123,Los Angeles,TX,La Salle County,78014,US,TIGER/Lineå¨ dataset from the US Census Bureau
+16980,"Chicago-Naperville-Elgin, IL-IN-WI",-87.96261,41.70249,6,100,52.59152,22.41137,16.3276,7.00777,0.12723,1.53452,Chicago,IL,Cook County,60601,US,TIGER/Lineå¨ dataset from the US Census Bureau
+19100,"Dallas-Fort Worth-Arlington, TX",-97.02543,32.81841,6,100,45.75036,29.04334,15.78827,7.26314,0.36657,1.78832,Dallas,TX,Dallas County,75201,US,TIGER/Lineå¨ dataset from the US Census Bureau
+26420,"Houston-The Woodlands-Sugar Land, TX",-95.3995,29.78605,6,100,35.64306,37.63239,17.03209,8.00725,0.22344,1.46176,Houston,TX,Harris County,77001,US,TIGER/Lineå¨ dataset from the US Census Bureau
+47900,"Washington-Arlington-Alexandria, DC-VA-MD-WV",-77.47405,38.83342,6,100,45.07073,16.12978,25.07391,10.6685,0.2116,2.84548,Washington,DC,,,US,US Census Bureau
+33100,"Miami-Fort Lauderdale-West Palm Beach, FL",-80.50479,26.15622,6,100,29.97581,45.83857,20.32081,2.58028,0.13672,1.14781,Miami,FL,Miami-Dade County,33231,US,TIGER/Lineå¨ dataset from the US Census Bureau
+37980,"Philadelphia-Camden-Wilmington, PA-NJ-DE-MD",-75.30339,39.9047,6,100,61.42822,9.70871,20.54679,6.22601,0.16064,1.92962,Philadelphia,PA,Philadelphia County,19019,US,TIGER/Lineå¨ dataset from the US Census Bureau
+12060,"Atlanta-Sandy Springs-Roswell, GA",-84.39952,33.69269,6,100,46.64287,10.87732,34.12094,6.22116,0.18829,1.94943,Atlanta,GA,Fulton County,30301,US,TIGER/Lineå¨ dataset from the US Census Bureau
+14460,"Boston-Cambridge-Newton, MA-NH",-71.1002,42.55728,3,100,70.14175,11.54695,7.88868,8.46736,0.14813,1.80712,Boston,MA,Suffolk County,2101,US,TIGER/Lineå¨ dataset from the US Census Bureau
+38060,"Phoenix-Mesa-Scottsdale, AZ",-112.07055,33.1858,1,100,55.05535,31.19998,5.37923,4.27344,1.92601,2.16599,Phoenix,AZ,Maricopa County,85001,US,TIGER/Lineå¨ dataset from the US Census Bureau
+41860,"San Francisco-Oakland-Hayward, CA",-122.16705,37.78109,6,100,39.25676,21.86105,7.1958,27.60553,0.22717,3.8537,San Francisco,CA,San Francisco County,94101,US,TIGER/Lineå¨ dataset from the US Census Bureau
+40140,"Riverside-San Bernardino-Ontario, CA",-116.12967,34.5517,6,100,31.52928,51.62665,7.09988,7.07593,0.43376,2.23451,Riverside,CA,Riverside County,92501,US,TIGER/Lineå¨ dataset from the US Census Bureau
+19820,"Detroit-Warren-Dearborn, MI",-83.23208,42.71913,2,100,66.19941,4.5567,22.11219,4.67638,0.2996,2.15572,Detroit,MI,Wayne County,48201,US,TIGER/Lineå¨ dataset from the US Census Bureau
+42660,"Seattle-Tacoma-Bellevue, WA",-121.85418,47.55648,6,100,62.61025,10.21802,5.99272,15.55284,0.8227,4.80347,Seattle,WA,King County,98060,US,TIGER/Lineå¨ dataset from the US Census Bureau
+33460,"Minneapolis-St. Paul-Bloomington, MN-WI",-93.34557,45.06504,3,100,75.24687,5.98147,8.68224,6.94612,0.59484,2.54845,Minneapolis,MN,Hennepin County,55401,US,TIGER/Lineå¨ dataset from the US Census Bureau
+41740,"San Diego-Carlsbad, CA",-116.73547,33.03388,6,100,45.20423,33.95825,4.70293,12.37801,0.43145,3.32512,San Diego,CA,San Diego County,92101,US,TIGER/Lineå¨ dataset from the US Census Bureau
+45300,"Tampa-St. Petersburg-Clearwater, FL",-82.40829,28.15426,1,100,62.3386,20.04628,11.7893,3.64955,0.23983,1.93645,Tampa,FL,Hillsborough County,33601,US,TIGER/Lineå¨ dataset from the US Census Bureau
+19740,"Denver-Aurora-Lakewood, CO",-104.89496,39.43385,1,100,63.91493,23.19262,5.51607,4.5381,0.48803,2.35025,Denver,CO,Denver County,80202,US,TIGER/Lineå¨ dataset from the US Census Bureau
+41180,"St. Louis, MO-IL",-90.35019,38.73514,2,100,73.65114,3.12323,18.32751,2.7491,0.21219,1.93683,Saint Louis,MO,St. Louis city,63101,US,TIGER/Lineå¨ dataset from the US Census Bureau
+12580,"Baltimore-Columbia-Towson, MD",-76.57961,39.33718,2,100,56.17583,6.06214,29.21593,5.91835,0.24733,2.38041,Baltimore,MD,Baltimore city,21201,US,TIGER/Lineå¨ dataset from the US Census Bureau
+36740,"Orlando-Kissimmee-Sanford, FL",-81.3632,28.43452,6,100,46.17729,31.47547,15.72926,4.58728,0.22628,1.80442,Orlando,FL,Orange County,32801,US,TIGER/Lineå¨ dataset from the US Census Bureau
+16740,"Charlotte-Concord-Gastonia, NC-SC",-80.86706,35.18901,2,100,60.68243,10.46861,22.5724,4.07027,0.34727,1.85901,Charlotte,NC,Mecklenburg County,28201,US,TIGER/Lineå¨ dataset from the US Census Bureau
+41700,"San Antonio-New Braunfels, TX",-98.60216,29.42863,1,100,33.42808,55.60516,6.55463,2.70731,0.25448,1.45034,San Antonio,TX,Bexar County,78201,US,TIGER/Lineå¨ dataset from the US Census Bureau
+38900,"Portland-Vancouver-Hillsboro, OR-WA",-122.47859,45.59817,3,100,72.83059,12.21114,2.99841,7.66323,0.69517,3.60145,Portland,OR,Multnomah County,97201,US,TIGER/Lineå¨ dataset from the US Census Bureau
+40900,"Sacramento--Roseville--Arden-Arcade, CA",-120.99745,38.78034,6,100,51.79323,21.84222,6.99558,14.49248,0.54204,4.33445,Sacramento,CA,Sacramento County,94203,US,TIGER/Lineå¨ dataset from the US Census Bureau
+38300,"Pittsburgh, PA",-79.83104,40.43901,7,100,85.27162,1.81822,8.38897,2.60837,0.1176,1.79521,Pittsburg,CA,Contra Costa County,94565,US,TIGER/Lineå¨ dataset from the US Census Bureau
+29820,"Las Vegas-Henderson-Paradise, NV",-115.01459,36.21513,6,100,42.19915,31.4461,11.66744,10.54616,0.45715,3.68401,Las Vegas,NV,Clark County,89101,US,TIGER/Lineå¨ dataset from the US Census Bureau
+17140,"Cincinnati, OH-KY-IN",-84.42713,39.0716,7,100,79.11496,3.3674,12.5336,2.85133,0.15295,1.97977,Cincinnati,OH,Hamilton County,45201,US,TIGER/Lineå¨ dataset from the US Census Bureau
+12420,"Austin-Round Rock, TX",-97.65448,30.26257,6,100,51.77815,32.65036,7.06636,6.28594,0.28229,1.93689,Austin,TX,Travis County,73301,US,TIGER/Lineå¨ dataset from the US Census Bureau
+28140,"Kansas City, MO-KS",-94.44446,38.93693,7,100,72.42256,9.16936,12.34711,3.17482,0.40319,2.48296,Kansas City,MO,Jackson County,64101,US,TIGER/Lineå¨ dataset from the US Census Bureau
+18140,"Columbus, OH",-82.83679,39.96767,2,100,72.37642,4.33811,15.86497,4.68844,0.19909,2.53297,Columbia,MD,Howard County,21044,US,TIGER/Lineå¨ dataset from the US Census Bureau
+17460,"Cleveland-Elyria, OH",-81.68389,41.37552,2,100,69.62925,6.04971,19.75577,2.52264,0.15474,1.88789,Cleveland,OH,Cuyahoga County,44101,US,TIGER/Lineå¨ dataset from the US Census Bureau
+26900,"Indianapolis-Carmel-Anderson, IN",-86.20622,39.7475,2,100,72.00502,6.88109,15.38647,3.4269,0.19412,2.10641,Indianapolis,IN,Marion County,46201,US,TIGER/Lineå¨ dataset from the US Census Bureau
+41940,"San Jose-Sunnyvale-Santa Clara, CA",-121.37506,36.9093,6,100,31.12455,26.40084,2.31238,36.91248,0.20379,3.04596,San Jose,CA,Santa Clara County,95101,US,TIGER/Lineå¨ dataset from the US Census Bureau
+34980,"Nashville-Davidson--Murfreesboro--Franklin, TN",-86.72449,36.08915,2,100,72.10467,7.46582,15.2509,2.93377,0.27178,1.97306,Nashville,MI,Barry County,49073,US,TIGER/Lineå¨ dataset from the US Census Bureau
+47260,"Virginia Beach-Norfolk-Newport News, VA-NC",-76.45292,36.83444,2,100,54.91571,7.02069,30.30884,4.16606,0.34638,3.24232,Virginia Beach,VA,,,US,US Census Bureau
+39300,"Providence-Warwick, RI-MA",-71.39976,41.7181,7,100,75.62851,13.31599,5.50422,3.1767,0.36482,2.00976,Providence,RI,Providence County,2901,US,TIGER/Lineå¨ dataset from the US Census Bureau
+33340,"Milwaukee-Waukesha-West Allis, WI",-88.17279,43.17655,2,100,66.34689,10.90975,16.37979,4.04114,0.44457,1.87785,Milwaukee,WI,Milwaukee County,53201,US,TIGER/Lineå¨ dataset from the US Census Bureau
+27260,"Jacksonville, FL",-81.79216,30.23653,2,100,62.68491,9.22427,21.27874,4.1412,0.31602,2.35486,Jacksonville,FL,Duval County,32099,US,TIGER/Lineå¨ dataset from the US Census Bureau
+36420,"Oklahoma City, OK",-97.50404,35.4296,6,100,63.94896,13.6503,10.44116,3.42026,3.81999,4.71934,Oklahoma City,OK,,,US,US Census Bureau
+39580,"Raleigh, NC",-78.46069,35.75726,6,100,61.10815,10.77913,19.60977,6.14639,0.31397,2.04258,Raleigh,NC,Wake County,27601,US,TIGER/Lineå¨ dataset from the US Census Bureau
+32820,"Memphis, TN-MS-AR",-89.81543,35.00766,2,100,43.26339,5.72485,47.28525,2.16597,0.18962,1.37093,Memphis,TN,Shelby County,37501,US,TIGER/Lineå¨ dataset from the US Census Bureau
+40060,"Richmond, VA",-77.47333,37.46197,2,100,57.23856,6.47947,29.60238,4.12878,0.35187,2.19894,Richmond,VA,Richmond city,23218,US,TIGER/Lineå¨ dataset from the US Census Bureau
+31140,"Louisville_Jefferson County, KY-IN",-85.67089,38.3367,2,100,75.84215,5.03954,14.6111,2.225,0.19086,2.09134,Louisville,KY,,,US,US Census Bureau
+35380,"New Orleans-Metairie, LA",-89.94768,29.90479,2,100,51.3737,8.99678,34.9014,2.86154,0.37602,1.49056,New Orleans,LA,Orleans Parish,70112,US,TIGER/Lineå¨ dataset from the US Census Bureau
+41620,"Salt Lake City, UT",-113.01057,40.47052,7,100,71.35276,18.21486,1.68453,5.83408,0.66321,2.25056,Salt Lake City,UT,Salt Lake County,84101,US,TIGER/Lineå¨ dataset from the US Census Bureau
+25540,"Hartford-West Hartford-East Hartford, CT",-72.57729,41.7347,7,100,66.69891,15.23891,10.8507,5.27638,0.18097,1.75412,Hartford,CT,Hartford County,6101,US,TIGER/Lineå¨ dataset from the US Census Bureau
+13820,"Birmingham-Hoover, AL",-86.81376,33.46376,2,100,63.36442,4.53143,29.01968,1.58786,0.25942,1.23719,Birmingham,AL,Jefferson County,35201,US,TIGER/Lineå¨ dataset from the US Census Bureau
+15380,"Buffalo-Cheektowaga-Niagara Falls, NY",-78.73685,42.91121,7,100,77.0937,5.21797,11.96397,3.21505,0.64859,1.86072,Buffalo,NY,Erie County,14201,US,TIGER/Lineå¨ dataset from the US Census Bureau
+40380,"Rochester, NY",-77.50784,42.96589,7,100,76.29042,7.60931,11.00159,2.85356,0.24004,2.00508,Rochester,NY,Monroe County,14601,US,TIGER/Lineå¨ dataset from the US Census Bureau
+24340,"Grand Rapids-Wyoming, MI",-85.48822,42.99886,7,100,78.48252,9.6593,6.50623,2.87029,0.34197,2.13969,Grand Rapids,MI,Kent County,49501,US,TIGER/Lineå¨ dataset from the US Census Bureau
+46060,"Tucson, AZ",-111.78953,32.09746,1,100,51.43142,37.55107,3.38917,3.24251,2.43862,1.94722,Tucson,AZ,Pima County,85701,US,TIGER/Lineå¨ dataset from the US Census Bureau
+23420,"Fresno, CA",-119.64847,36.75833,6,100,29.03831,53.46712,4.63908,10.37872,0.59956,1.87721,Fresno,TX,Fort Bend County,77545,US,TIGER/Lineå¨ dataset from the US Census Bureau
+46140,"Tulsa, OK",-96.16629,36.25036,6,100,64.67468,10.18307,8.16696,2.65356,8.16615,6.15558,Tulsa,OK,Tulsa County,74101,US,TIGER/Lineå¨ dataset from the US Census Bureau
+46520,"Urban Honolulu, HI",-157.97469,21.4588,6,100,18.00404,10.00041,2.55367,50.68647,0.18111,18.5743,Honolulu,HI,Honolulu County,96801,US,TIGER/Lineå¨ dataset from the US Census Bureau
+49340,"Worcester, MA-CT",-71.92734,42.22282,7,100,76.84462,11.95992,4.37646,4.85174,0.20077,1.76649,Worcester,MA,Worcester County,1601,US,TIGER/Lineå¨ dataset from the US Census Bureau
+14860,"Bridgeport-Stamford-Norwalk, CT",-73.38906,41.26981,1,100,61.51365,20.17709,10.97441,5.71633,0.12471,1.49382,Bridgeport,CT,Fairfield County,6601,US,TIGER/Lineå¨ dataset from the US Census Bureau
+36540,"Omaha-Council Bluffs, NE-IA",-95.99907,41.29025,7,100,75.79723,10.69913,7.63152,3.16398,0.44417,2.26396,Omaha,NE,Douglas County,68101,US,TIGER/Lineå¨ dataset from the US Census Bureau
+10740,"Albuquerque, NM",-106.47157,35.12232,6,100,38.90736,49.38636,2.27649,2.24614,5.4477,1.73595,Albuquerque,NM,Bernalillo County,87101,US,TIGER/Lineå¨ dataset from the US Census Bureau
+24860,"Greenville-Anderson-Mauldin, SC",-82.41344,34.68514,2,100,72.60259,7.00984,16.47206,2.0327,0.21288,1.66993,Greenville,NC,Pitt County,27833,US,TIGER/Lineå¨ dataset from the US Census Bureau
+12540,"Bakersfield, CA",-118.72976,35.34281,1,100,33.50224,53.95466,5.20605,4.82635,0.62157,1.88913,Bakersfield,CA,Kern County,93301,US,TIGER/Lineå¨ dataset from the US Census Bureau
+28940,"Knoxville, TN",-84.1374,36.04461,7,100,86.57593,3.97392,5.72608,1.64755,0.27816,1.79835,Knoxville,TN,Knox County,37901,US,TIGER/Lineå¨ dataset from the US Census Bureau
+10580,"Albany-Schenectady-Troy, NY",-73.94196,42.78845,7,100,79.54559,5.35413,8.10321,4.52122,0.22,2.25585,Albany,NY,Albany County,12201,US,TIGER/Lineå¨ dataset from the US Census Bureau
+32580,"McAllen-Edinburg-Mission, TX",-98.18139,26.39669,1,100,6.04696,92.37544,0.41366,0.94314,0.06097,0.15983,McAllen,TX,Hidalgo County,78501,US,TIGER/Lineå¨ dataset from the US Census Bureau
+35300,"New Haven-Milford, CT",-72.93139,41.41054,6,100,62.33915,18.63343,12.82783,4.23649,0.17887,1.78424,New Haven,CT,New Haven County,6501,US,TIGER/Lineå¨ dataset from the US Census Bureau
+37100,"Oxnard-Thousand Oaks-Ventura, CA",-119.08493,34.45473,6,100,44.9632,43.02141,1.76634,7.57327,0.29202,2.38376,Oxnard,CA,Ventura County,93030,US,TIGER/Lineå¨ dataset from the US Census Bureau
+21340,"El Paso, TX",-105.54166,31.51334,1,100,11.67059,82.92195,3.04948,1.26509,0.28064,0.81225,El Paso,TX,El Paso County,79901,US,TIGER/Lineå¨ dataset from the US Census Bureau
+10900,"Allentown-Bethlehem-Easton, PA-NJ",-75.40372,40.78934,7,100,72.2918,17.70776,5.24835,3.07173,0.12955,1.55081,Allentown,PA,Lehigh County,18101,US,TIGER/Lineå¨ dataset from the US Census Bureau
+17900,"Columbia, SC",-81.04303,34.09188,2,100,56.19012,5.67707,33.58069,2.37754,0.30216,1.87242,Columbia,MD,Howard County,21044,US,TIGER/Lineå¨ dataset from the US Census Bureau
+12940,"Baton Rouge, LA",-91.13268,30.57116,2,100,56.44477,4.1123,35.80084,2.15082,0.25899,1.23227,Baton Rouge,LA,East Baton Rouge Parish,70801,US,TIGER/Lineå¨ dataset from the US Census Bureau
+35840,"North Port-Sarasota-Bradenton, FL",-82.32249,27.34777,7,100,77.1985,12.89283,6.34052,1.97426,0.19049,1.40341,Northport,AL,Tuscaloosa County,35473,US,TIGER/Lineå¨ dataset from the US Census Bureau
+19380,"Dayton, OH",-84.14203,39.8295,2,100,76.15405,2.88018,15.70595,2.46247,0.22764,2.56972,Dayton,OH,Montgomery County,45401,US,TIGER/Lineå¨ dataset from the US Census Bureau
+16700,"Charleston-North Charleston, SC",-80.04338,33.0421,2,100,64.36876,5.69471,25.45138,2.09575,0.37746,2.01195,Charleston,SC,Charleston County,29401,US,TIGER/Lineå¨ dataset from the US Census Bureau
+24660,"Greensboro-High Point, NC",-79.79155,36.02574,2,100,57.90356,8.588,27.09952,4.04671,0.43545,1.92677,Greensboro,NC,Guilford County,27401,US,TIGER/Lineå¨ dataset from the US Census Bureau
+15980,"Cape Coral-Fort Myers, FL",-81.84071,26.57793,1,100,66.81849,21.89648,8.08365,1.71241,0.21495,1.27404,Cape Coral,FL,Lee County,33904,US,TIGER/Lineå¨ dataset from the US Census Bureau
+44700,"Stockton-Lodi, CA",-121.27113,37.93459,6,100,31.04177,41.92743,7.10653,16.09,0.43791,3.39635,Stockton,CA,San Joaquin County,95201,US,TIGER/Lineå¨ dataset from the US Census Bureau
+30780,"Little Rock-North Little Rock-Conway, AR",-92.39722,34.75725,2,100,66.79548,5.40788,23.74093,1.77816,0.40413,1.87342,Little Rock,AR,Pulaski County,72201,US,TIGER/Lineå¨ dataset from the US Census Bureau
+17820,"Colorado Springs, CO",-104.65833,38.84265,7,100,69.51697,17.09437,5.89061,3.14505,0.63672,3.71627,Colorado Springs,CO,,,US,US Census Bureau
+14260,"Boise City, ID",-116.14315,43.01602,7,100,79.95499,13.84781,0.99011,2.2862,0.59445,2.32645,Boise City,ID,Ada County,83701,US,TIGER/Lineå¨ dataset from the US Census Bureau
+29460,"Lakeland-Winter Haven, FL",-81.69736,27.94868,6,100,57.94884,23.61962,14.63188,1.90195,0.27316,1.62456,Lakeland,TN,Shelby County,38002,US,TIGER/Lineå¨ dataset from the US Census Bureau
+10420,"Akron, OH",-81.34942,41.14883,7,100,79.54898,2.16899,12.38074,3.46927,0.1728,2.25922,Akron,OH,Summit County,44301,US,TIGER/Lineå¨ dataset from the US Census Bureau
+36260,"Ogden-Clearfield, UT",-112.81593,41.43261,7,100,81.01625,13.11099,1.1704,2.14497,0.48262,2.07476,Ogden,UT,Weber County,84201,US,TIGER/Lineå¨ dataset from the US Census Bureau
+49180,"Winston-Salem, NC",-80.34551,36.07623,2,100,67.91957,10.45385,17.76006,1.90675,0.3132,1.64657,Winston,MO,Daviess County,64689,US,TIGER/Lineå¨ dataset from the US Census Bureau
+31540,"Madison, WI",-89.59212,43.0801,7,100,81.86962,5.81295,4.49182,5.38474,0.30163,2.13924,Madison,WI,Dane County,53701,US,TIGER/Lineå¨ dataset from the US Census Bureau
+19660,"Deltona-Daytona Beach-Ormond Beach, FL",-81.21979,29.17403,7,100,71.79706,13.85102,10.29768,2.05138,0.28123,1.72164,Daytona Beach,FL,,,,
+19780,"Des Moines-West Des Moines, IA",-93.9404,41.5478,7,100,80.28956,7.52111,5.51106,4.56036,0.17821,1.9397,Des Moines,IA,Polk County,50301,US,TIGER/Lineå¨ dataset from the US Census Bureau
+45060,"Syracuse, NY",-76.03362,43.15451,7,100,81.5398,4.34126,8.10021,2.96187,0.66718,2.38969,Syracuse,NY,Onondaga County,13201,US,TIGER/Lineå¨ dataset from the US Census Bureau
+48620,"Wichita, KS",-97.3982,37.62506,7,100,71.8089,13.26602,7.30065,3.79957,0.80634,3.01851,Wichita,KS,Sedgwick County,67201,US,TIGER/Lineå¨ dataset from the US Census Bureau
+39340,"Provo-Orem, UT",-112.35233,39.86453,7,100,82.22962,11.86365,0.5846,2.55756,0.4549,2.30968,Provo,KY,Butler County,42267,US,TIGER/Lineå¨ dataset from the US Census Bureau
+44140,"Springfield, MA",-72.64598,42.23017,1,100,67.25091,20.944,6.50024,3.39891,0.15037,1.75557,Springfield,MA,Hampden County,1101,US,TIGER/Lineå¨ dataset from the US Census Bureau
+12260,"Augusta-Richmond County, GA-SC",-81.98323,33.46099,2,100,54.41012,5.6016,35.29057,2.13914,0.32988,2.22869,Augusta,ME,Kennebec County,4330,US,TIGER/Lineå¨ dataset from the US Census Bureau
+45780,"Toledo, OH",-83.78176,41.49878,2,100,74.06974,7.04512,14.59981,1.672,0.20767,2.40566,Toledo,OH,Lucas County,43601,US,TIGER/Lineå¨ dataset from the US Census Bureau
+37340,"Palm Bay-Melbourne-Titusville, FL",-80.73227,28.29348,7,100,74.07016,10.71645,9.96198,2.62127,0.31532,2.31482,Palm Bay,FL,Brevard County,32905,US,TIGER/Lineå¨ dataset from the US Census Bureau
+27140,"Jackson, MS",-90.22039,32.31733,2,100,46.09319,2.61253,48.99425,1.2374,0.13393,0.9287,Jackson,MS,Hinds County,39201,US,TIGER/Lineå¨ dataset from the US Census Bureau
+20500,"Durham-Chapel Hill, NC",-79.09953,35.99098,2,100,54.69455,11.60542,26.04847,5.32766,0.30813,2.01577,Durham,NC,Durham County,27701,US,TIGER/Lineå¨ dataset from the US Census Bureau
+25420,"Harrisburg-Carlisle, PA",-77.1013,40.32659,7,100,76.32561,6.6288,10.20118,4.41584,0.16201,2.26656,Harrisburg,PA,Dauphin County,17101,US,TIGER/Lineå¨ dataset from the US Census Bureau
+44060,"Spokane-Spokane Valley, WA",-117.57181,48.19372,7,100,84.54994,5.70173,1.73237,2.72488,1.76846,3.52262,Spokane,WA,Spokane County,99201,US,TIGER/Lineå¨ dataset from the US Census Bureau
+16860,"Chattanooga, TN-GA",-85.35885,35.05192,2,100,78.12883,4.72081,13.54172,1.70544,0.27176,1.63144,Chattanooga,TN,Hamilton County,37401,US,TIGER/Lineå¨ dataset from the US Census Bureau
+42540,"Scranton--Wilkes-Barre--Hazleton, PA",-75.89558,41.32306,7,100,82.63499,10.5272,3.47048,1.94803,0.1199,1.29941,Scranton,PA,Lackawanna County,18501,US,TIGER/Lineå¨ dataset from the US Census Bureau

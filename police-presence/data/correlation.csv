@@ -1,0 +1,5 @@
+,police_per_1k,metro_black,offenses_per_1k,median_income
+police_per_1k,1,0.538951,0.352041,0.152693
+metro_black,0.538951,1,0.347633,-0.081102
+offenses_per_1k,0.352041,0.347633,1,-0.057537
+median_income,0.152693,-0.081102,-0.057537,1

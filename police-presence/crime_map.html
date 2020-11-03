@@ -1,0 +1,260 @@
+<script src='https://api.mapbox.com/mapbox-gl-js/v1.10.1/mapbox-gl.js'>
+</script>
+<link href='https://api.mapbox.com/mapbox-gl-js/v1.10.1/mapbox-gl.css' rel='stylesheet' />
+<script src="https://d3js.org/d3.v4.js"></script>
+
+<style type="text/css">
+	body {
+  margin: 0;
+  padding: 0;
+}
+
+h2,
+h3 {
+  margin: 10px;
+  font-size: 1.2em;
+}
+
+h3 {
+  font-size: 1em;
+}
+
+p {
+  font-size: 0.85em;
+  margin: 10px;
+  text-align: left;
+}
+
+/**
+* Create a position for the map
+* on the page */
+#map {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+/**
+* Set rules for how the map overlays
+* (information box and legend) will be displayed
+* on the page. */
+.map-overlay {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.8);
+  margin-right: 20px;
+  font-family: Arial, sans-serif;
+  overflow: auto;
+  border-radius: 3px;
+/*  height: 50px;
+*/}
+
+#features {
+  top: 0;
+  height: 125px;
+  margin-top: 20px;
+  width: 350px;
+}
+
+#legend2 {
+  padding: 10px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  line-height: 18px;
+  height: 150px;
+  margin-bottom: 40px;
+  width: 355px;
+}
+
+#legend {
+  padding: 10px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  line-height: 18px;
+  height: 150px;
+  margin-bottom: 40px;
+  width: 125px;
+}
+
+.legend-key {
+  display: inline-block;
+  border-radius: 20%;
+  width: 10px;
+  height: 10px;
+  margin-right: 5px;
+}
+
+.legend-circle {
+/*  height: 10px;
+  width: 10px;*/
+  background-color: #9DB5D5;
+  border-radius: 50%;
+/*  margin-right: 5px;
+*/  display: inline-block;
+  align-self: center;
+  border-color: : #5C87C3;
+  stroke-width: 0.5px;
+
+}
+
+.capitalize {
+	text-transform: capitalize;
+}
+</style>
+
+<div id='map'></div>
+<div class='map-overlay' id='features'><h2>Known offenses vs. police presence</h2><div id='pd'><p>Hover over a county or police department for more info.</p></div></div>
+<div class='map-overlay' id='legend2'></div>
+<div class='map-overlay' id='legend'></div>
+<script type="text/javascript">
+	
+	mapboxgl.accessToken = 'pk.eyJ1IjoidmFzdGF2YSIsImEiOiJjazB5Nm9tangwMXE1M2xqeHdpYjhjNXV5In0.dCx_Op8sytdWjLcq3joKLQ';
+
+	var map = new mapboxgl.Map({
+	  container: 'map', // container id
+	  // style: 'mapbox://styles/vastava/ckazmu8u105l61ip8xcddxuv0',
+    style: 'mapbox://styles/vastava/ckb4kg6bg0oq31irmc7e5xn7g'
+
+    // style: 'mapbox://styles/vastava/ckb3ymrql1br71iq9m5uz6lk8',
+    // center: [-105, 39.1],
+    // zoom: 3.5
+});
+
+      map.fitBounds([
+          [-120, 21],
+          [-52.63671875, 52.696361]
+
+    ]);
+
+var rates = ["0.08","17", "33", "50", "66"]
+
+var sizes = ["2px","5px", "10px", "15px", "20px"]
+var margins = ["14px","12.5px","10px","7.5px","5px"]
+
+// var layers = ['0-1', '1-2', '2-5', '5-7', '7-15', '15-30', '> 30'];
+// var colors = ['#FCFDBF', '#F6C994', '#F09971', '#E16761', '#BF4C72', '#3E1971', '#260B4B'];
+
+var colors = ['#FEF5F1', '#FAE4D8', '#F0A88C', '#D84737', '#9B241F', '#5D0E12']
+var layers = ['0-5', '5-10', '10-20', '20-30', '30-50', '50+']
+
+	map.on('load', function() {
+
+
+    item = document.createElement('div')
+    value = document.createElement('span')
+    value.innerHTML = 'Police officers per 1k residents'
+    item.appendChild(value)
+    legend2.appendChild(item)
+    for (i = 0; i < rates.length; i++) {
+        var rate = rates[i] + ' officers';
+        var size = sizes[i];
+        var margin = margins[i];
+        var item = document.createElement('div');
+        var key = document.createElement('span');
+        key.className = 'legend-circle';
+        key.style.height = size;
+        key.style.width = size;
+        key.style.margin = "0px " + margin;
+
+        var value = document.createElement('span');
+        value.innerHTML = rate;
+        item.appendChild(key);
+        item.appendChild(value);
+        legend2.appendChild(item);}
+
+    item = document.createElement('div')
+    value = document.createElement('span')
+    value.innerHTML = 'Crimes per 1k residents'
+    item.appendChild(value)
+    legend.appendChild(item)    
+
+		for (i = 0; i < layers.length; i++) {
+			  var layer = layers[i] + ' crimes';
+			  var color = colors[i];
+			  var item = document.createElement('div');
+			  var key = document.createElement('span');
+			  key.className = 'legend-key';
+			  key.style.backgroundColor = color;
+
+			  var value = document.createElement('span');
+			  value.innerHTML = layer;
+			  item.appendChild(key);
+			  item.appendChild(value);
+			  legend.appendChild(item);}
+
+
+//         d3.json(
+//             '/data/crimerates_county.geojson',
+//             function(err, data) {
+//                 if (err) throw err;
+
+//                 // Create a month property value based on time
+//                 // used to filter against.
+//                 // data.features = data.features.map(function(d) {
+//                 //     // console.log(d)
+//                 //     d.properties.date = new parseTime(d.properties.counties_date);
+//                 //     d.properties.month = +formatMonth(d.properties.date) - 1;
+//                 //     console.log((d))
+//                 //     return d;
+//                 // });
+
+//                 map.addSource('counties', {
+//                     'type': 'geojson',
+//                     data: data
+//                 });
+
+//                 map.addLayer({
+//                     'id': 'countiesLayer',
+//                     'type': 'fill',
+//                     'source': 'counties',
+//                     'paint': {
+//                         'fill-color': [
+//                             'interpolate',
+//                             ['linear'],
+//                             ['get', '3/1/20'],
+//                             0,
+//                             '#FFFED6',
+//                             25,
+//                             "#CAEABF",
+//                             50,
+//                             "#5CC1C0",
+//                             500,
+//                             '#26388F',
+
+//                         ],
+//                         'fill-opacity': 0,
+//                         'fill-outline-color': 'white'
+//                     }
+//                 });
+//   // the rest of the code will go in here
+// }); 
+
+});
+
+map.on('mousemove', function(e) {
+  var counties = map.queryRenderedFeatures(e.point, {
+    layers: ['crimerates-county-basieq']
+  });
+
+  var depts = map.queryRenderedFeatures(e.point, {
+  	layers: ['final-geocoded-police']
+  })
+
+if (depts.length > 0) {
+  	document.getElementById('pd').innerHTML = '<h3><strong>' + depts[0].properties.City +' Police Department (' + "<span class='capitalize'>" + depts[0].properties.State.toLowerCase() + "</span>"+ ')</strong></h3><p><strong><em>' + depts[0].properties.Per_1k.toFixed(2)
+ + '</strong> officers per 1k residents.</em></p>';
+  }
+ else if (counties.length > 0) {
+  console.log(counties);
+    document.getElementById('pd').innerHTML = '<h3><strong>' + counties[0].properties.offenses_normalized_County + '</strong></h3><p><strong><em>' + counties[0].properties.offenses_normalized_normalized.toFixed(2)
+ + '</strong> offenses were committed per 1k residents in 2018.</em></p>';
+  }  
+  else {
+    document.getElementById('pd').innerHTML = '<p>Hover over a county or police department for more info.</p>';
+  }
+});
+
+map.getCanvas().style.cursor = 'default';
+
+
+</script>
