@@ -1,0 +1,398 @@
+<script src='https://api.mapbox.com/mapbox-gl-js/v1.10.1/mapbox-gl.js'>
+</script>
+<link href='https://api.mapbox.com/mapbox-gl-js/v1.10.1/mapbox-gl.css' rel='stylesheet' />
+
+<style type="text/css">
+	body {
+  margin: 0;
+  padding: 0;
+}
+
+h2,
+h3 {
+  margin: 10px;
+  font-size: 1.2em;
+}
+
+h3 {
+  font-size: 1em;
+}
+
+p {
+  font-size: 0.85em;
+  margin: 10px;
+  text-align: left;
+}
+
+/**
+* Create a position for the map
+* on the page */
+#map {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+/**
+* Set rules for how the map overlays
+* (information box and legend) will be displayed
+* on the page. */
+.map-overlay {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.8);
+  margin-right: 20px;
+  font-family: Arial, sans-serif;
+  overflow: auto;
+  border-radius: 3px;
+  height: 100px;
+}
+
+#features {
+  top: 0;
+/*  height: 125px;
+*/  margin-top: 20px;
+  width: 350px;
+}
+
+#legend2 {
+/*  top: 0;
+*/  padding: 10px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  line-height: 18px;
+  height: 130px;
+/*  margin-bottom: 40px;
+*/  width: 355px;
+}
+
+#legend {
+/*  top: 0;
+*/  padding: 10px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  line-height: 18px;
+  height: 130px;
+/*  margin-bottom: 40px;
+*/  width: 115px;
+}
+
+.legend-key {
+  display: inline-block;
+  border-radius: 20%;
+  width: 10px;
+  height: 10px;
+  margin-right: 5px;
+}
+
+.legend-circle {
+/*  height: 10px;
+  width: 10px;*/
+  background-color: #f56d32;
+  border-radius: 50%;
+/*  margin-right: 5px;
+*/  
+  display: inline-block;
+/*  align-self: center;
+*/  
+  border: 0.5px solid #c7430a;
+/*  stroke: #5C87C3;
+  stroke-width: 0.5px;
+*/
+}
+
+.capitalize {
+	text-transform: capitalize;
+}
+</style>
+
+<div id='map'></div>
+<!-- <div class='map-overlay' id='features'><h2>Air pollution levels vs. practicing allergists</h2><div id='pd'><p>Hover over a circle or click a county for more info.</p></div></div>
+ --><div class='map-overlay' id='legend2'></div>
+<div class='map-overlay' id='legend'></div>
+<script type="text/javascript">
+	
+	mapboxgl.accessToken = 'pk.eyJ1IjoidmFzdGF2YSIsImEiOiJjazB5Nm9tangwMXE1M2xqeHdpYjhjNXV5In0.dCx_Op8sytdWjLcq3joKLQ';
+
+	var map = new mapboxgl.Map({
+	  container: 'map', // container id
+	  style: 'mapbox://styles/vastava/ckargpcht3mm41inuyaoxugt0',
+    center: [-90, 39.1],
+    zoom: 3
+});
+
+    //   map.fitBounds([
+    //       [-120, 21],
+    //       [-52.63671875, 52.696361]
+
+    // ]);
+
+
+var rates = ["1","3", "10",  "15", "24"]
+
+var sizes = ["1px","2.683px", "3.85px", "20px"]
+var sizes = [1.516, 2.683, 6.768,  10, 15]
+var margins = ["14px","12.5px","10px","7.5px","5px"]
+
+var layers = ['2.5', '5', '8', '11', '13.2'];
+var colors = ['#97D5F4', '#6aa2ba', '#437484', '#214B54', 'black'];
+
+	map.on('load', function() {
+        // d3.json('/data/allergist_latlong.geojson', function(err, data) {
+        //     if (err) throw err;
+        //     map.addSource('allergist_latlong_geo', {
+        //             'type': 'geojson',
+        //             data: data
+        //             });
+
+        //     map.addLayer({
+        //       "id": "allergist-latlong-geo",
+        //       "type": "circle",
+        //       "source": "composite",
+        //       "source-layer": "allergist_latlong_geo",
+        //       "layout": {},
+        //       "paint": {
+        //           "circle-radius": [
+        //               "interpolate",
+        //               ["linear"],
+        //               ["get", "normalized"],
+        //               0.11511,
+        //               1,
+        //               1,
+        //               1.516,
+        //               3,
+        //               2.683,
+        //               5,
+        //               3.85,
+        //               10,
+        //               6.768,
+        //               15,
+        //               9.685,
+        //               24.108,
+        //               15
+        //           ],
+        //           "circle-color": "#f56d32",
+        //           "circle-opacity": 0.85,
+        //           "circle-stroke-color": "#c7430a",
+        //           "circle-stroke-width": 0.5
+        //       }
+        //     });
+        // })
+        // d3.json('/data/airpollution_county.geojson', function(err, data) {
+        //     if (err) throw err;
+        //     map.addSource('allergist_latlong_geo', {
+        //             'type': 'geojson',
+        //             data: data
+        //             });
+
+        //     map.addLayer({
+        //       "id": "allergist-latlong-geo",
+        //       "type": "circle",
+        //       "source": "composite",
+        //       "source-layer": "allergist_latlong_geo",
+        //       "layout": {},
+        //       "paint": {
+        //           "circle-radius": [
+        //               "interpolate",
+        //               ["linear"],
+        //               ["get", "normalized"],
+        //               0.11511,
+        //               1,
+        //               1,
+        //               1.516,
+        //               3,
+        //               2.683,
+        //               5,
+        //               3.85,
+        //               10,
+        //               6.768,
+        //               15,
+        //               9.685,
+        //               24.108,
+        //               15
+        //           ],
+        //           "circle-color": "#f56d32",
+        //           "circle-opacity": 0.85,
+        //           "circle-stroke-color": "#c7430a",
+        //           "circle-stroke-width": 0.5
+        //       }
+        //     });
+        // })
+
+    item = document.createElement('div')
+    value = document.createElement('span')
+    value.innerHTML = 'Allergists per 100,000 residents'
+    item.appendChild(value)
+    legend2.appendChild(item)
+    for (i = 0; i < rates.length; i++) {
+        var rate = rates[i] + ' allergists';
+        var size = sizes[i];
+        var margin = margins[i];
+        var item = document.createElement('div');
+        var key = document.createElement('span');
+        key.className = 'legend-circle';
+        key.style.height = String(size*2) + "px";
+        key.style.width = String((size*2).toFixed(0)) + "px";
+        // key.style.borderRadius = String(size*2) + "px";
+        // key.style.borderRadius = "50%";        
+        key.style.margin = "0px " + String(2 + (30-(size*2))/2) + "px";
+        // key.style.margin = String((10-(size))/2) + "px " + String(2 + (30-(size*2))/2) + "px";
+
+        var value = document.createElement('span');
+        value.innerHTML = rate;
+        value.style.position = "relative"
+        if (size >= 10) {
+          value.style.top = -2*size/3 + "px"
+          value.style.left = "2px"
+        }
+        // if (size >= 15) {
+        //   value.style.top = -2*size/3 + "px"
+        // }
+        value.style.verticalAlign = "middle"
+        item.appendChild(key);
+        item.appendChild(value);
+        legend2.appendChild(item);}
+    
+    item = document.createElement('div')
+    value = document.createElement('span')
+    value.innerHTML = 'PM (\u22642.5 \u03BCm) concentration'
+    item.appendChild(value)
+    legend.appendChild(item)
+		for (i = 0; i < layers.length; i++) {
+			  var layer = layers[i]  + ' \u03BCg/m\xB3';
+			  var color = colors[i];
+			  var item = document.createElement('div');
+			  var key = document.createElement('span');
+			  key.className = 'legend-key';
+			  key.style.backgroundColor = color;
+
+			  var value = document.createElement('span');
+			  value.innerHTML = layer;
+        // console.log(value)
+			  item.appendChild(key);
+			  item.appendChild(value);
+			  legend.appendChild(item);}
+  // the rest of the code will go in here
+});
+
+      var popup = new mapboxgl.Popup({
+        closeButton: false,
+        closeOnClick: false
+    });
+     
+    map.on('mouseenter', 'allergist-latlong-geo', function(e) {
+        map.getCanvas().style.cursor = 'pointer';
+        console.log(e)
+        var county = e.features[0].properties.County
+        var state = e.features[0].properties.State
+        var coordinates = e.features[0].geometry.coordinates.slice();
+        var normalized = e.features[0].properties.normalized.toFixed(2);
+        // var affiliation = e.features[0].properties.Affiliation;
+        var description = '<strong>' + county +  ', ' + state +'</strong>' + '<br>' + normalized + ' allergists per 100k';
+         
+        while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+            coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+    }
+     
+    // Populate the popup and set its coordinates
+    // based on the feature found.
+    popup
+        .setLngLat(coordinates)
+        .setHTML(description)
+        .addTo(map);
+    });
+     
+    map.on('mouseleave', 'allergist-latlong-geo', function() {
+        map.getCanvas().style.cursor = '';
+        popup.remove();
+    });
+
+    map.on('click', 'airpollution-county-4le7jz', function(e) {
+    // Change the cursor style as a UI indicator.
+        map.getCanvas().style.cursor = 'pointer';
+        console.log(e)
+        var county = e.features[0].properties["NAME"] + " County"
+        var value = e.features[0].properties["pm2.5_2015_pred_wght"].toFixed(2)
+        // var cases = e.features[0].properties[date]
+        // console.log(county)
+        var coordinates = e.lngLat
+        var description = '<strong>' + county + '</strong>' + '<br>' + value  + ' micrograms of particulate matter per cubic meter.';
+         
+
+        while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+            coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+    }
+     
+    new mapboxgl.Popup()
+        .setLngLat(coordinates)
+        .setHTML(description)
+        .addTo(map);
+    });
+
+    // map.on('mousemove', 'airpollution-county-4le7jz', function() {
+    //     map.getCanvas().style.cursor = '';
+    //     popup.remove();
+    // });
+
+// {
+//             "id": "airpollution-county-4le7jz",
+//             "type": "fill",
+//             "source": "composite",
+//             "source-layer": "airpollution_county-4le7jz",
+//             "filter": ["has", "pm2.5_2015_pred_wght"],
+//             "layout": {},
+//             "paint": {
+//                 "fill-color": [
+//                     "interpolate",
+//                     ["linear"],
+//                     ["get", "pm2.5_2015_pred_wght"],
+//                     2.461892184,
+//                     "#97D5F4",
+//                     5,
+//                     "#6aa2ba",
+//                     8,
+//                     "hsl(195, 33%, 39%)",
+//                     11,
+//                     "hsl(191, 43%, 23%)",
+//                     13.19841216,
+//                     "hsl(29, 0%, 1%)"
+//                 ]
+//             }
+//         },
+//         {
+//             "id": "allergist-latlong-geo",
+//             "type": "circle",
+//             "source": "composite",
+//             "source-layer": "allergist_latlong_geo",
+//             "layout": {},
+//             "paint": {
+//                 "circle-radius": [
+//                     "interpolate",
+//                     ["linear"],
+//                     ["get", "normalized"],
+//                     0.11511,
+//                     1,
+//                     1,
+//                     1.516,
+//                     3,
+//                     2.683,
+//                     5,
+//                     3.85,
+//                     10,
+//                     6.768,
+//                     15,
+//                     9.685,
+//                     24.108,
+//                     15
+//                 ],
+//                 "circle-color": "#f56d32",
+//                 "circle-opacity": 0.85,
+//                 "circle-stroke-color": "#c7430a",
+//                 "circle-stroke-width": 0.5
+//             }
+//         }
+map.getCanvas().style.cursor = 'default';
+
+// map.fitBounds([[-133.2421875, 16.972741], [-47.63671875, 52.696361]]);
+
+</script>

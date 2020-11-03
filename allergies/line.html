@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<!-- Load d3.js -->
+<script src="https://d3js.org/d3.v4.js"></script>
+
+<!-- Create a div where the graph will take place -->
+<p id="temp">Click me!</p>
+<p id="temp2">Click me 2!</p>
+
+<div id="my_dataviz"></div>
+<style type="text/css">
+</style>
+<script>
+
+  var w = 790;
+  var h = 350;
+
+  var x_axis = d3.scaleLinear()
+    .range([ 0, w ]);
+
+
+  var y_axis = d3.scaleLinear()
+    .range([ h, 0 ]);
+
+// Graph dimension
+
+
+
+d3.csv("/data/cdc_asthma_joined.csv", function(error, data) {
+
+var margin = {top: 10, right: 30, bottom: 90, left: 40},
+    width = 860 - margin.left - margin.right,
+    height = 450 - margin.top - margin.bottom;
+
+// Create the svg area
+var svg = d3.select("#my_dataviz")
+  .append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+  x_axis
+    .domain(d3.extent(data, function(d) { return d.year; }))
+
+  y_axis
+    .domain([0, d3.max(data, function(d) { return +d.joined; })])
+
+  svg.append("g")
+    .attr("class", "x_axis")
+    .attr("transform", "translate(0," + height + ")")
+    .call(d3.axisBottom(x_axis).tickFormat(d3.format("d")));
+
+  svg.append("g") 
+    .attr("class", "y_axis")
+    .call(d3.axisLeft(y_axis).tickFormat(d => d + "%"));
+
+svg
+    .append("path")
+      .attr("id", "total_line")
+      .attr("fill", "none")
+      .attr("stroke", "#3791F1")
+      .attr("stroke-width", 1.9)
+      .attr("d", function(d){
+        return d3.line()
+          .defined(function(d) {
+            console.log(d); 
+            return +d.joined > 0; })
+          .x(function(d) { console.log(d); return x_axis(d.year); })
+          .y(function(d) { return y_axis(+d.joined); })
+          .curve(d3.curveMonotoneX)
+          (data)
+      })
+
+svg
+  .append("line")
+    .attr("stroke", "#3791F1")
+    .attr("stroke-width", 1.9)
+    .attr("x1", x_axis(1996))
+    .attr("x2", x_axis(2001))
+    .attr('y1', y_axis(5.5))
+    .attr('y2', y_axis(7.3))
+    .attr("stroke-dasharray", "2")
+})
+
+function update() {
+  var total_line = d3.select('#total_line')
+  var xaxis = d3.select('.x_axis')
+  var yaxis = d3.select('.y_axis')
+  var svg = d3.select('#my_dataviz').select("svg").select("g")
+
+  d3.csv('/data/race_asthma.csv', function(error, data) {
+    x_axis
+      .domain(d3.extent(data, function(d) { return d.year; }))
+
+    y_axis
+      .domain([0, d3.max(data, function(d) { return +d.Black; })])
+
+    xaxis
+      .transition().duration(2000)
+      .call(d3.axisBottom(x_axis).tickFormat(d3.format("d")))
+
+    yaxis
+      .transition().duration(2000)
+      .call(d3.axisLeft(y_axis).tickFormat(d => d + "%"))
+
+    total_line
+        .transition()
+        .duration(1000)
+        .attr("d", d3.line()
+          .x(function(d) { return x_axis(d.year) })
+          .y(function(d) { return y_axis(+d.Total) })
+          .curve(d3.curveMonotoneX)
+          (data)
+        )
+        .attr("stroke", "#3791F1")
+
+    svg
+        .append("path")
+          .attr("fill", "none")
+          .attr("stroke", "red")
+          .attr("stroke-width", 1.9)
+          .attr("d", function(d){
+            return d3.line()
+              .x(function(d) { return x_axis(d.year); })
+              .y(function(d) { return y_axis(+d.Black); })
+              .curve(d3.curveMonotoneX)
+              (data)})
+    svg
+        .append("path")
+          .attr("fill", "none")
+          .attr("stroke", "green")
+          .attr("stroke-width", 1.9)
+          .attr("d", function(d){
+            return d3.line()
+              .x(function(d) { return x_axis(d.year); })
+              .y(function(d) { return y_axis(+d.Hispanic); })
+              .curve(d3.curveMonotoneX)
+              (data)})
+
+      svg
+        .append("path")
+          .attr("fill", "none")
+          .attr("stroke", "orange")
+          .attr("stroke-width", 1.9)
+          .attr("d", function(d){
+            return d3.line()
+              .x(function(d) { return x_axis(d.year); })
+              .y(function(d) { return y_axis(+d.White); })
+              .curve(d3.curveMonotoneX)
+              (data)})
+
+
+      })
+
+  }
+
+  function update2() {
+  var total_line = d3.select('#total_line')
+  var xaxis = d3.select('.x_axis')
+  var yaxis = d3.select('.y_axis')
+  var svg = d3.select('#my_dataviz').select("svg").select("g")
+
+  d3.csv('/data/demog_asthma.csv', function(error, data) {
+    // x_axis
+    //   .domain(d3.extent(data, function(d) { return d.group; }))
+
+    var x_axis = d3.scaleBand()
+      .range([ 0, w ])
+      .domain(data.map(function(d) { return d.group; }))
+      .padding(0.2);
+
+    y_axis
+      .domain([0, d3.max(data, function(d) { return +d.Asth_Prev; })])
+
+    xaxis
+      .transition().duration(2000)
+      .call(d3.axisBottom(x_axis).tickSize(0))
+      .selectAll("text")
+        .attr("transform", "translate(-10,0)rotate(-45)")
+        .style("text-anchor", "end")
+
+    yaxis
+      .transition().duration(2000)
+      .call(d3.axisLeft(y_axis).tickFormat(d => d + "%"))
+
+        // Bars
+        svg.selectAll("mybar")
+          .data(data)
+          .enter()
+          .append("rect")
+            .attr("x", function(d) { return x_axis(d.group); })
+            .attr("width", x_axis.bandwidth())
+            .attr("fill", function(d) {
+              if (+d.Asth_Prev > 10) {return "#EBAB57"}
+              else {return "#7AACB2" }
+              })
+            // no bar at the beginning thus:
+            .attr("height", function(d) { return h - y_axis(0); }) // always equal to 0
+            .attr("y", function(d) { return y_axis(0); })
+
+        // Animation
+        svg.selectAll("rect")
+          .transition()
+          .duration(800)
+          .attr("y", function(d) { return y_axis(d.Asth_Prev); })
+          .attr("height", function(d) { return h - y_axis(d.Asth_Prev); })
+          .delay(function(d,i){console.log(i) ; return(i*100)})
+
+
+      })
+
+  }
+
+d3.select("#temp").on("click", function(d) {
+        // recover the option that has been chosen
+        // run the updateChart function with this selected option
+        update()
+    })      
+
+
+d3.select("#temp2").on("click", function(d) {
+        // recover the option that has been chosen
+        // run the updateChart function with this selected option
+        update2()
+    })      
+
+
+</script>

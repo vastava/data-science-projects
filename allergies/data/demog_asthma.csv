@@ -1,0 +1,27 @@
+group,Asth_Prev,SE,Error Bar
+Children,8.4,0.38,0.7448
+Adults,7.7,0.2,0.392
+ ,,,0
+Male,6.4,0.25,0.49
+Female ,9.3,0.27,0.5292
+   ,,,0
+White,8.1,0.22,0.4312
+Black,10.1,0.57,1.1172
+  ,,,0
+Total Hispanic,6.4,0.5,0.98
+Puerto Rican,12.8,2.05,4.018
+Mexican,5.1,0.49,0.9604
+    ,,,0
+<100% poverty,11.7,0.66,1.2936
+100-<250% poverty,7.9,0.34,0.6664
+250-<450% poverty,7.3,0.35,0.686
+>450% poverty,6.8,0.28,0.5488
+     ,,,0
+Northeast,8.5,0.49,0.9604
+Midwest,8.4,0.35,0.686
+South,7.7,0.28,0.5488
+West,7.3,0.45,0.882
+      ,,,0
+Large city,7.9,0.21,0.42
+Small city,8.5,0.3,0.58
+Not metropolitan,8.3,0.37,0.72

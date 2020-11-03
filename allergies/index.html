@@ -1,0 +1,1441 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<!-- Load d3.js -->
+<!-- <script src="https://d3js.org/d3.v5.min.js"></script>
+ -->
+ <script src="https://d3js.org/d3.v4.js"></script>
+<style type="text/css">
+
+h1 {
+    font-weight: 400 !important;
+    font-family: palatino, georgia, serif;
+    line-height: 1.1;
+    margin: auto;
+    width: 700px;
+}
+
+h3 {
+  margin: auto;
+  font-style: italic;
+  width: 700px;
+  font-family: palatino;
+  font-weight: 400;
+  line-height: 1.6;
+}
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+body {
+  font-family: sans-serif;
+/*  width: 900px;
+*/}
+body p{
+  font-family: Georgia, serif;
+  line-height: 1.6;
+  font-size: 1.125rem;
+  width: 800px;
+  margin: auto;
+  margin-top: 1em;
+}
+
+figure {
+  margin: 0;
+  position: sticky;
+}
+
+.dropcap {
+  font-size: 3.75rem;
+  font-size: 300%;
+  line-height: 80%;
+  padding: 0.5rem 0.2rem 0rem 0;
+  float: left;
+  vertical-align: middle;
+}
+
+.mid-line {
+  transition: opacity 100s ease-in-out;
+}
+
+#embed-map {
+  margin: auto;
+  display: block;
+}
+.step p {
+  margin: auto;
+  position: relative;
+  text-align: center;
+  padding: 1rem;
+  font-size: 90%;
+  line-height: 1.6;
+  background-color: #f3f3f3;
+  border: 2px solid #282828;
+  opacity: 0.95;
+  width: 300px;
+}
+
+#my_dataviz svg {
+  margin: 0px auto;
+  display: block;
+}
+
+.about {
+  width: 800px;
+  margin: auto;
+  background: #efefef;
+  border-radius: 0.2rem;
+  border: 1px solid #ccc;
+  padding: 0.5rem;
+  font-family: Arial;
+}
+
+.about p {
+  width: 700px;
+}
+
+h4{
+    font-family: Raleway,sans-serif;
+    margin-top: 0px;
+}
+
+a {
+  color: black;
+}
+</style>
+<!-- Create a div where the graph will take place -->
+<!-- <h2>Best cities for people with allergies</h2>
+ -->
+ <h1> A triple threat for allergy sufferers: climate change, air pollution and provider shortages</h1>
+ <br>
+ <h3>Exploring the data behind worsening allergy symptoms, skyrocketing asthma rates and allergist shortages (full screen works best!)</h3>
+ <hr/>
+ <p><span class="dropcap">R</span>esearchers are <a href="https://www.accuweather.com/en/health-wellness/accuweathers-2020-spring-allergy-forecast-for-us/689938">predicting</a> 2020 to perhaps be the worst year yet for those with allergies. Similar forecasts were made <a href="https://www.nbcsandiego.com/news/local/Allergy-Sufferers-Prepare-for-Unusually-Long-Season-Expert-Says-507872031.html">last year</a>, and the <a href="https://www.sctimes.com/story/life/wellness/2018/09/16/allergy-season-tips-pollen-fall/1226697002/">year</a> before that, and the <a href="https://vitals.lifehacker.com/yes-this-is-a-particularly-horrendous-year-for-seasona-1795018482">year</a> before that and even the <a href="https://nypost.com/2016/04/19/four-ways-to-fight-the-worst-allergy-season-ever/">year</a> before that.</p>
+ <p>The culprit of worsening allergies, like many public health crises in recent years, is climate change. The threat is multi-pronged — earlier and longer springs mean that pollen-producing plants have more time to grow, and rising CO2 levels mean that plants have a higher capacity to produce pollen.</p>
+ <p>Studies have been pointing to this relationship for decades. One such paper from 2000 under lead researcher Lewis Ziska <a href="https://scholar.google.com/scholar_lookup?journal=Aust+J+Plant+Physiol&title=Rising+carbon+dioxide+and+pollen+production+of+common+ragweed,+a+known+allergy-inducing+species:+implications+for+public+health&author=LH+Ziska&author=FA+Caulfield&volume=27&publication_year=2000&pages=893-898&">found</a> that rising carbon dioxide levels led to a corresponding doubling in pollen production of ragweed.</p> 
+<p>The evidence has grown stronger with each year. Numerous studies have corroborated Ziska’s initial findings, and Ziska himself published an update in 2016 with more recent data that reconfirmed his earlier findings.</p>
+<p>Research has shown that pollen counts dramatically <a href="https://pubmed.ncbi.nlm.nih.gov/7648379/">drop</a> after the first freeze, meaning that I can chart the change in allergy season length by determining the first and last days with temperatures below freezing each year, and subtract this "frost season" length from the full year.</p>
+<p><span style="font-family:sans-serif; display:block; line-height:1.6;"><strong>INTERACTIVE CHART</strong> &nbsp; Each year, the Asthma and Allergy Foundation of America ranks the best and worst cities for those with allergies. I graphed changes in allergy season lengths for each of the six best and worst cities, according to AAFA's most recent report.</span></p>
+
+<section id="scrollytelling_NOAA">
+      <figure style="top: 75px;">
+        <div style="text-align:center; height:100%; width:100%">
+          <p><strong><span style="text-transform: uppercase; font-family:sans-serif; display:block; line-height:1.6;">Best cities for people with allergies</span></strong></p>
+
+           <div id="my_dataviz_best"></div>
+           <p><strong><span style="text-transform: uppercase; font-family:sans-serif; display:block; line-height:1.6;">Worst cities for people with allergies</span></strong></p>
+
+          <div id="my_dataviz_worst"></div>
+       </div>
+      </figure>
+      <article>
+        <div class="step" style="height: 1287px;" data-scrollama-index="0">
+          <p>This may not look like a consistent trend, but by comparing the average allergy season length from before 1985 and after, you can see just how much allergy season has grown in these cities.</p>
+        </div>        
+        <div class="step" style="height: 1287px;" data-scrollama-index="1">
+          <p>And an even more profound effect emerges by just comparing the first and last decades.</p>
+        </div>
+        <div class="step" style="height: 1287px;" data-scrollama-index="2">
+          <p>Explore the data for yourself.</p>
+        </div>
+      </article>
+    </section>
+<p>Alongside worsening symptoms, the rates of allergies and asthma are increasing. The incidence rate of asthma in particular has been increasing since the 1980s in all age, sex and racial groups.
+</p>
+<p><span style="font-family:sans-serif; display:block; line-height:1.6;"><strong>INTERACTIVE CHART</strong> &nbsp; About 25 million, 7.7% of the population, had asthma in 2018, compared to 20 million, or 7.3%, who had asthma in 2001. Asthma rates have nearly tripled in the past three decades.</span></p>
+<section id="scrollytelling_CDC">
+      <figure style="top: 75px;">
+        <div style="text-align:center; height:100%; width:100%">
+          <p><strong><span style="text-transform: uppercase; font-family:sans-serif; display:block; line-height:1.6;">Trends in asthma prevalence</span></strong></p>
+           <div id="my_dataviz" style="height: 410px;"></div>
+       </div>
+        <p>Children and the elderly are most vulnerable to asthma and allergy attacks, as their respiratory systems are more susceptible to environmental pollutants. African American and Hispanic families of Puerto Rican descent have higher rates of respiratory illness. A 2011 report found that PM 2.5-attributable asthma emergency department visit rates were more than three times higher among children in high poverty neighborhoods. air pollution will continue to exacerbate inequality</p><p>
+       Racial inequities have meant that Black Americans and Hispanics of Puerto Rican origin have the highest rates of asthma in the U.S., as well as the highest asthma death rates. They also have the highest number of emergency room visits and hospital stays due to asthma. Black Americans and Puerto Ricans are three times more likely to die from asthma than whites.</p>
+        </figure>
+      <article>
+<!--         <div class="step" style="height: 1287px;" data-scrollama-index="0">
+          <p>About 25 million, 7.7%, of the population had asthma in 2018, compared to 20 million, or 7.3%, who had asthma in 2001.</p>
+        </div>   -->      
+        <div class="step" style="height: 1287px;" data-scrollama-index="0">
+          <p>Asthma prevalence has increased all across the board, but Black Americans have the highest rates of asthma in the U.S.</p>
+        </div>
+        <div class="step" style="height: 1287px;" data-scrollama-index="1">
+          <p>Patients who are Black, Puerto Rican or below the poverty line are at a greater risk of developing asthma.</p>
+        </div>
+      </article>
+    </section>
+<p>The relationship between air pollution and asthma is well-established, and recent studies are finding that historically underserved communities face more air pollution on average. Specifically, Asian American, African American, and Latino residents in the Northeast and Mid-Atlantic regions of the U.S. are likelier to live in polluted areas — in sum, these communities  breathe 66 percent more air pollution from vehicles than white residents, according to a <a href="https://www.ucsusa.org/resources/inequitable-exposure-air-pollution-vehicles">study</a> from the Union of Concerned Scientists.
+</p>
+<p>Not only do Black Americans and Hispanics of Puerto Rican origin have the highest rates of asthma, but also the highest death rates due to asthma. They also have the highest number of emergency room visits and hospital stays due to asthma, and are three times more likely to die from asthma than White Americans.</p>
+<p>Lacking access to care is perhaps experienced by Black and Hispanic patients most acutely, but the shortage of practicing allergists is felt almost everywhere.</p>
+<p>In a country where an estimated 50 million people suffer from allergic rhinitis, and 25 million people suffer from asthma, there are only 3,265 practicing allergists who accept Medicare, according to Medicare Provider Utilization data. Primary care physicians and other specialists can treat these patients and help close specialty care access gaps, but many who have chronic or severe allergies likely do not live near someone who can provide the care they need.</p>
+ <p><span style="font-family:sans-serif; display:block; line-height:1.6;"><strong>INTERACTIVE MAP</strong> &nbsp; 80 percent of U.S. counties do not have a practicing allergist — of the counties with allergists, the average number of allergists per 100,000 county residents is 1.66. Including counties with zero allergists means that the average number of allergists is a mere 0.37 per 100,000 residents.</span></p>
+ <iframe id="embed-map" src="allergist_map.html" width="900px" height="500px" style="margin: auto"></iframe>
+ <p>Upon first glance, it may seem that allergists are concentrated in more polluted areas. My analysis, however, found no statistical correlation between air pollution and the number of allergists by county.</p>
+ <p>The broader point is that allergy-specific treatment is inaccessible for most in America. And as environmental factors worsen both the symptoms and prevalence of allergies and asthma, the demand for practicing allergists will only grow. </p>
+
+<p>The dovetailing threats of climate change, air pollution and allergist shortages will only serve to exacerbate inequality among those with allergies and asthma, and further worsen symptoms.</p>
+
+<br>
+
+<div class='about'>
+          <h4><b>ABOUT THIS PROJECT</b></h4>
+          <p>The allergy season lengths were calculated using daily temperature data from <a href="https://www.ncdc.noaa.gov/cdo-web/webservices/v2">NOAA's API</a>. The asthma prevalence data is from <a href="https://www.cdc.gov/asthma/Asthma_Prevalence_in_US.pptx">CDC</a>. The practicing allergist data is from <a href="https://data.cms.gov/use-agreement?id=fs4p-t5eq&name=Medicare%20Provider%20Utilization%20and%20Payment%20Data:%20Physician%20and%20Other%20Supplier%20PUF%20CY2017">Medicare Provider Utilization Data</a> and the air pollution data is from the <a href="https://www.caces.us/data">Center for Air, Climate, and Energy Solutions</a>.
+            </p>
+          <p>This project is open-source on <a href="https://github.com/vastava/allergies">Github</a>.</p><br>
+          <a href="https://twitter.com/anjalii_shrivas?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-count="false">Follow @anjalii_shrivas</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+          <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+      </div>
+
+<script>
+
+// set the dimensions and margins of the graph
+var margin = {top: 30, right: 30, bottom: 30, left: 30},
+    width = 460 - margin.left - margin.right,
+    height = 150 - margin.top - margin.bottom;
+
+
+// var overlap = 0.6;
+
+var colors = ["#20A345",  "#FE8500", "#00AABF", "#6CD576","#FFC55B", "#85DBE6"];
+var colors = ["#20A345", "#FFAD30" , "#00AABF", "#FF712E", "#7490A4",  "#94CDA5"];
+
+//Read the data
+d3.csv("data/best_cities_2.csv", function(data) {
+
+  data = data.filter(function(d) {return +d.growing_season > 0})
+  // group the data: I want to draw one line per group
+  var sumstat = d3.nest() // nest function allows to group the calculation per level of a factor
+    .key(function(d) { return d.city;})
+    .entries(data);
+
+// append the svg object to the body of the page
+var svg = d3.select("#my_dataviz_best")
+  .selectAll(".linechart")
+  .data(sumstat)
+  .enter()
+  .append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform",
+          "translate(" + margin.left + "," + margin.top + ")");
+
+  // Add X axis --> it is a date format
+  var x = d3.scaleLinear()
+    .domain(d3.extent(data, function(d) { return d.year; }))
+    .range([ 0, width ]);
+  svg.append("g")
+    .attr("transform", "translate(0," + height + ")")
+    .call(d3.axisBottom(x).ticks(5).tickFormat(d3.format("d")));
+
+
+// var city = d3.scaleBand()
+// 	.domain(sumstat.map(function(d) { return d.key; }))
+// 	.range([0, height]);
+//   svg.append("g") 
+//     .call(d3.axisLeft(city));
+
+// var areaChartHeight = (1 + overlap) * (city.bandwidth());
+
+var minnum = d3.min(data, function(d) { return +d.growing_season; })
+
+  var y = d3.scaleLinear()
+    .domain([100, d3.max(data, function(d) { return +d.growing_season; })])
+    .range([ height, 0 ]);
+  svg.append("g") 
+    .call(d3.axisLeft(y).ticks(5));
+  // color palette
+  var res = sumstat.map(function(d){ return d.key }) // list of group names
+  var color = d3.scaleOrdinal()
+    .domain(res)
+    .range(colors)
+
+alts = ["#69C3DB", "#9979B8", "#586FA1", "#F4D554", "#7CBD10", "#D26119"]
+
+var regress = function(x, m, b) {
+	return x*m + b
+}
+
+// Stockton, SLC, Seattle, Provo, Durham, Milwaukee
+	var slopes = d3.scaleOrdinal()
+		.domain(res)
+		.range([0.398145, 0.721022, 0.702388, 0.717488, 0.227347, 0.329053])
+
+	var intercepts = d3.scaleOrdinal()
+		.domain(res)
+		.range([-506.605, -1250.07, -1148.3, -1257.88, -246.255, -476.676])
+
+  var differences = d3.scaleOrdinal()
+    .domain(res)
+    .range([[276.9714285714286, 287.8529411764706],
+ [167.9142857142857, 193.68571428571428],
+ [236.14285714285714, 255.02857142857144],
+ [152.57142857142858, 179.37142857142857],
+ [199.54285714285714, 210.28571428571428],
+ [169.4857142857143, 183.17142857142858]])
+
+  var decade_diffs = d3.scaleOrdinal()
+    .domain(res)
+    .range([[268.3636363636364, 295.90909090909093],
+ [160.1818181818182, 198.54545454545453],
+ [211.54545454545453, 268.27272727272725],
+ [151.54545454545453, 190.63636363636363],
+ [208.8181818181818, 216.36363636363637],
+ [170.63636363636363, 189.63636363636363]])
+
+svg
+    .append("path")
+      .attr("class", "chartv1")
+      .attr("fill", "none")
+      .attr("stroke", function(d){ return color(d.key) })
+      .attr("stroke-width", 1.9)
+      .attr("d", function(d){
+        return d3.line()
+          // .defined(function(d) { 
+          //   console.log(+d.year);
+          //   return d.year <1961 || d.year >= 2009; })
+          .x(function(d) { return x(d.year); })
+          .y(function(d) { return y(+d.growing_season); })
+          .curve(d3.curveMonotoneX)
+          (d.values)
+      })
+svg
+    .append("path")
+      .attr("class", "chartv2")
+      .attr("display", "none")
+      .attr("fill", "none")
+      .attr("stroke", function(d){ return color(d.key) })
+      .attr("stroke-width", 1.9)
+      .attr("d", function(d){
+        return d3.line()
+          .defined(function(d) { 
+            // console.log(+d.year);
+            return d.year <1961 || d.year >= 2009; })
+          .x(function(d) { return x(d.year); })
+          .y(function(d) { return y(+d.growing_season); })
+          .curve(d3.curveMonotoneX)
+          (d.values)
+      })
+
+    svg
+      .append("path")
+        .attr("class", "area")
+        .style("display", "none")
+        .attr("fill", function(d){ return color(d.key) })
+        .attr("stroke", function(d){ return color(d.key) })
+        .attr("stroke-width", 1.9)
+        .attr("fill-opacity", 0.5)
+        .attr("d", function(d){
+          return d3.area()
+          .defined(function(d) { 
+            // console.log(+d.year);
+            return d.year >= 1985; })          
+          .x(function(d) { return x(d.year) })
+          .y0(y(100))
+          .y1(function(d) { return y(+d.growing_season) })
+          .curve(d3.curveMonotoneX)
+            (d.values)
+        })
+    svg
+      .append("path")
+        .attr("class", "area")
+        .style("display", "none")      
+        .attr("fill", function(d){ return color(d.key) })
+        // .attr("fill", "black")
+        .attr("stroke", function(d){ return color(d.key) })
+        .attr("stroke-width", 1.9)
+        .attr("stroke-opacity", 0.5)
+        .attr("fill-opacity", 0.1)
+        .attr("d", function(d){
+          return d3.area()
+          .defined(function(d) { 
+            // console.log(+d.year);
+            return d.year <= 1985; })          
+          .x(function(d) { return x(d.year) })
+          .y0(y(100))
+          .y1(function(d) { return y(+d.growing_season) })
+          .curve(d3.curveMonotoneX)
+            (d.values)
+        })
+
+  // Add titles
+  svg
+    .append("text")
+    .attr("class", "title")
+    .attr("text-anchor", "start")
+    .attr("y", -5)
+    .attr("x", 0)
+    .text(function(d){ return(d.key)})
+    .style("fill", function(d){ return color(d.key) })
+
+  svg
+    .append("text")
+    .attr("text-anchor", "middle")
+    .attr("class", "label")
+    .attr("display", "none")    
+    .attr("y", 0)
+    .attr("x", x(1985))
+    .text(function(d){
+      var vals = differences(d.key); 
+      return '+' + String((vals[1] - vals[0]).toFixed(0)) + ' days'})
+    .style("fill", function(d){ return color(d.key) })
+
+  svg
+    .append("text")
+    .attr("text-anchor", "middle")
+    .attr("class", "label2")
+    .attr("display", "none")    
+    .attr("y", 0)
+    .attr("x", x(1985))
+    .text(function(d){
+      var vals = decade_diffs(d.key); 
+      return '+' + String((vals[1] - vals[0]).toFixed(0)) + ' days'})
+    .style("fill", function(d){ return color(d.key) })
+
+  svg
+    .append("text")
+    .attr("text-anchor", "middle")
+    .attr("y", y(minnum))
+    .attr("class", "label")
+    .attr("display", "none")     
+    .attr("alignment-baseline", "middle")
+    .attr("x", x(1967))
+    .attr("font-size", "10px")
+    // .attr("stroke", "white")
+    .attr("font-weight", 500)
+    .attr("stroke-width", 0.5)
+    .text(function(d){
+
+      var vals = differences(d.key); 
+      return 'Avg. ' + String((vals[0]).toFixed(2)) + ' days'})
+    .style("fill","black")
+    // .style("font-family", "Impact")
+    // .style("fill", function(d){ return color(d.key) })
+
+  svg
+    .append("text")
+    .attr("text-anchor", "middle")
+    .attr("y", y(minnum))
+    .attr("class", "label")
+    .attr("display", "none")     
+    .attr("alignment-baseline", "middle")
+    .attr("x", x(2002))
+    .attr("font-size", "10px")
+    // .attr("stroke", "white")
+    .attr("font-weight", 500)
+    .attr("stroke-width", 0.5)
+    .text(function(d){
+
+      var vals = differences(d.key); 
+      return 'Avg. ' + String((vals[1]).toFixed(2)) + ' days'})
+    .style("fill","black")
+
+  svg
+    .append("line")
+    .attr("class", "mid-line")
+    .attr("x1", x(1985))
+    .attr("x2", x(1985))
+    .attr("y1", y(100))
+    .attr("y2", y(d3.max(data, function(d) { return +d.growing_season; })))
+    .attr("stroke", function(d) {return color(d.key)})
+    .attr("stroke-width", 1.5)
+    .attr("stroke-dasharray", "2")
+    .style("display", "none")
+    // .style("stroke-opacity", 0)
+
+  // svg
+  //   .append("line")
+  //   .attr("class", "end-line")
+  //   .attr("x1", x(2009))
+  //   .attr("x2", x(2009))
+  //   .attr("y1", y(100))
+  //   .attr("y2", y(d3.max(data, function(d) { return +d.growing_season; })))
+  //   .attr("stroke", function(d) {return color(d.key)})
+  //   .attr("stroke-width", 1.5)
+  //   .attr("stroke-dasharray", "2")
+  //   .style("display", "none")
+
+  // svg
+  //   .append("line")
+  //   .attr("class", "end-line")
+  //   .attr("x1", x(1960))
+  //   .attr("x2", x(1960))
+  //   .attr("y1", y(100))
+  //   .attr("y2", y(d3.max(data, function(d) { return +d.growing_season; })))
+  //   .attr("stroke", function(d) {return color(d.key)})
+  //   .attr("stroke-width", 1.5)
+  //   .attr("stroke-dasharray", "2")
+  //   .style("display", "none")
+
+  svg
+    .append("text")
+    .attr("text-anchor", "middle")
+    .attr("y", y(minnum))
+    .attr("class", "label2")
+    .attr("display", "none")     
+    .attr("alignment-baseline", "middle")
+    .attr("x", x(1967))
+    .attr("font-size", "10px")
+    // .attr("stroke", "white")
+    .attr("font-weight", 500)
+    .attr("stroke-width", 0.5)
+    .text(function(d){
+
+      var vals = decade_diffs(d.key); 
+      return 'Avg. ' + String((vals[0]).toFixed(2)) + ' days'})
+    .style("fill","black")
+    // .style("font-family", "Impact")
+    // .style("fill", function(d){ return color(d.key) })
+
+  svg
+    .append("text")
+    .attr("text-anchor", "middle")
+    .attr("y", y(minnum))
+    .attr("class", "label2")
+    .attr("display", "none")     
+    .attr("alignment-baseline", "middle")
+    .attr("x", x(2002))
+    .attr("font-size", "10px")
+    // .attr("stroke", "white")
+    .attr("font-weight", 500)
+    .attr("stroke-width", 0.5)
+    .text(function(d){
+
+      var vals = decade_diffs(d.key); 
+      return 'Avg. ' + String((vals[1]).toFixed(2)) + ' days'})
+    .style("fill","black")
+
+
+    // .style("stroke-opacity", 1)
+
+  // line
+  //   .transition()
+  //   .duration(50)
+  //   .ease(d3.easeLinear).style("opacity", 1)
+;
+
+
+ // alts = #69C3DB, #D26119, #3791F1
+ //    .range(['#e41a1c','#377eb8','#4daf4a','#984ea3','#ff7f00'])
+
+  svg
+       .append("line")
+         .attr("class", "regression")
+         .attr("x1", x(1950) )
+         .attr("x2", x(2021) )
+         .attr("y1", function(d) {
+         	m = slopes(d.key);
+         	b = intercepts(d.key);
+         	return y(regress(1950, m, b))
+         })
+         // .attr("y2", y(0.369217*2021 - 450.321))
+         .attr("y2", function(d) {
+         	m = slopes(d.key);
+         	b = intercepts(d.key);
+         	return y(regress(2021, m, b))
+         } )         
+         .attr("stroke", function(d) {return color(d.key)})
+         .attr("stroke-width", 1.5)
+         .attr("stroke-dasharray", "2")
+         // .attr("class", "first")
+
+})
+
+
+
+d3.csv("data/worst_cities_2.csv", function(data) {
+
+  data = data.filter(function(d) {return +d.growing_season > 0})
+  // group the data: I want to draw one line per group
+  var sumstat = d3.nest() // nest function allows to group the calculation per level of a factor
+    .key(function(d) { return d.city;})
+    .entries(data);
+
+var minnum = d3.min(data, function(d) { return +d.growing_season; })
+
+// append the svg object to the body of the page
+var svg = d3.select("#my_dataviz_worst")
+  .selectAll(".linechart")
+  .data(sumstat)
+  .enter()
+  .append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform",
+          "translate(" + margin.left + "," + margin.top + ")");
+
+  // Add X axis --> it is a date format
+  var x = d3.scaleLinear()
+    .domain(d3.extent(data, function(d) { return d.year; }))
+    .range([ 0, width ]);
+  svg.append("g")
+    .attr("transform", "translate(0," + height + ")")
+    .call(d3.axisBottom(x).ticks(8).tickFormat(d3.format("d")));
+
+
+  var y = d3.scaleLinear()
+    .domain([100, d3.max(data, function(d) { return +d.growing_season; })])
+    .range([ height, 0 ]);
+  svg.append("g") 
+    .call(d3.axisLeft(y).ticks(5));
+  // color palette
+  var res = sumstat.map(function(d){ return d.key }) // list of group names
+  var color = d3.scaleOrdinal()
+    .domain(res)
+    .range(colors)
+
+
+var regress = function(x, m, b) {
+	return x*m + b
+}
+
+	var slopes = d3.scaleOrdinal()
+		.domain(res)
+		.range([0.369207, -0.075409, 0.229421, 0.266748, 0.556119, 0.109614])
+
+	var intercepts = d3.scaleOrdinal()
+		.domain(res)
+		.range([-525.605, 322.261, -307.781, -360.505, -754.09, -8.65797])
+
+  var differences = d3.scaleOrdinal()
+    .domain(res)
+    .range([[199.54285714285714, 214.62857142857143],
+ [174.6, 171.34285714285716],
+ [143.0, 151.97142857142856],
+ [164.0, 173.71428571428572],
+ [333.3448275862069, 352.3076923076923],
+ [205.77142857142857, 211.97142857142856]])
+
+  var decade_diffs = d3.scaleOrdinal()
+    .domain(res)
+    .range([[201.27272727272728, 220.0],
+ [175.63636363636363, 174.27272727272728],
+ [153.0, 161.54545454545453],
+ [167.9090909090909, 181.54545454545453],
+ [323.1111111111111, 349.8333333333333],
+ [212.0, 214.54545454545453]])
+
+svg
+    .append("path")
+      .attr("class", "chartv1")
+      .attr("fill", "none")
+      .attr("stroke", function(d){ return color(d.key) })
+      .attr("stroke-width", 1.9)
+      .attr("d", function(d){
+        return d3.line()
+          .x(function(d) { return x(d.year); })
+          .y(function(d) { return y(+d.growing_season); })
+          .curve(d3.curveMonotoneX)
+          (d.values)
+      })
+
+svg
+    .append("path")
+      .attr("class", "chartv2")
+      .attr("display", "none")
+      .attr("fill", "none")
+      .attr("stroke", function(d){ return color(d.key) })
+      .attr("stroke-width", 1.9)
+      .attr("d", function(d){
+        return d3.line()
+          .defined(function(d) { 
+            // console.log(+d.year);
+            return d.year <1961 || d.year >= 2009; })
+          .x(function(d) { return x(d.year); })
+          .y(function(d) { return y(+d.growing_season); })
+          .curve(d3.curveMonotoneX)
+          (d.values)
+      })
+
+    svg
+      .append("path")
+        .attr("class", "area")
+        .style("display", "none")
+        .attr("fill", function(d){ return color(d.key) })
+        .attr("stroke", function(d){ return color(d.key) })
+        .attr("stroke-width", 1.9)
+        .attr("fill-opacity", 0.5)
+        .attr("d", function(d){
+          return d3.area()
+          .defined(function(d) { 
+            // console.log(+d.year);
+            return d.year >= 1985; })          
+          .x(function(d) { return x(d.year) })
+          .y0(y(100))
+          .y1(function(d) { return y(+d.growing_season) })
+          .curve(d3.curveMonotoneX)
+            (d.values)
+        })
+    svg
+      .append("path")
+        .attr("class", "area")
+        .style("display", "none")      
+        .attr("fill", function(d){ return color(d.key) })
+        // .attr("fill", "black")
+        .attr("stroke", function(d){ return color(d.key) })
+        .attr("stroke-width", 1.9)
+        .attr("stroke-opacity", 0.5)
+        .attr("fill-opacity", 0.1)
+        .attr("d", function(d){
+          return d3.area()
+          .defined(function(d) { 
+            // console.log(+d.year);
+            return d.year <= 1985; })          
+          .x(function(d) { return x(d.year) })
+          .y0(y(100))
+          .y1(function(d) { return y(+d.growing_season) })
+          .curve(d3.curveMonotoneX)
+            (d.values)
+        })
+  // Add titles
+  svg
+    .append("text")
+    .attr("text-anchor", "start")
+    .attr("y", -5)
+    .attr("x", 0)
+    .text(function(d){ return(d.key)})
+    .style("fill", function(d){ return color(d.key) })
+
+  svg
+    .append("text")
+    .attr("text-anchor", "middle")
+    .attr("class", "label")
+    .attr("display", "none")    
+    .attr("y", 0)
+    .attr("x", x(1985))
+    .text(function(d){
+      var vals = differences(d.key);
+      if (d.key == 'Scranton') {return  String((vals[1] - vals[0]).toFixed(0)) + ' days'} 
+      else
+      {return '+' + String((vals[1] - vals[0]).toFixed(0)) + ' days'}})
+    .style("fill", function(d){ return color(d.key) })
+
+  svg
+    .append("text")
+    .attr("text-anchor", "middle")
+    .attr("class", "label2")
+    .attr("display", "none")    
+    .attr("y", 0)
+    .attr("x", x(1985))
+    .text(function(d){
+      var vals = decade_diffs(d.key); 
+      if (d.key == 'Scranton') {return String((vals[1] - vals[0]).toFixed(0)) + ' days'} 
+      else
+      {return '+' + String((vals[1] - vals[0]).toFixed(0)) + ' days'}})
+    .style("fill", function(d){ return color(d.key) })
+
+  svg
+    .append("text")
+    .attr("text-anchor", "middle")
+    .attr("y", y(minnum))
+    .attr("class", "label")
+    .attr("display", "none")     
+    .attr("alignment-baseline", "middle")
+    .attr("x", x(1967))
+    .attr("font-size", "10px")
+    // .attr("stroke", "white")
+    .attr("font-weight", 500)
+    .attr("stroke-width", 0.5)
+    .text(function(d){
+
+      var vals = differences(d.key); 
+      return 'Avg. ' + String((vals[0]).toFixed(2)) + ' days'})
+    .style("fill","black")
+    // .style("font-family", "Impact")
+    // .style("fill", function(d){ return color(d.key) })
+
+  svg
+    .append("text")
+    .attr("text-anchor", "middle")
+    .attr("y", y(minnum))
+    .attr("class", "label")
+    .attr("display", "none")     
+    .attr("alignment-baseline", "middle")
+    .attr("x", x(2002))
+    .attr("font-size", "10px")
+    // .attr("stroke", "white")
+    .attr("font-weight", 500)
+    .attr("stroke-width", 0.5)
+    .text(function(d){
+
+      var vals = differences(d.key); 
+      return 'Avg. ' + String((vals[1]).toFixed(2)) + ' days'})
+    .style("fill","black")
+
+  svg
+    .append("line")
+    .attr("class", "mid-line")
+    .attr("x1", x(1985))
+    .attr("x2", x(1985))
+    .attr("y1", y(100))
+    .attr("y2", y(d3.max(data, function(d) { return +d.growing_season; })))
+    .attr("stroke", function(d) {return color(d.key)})
+    .attr("stroke-width", 1.5)
+    .attr("stroke-dasharray", "2")
+    .style("display", "none")
+
+  svg
+    .append("text")
+    .attr("text-anchor", "middle")
+    .attr("y", y(minnum))
+    .attr("class", "label2")
+    .attr("display", "none")     
+    .attr("alignment-baseline", "middle")
+    .attr("x", x(1967))
+    .attr("font-size", "10px")
+    // .attr("stroke", "white")
+    .attr("font-weight", 500)
+    .attr("stroke-width", 0.5)
+    .text(function(d){
+
+      var vals = decade_diffs(d.key); 
+      return 'Avg. ' + String((vals[0]).toFixed(2)) + ' days'})
+    .style("fill","black")
+    // .style("font-family", "Impact")
+    // .style("fill", function(d){ return color(d.key) })
+
+  svg
+    .append("text")
+    .attr("text-anchor", "middle")
+    .attr("y", y(minnum))
+    .attr("class", "label2")
+    .attr("display", "none")     
+    .attr("alignment-baseline", "middle")
+    .attr("x", x(2002))
+    .attr("font-size", "10px")
+    // .attr("stroke", "white")
+    .attr("font-weight", 500)
+    .attr("stroke-width", 0.5)
+    .text(function(d){
+
+      var vals = decade_diffs(d.key); 
+      return 'Avg. ' + String((vals[1]).toFixed(2)) + ' days'})
+    .style("fill","black")
+
+
+ // alts = #69C3DB, #D26119, #3791F1
+    // .range(['#e41a1c','#377eb8','#4daf4a','#984ea3','#ff7f00'])
+
+  svg
+       .append("line")
+         .attr("class", "regression")
+         .attr("x1", x(1950) )
+         .attr("x2", x(2021) )
+         .attr("y1", function(d) {
+         	m = slopes(d.key);
+         	b = intercepts(d.key);
+         	return y(regress(1950, m, b))
+         })
+         // .attr("y2", y(0.369217*2021 - 450.321))
+         .attr("y2", function(d) {
+         	m = slopes(d.key);
+         	b = intercepts(d.key);
+         	return y(regress(2021, m, b))
+         } )         
+         .attr("stroke", function(d) {return color(d.key)})
+         .attr("stroke-width", 1.5)
+         .attr("stroke-dasharray", "2")
+
+})
+
+</script>
+<script>
+  var w = 770;
+  var h = 350;
+
+  var x_axis = d3.scaleLinear()
+    .range([ 0, w ]);
+
+
+  var y_axis = d3.scaleLinear()
+    .range([ h, 0 ]);
+
+// Graph dimension
+
+
+
+d3.csv("data/cdc_asthma_joined.csv", function(error, data) {
+var margin = {top: 10, right: 50, bottom: 90, left: 40},
+    width = 860 - margin.left - margin.right,
+    height = 450 - margin.top - margin.bottom;
+
+// Create the svg area
+var svg = d3.select("#my_dataviz")
+  .append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+  x_axis
+    .domain(d3.extent(data, function(d) { return d.year; }))
+
+  y_axis
+    .domain([0, d3.max(data, function(d) { return +d.joined; })])
+
+  svg.append("g")
+    .attr("class", "x_axis")
+    .attr("transform", "translate(0," + height + ")")
+    .call(d3.axisBottom(x_axis).tickFormat(d3.format("d")));
+
+  svg.append("g") 
+    .attr("class", "y_axis")
+    .call(d3.axisLeft(y_axis).tickFormat(d => d + "%"));
+
+svg
+    .append("path")
+      .attr("id", "total_line")
+      .attr("fill", "none")
+      .attr("stroke", "#3791F1")
+      .attr("stroke-width", 1.9)
+      .attr("d", function(d){
+        return d3.line()
+          .defined(function(d) {
+            return +d.joined > 0; })
+          .x(function(d) { return x_axis(d.year); })
+          .y(function(d) { return y_axis(+d.joined); })
+          .curve(d3.curveMonotoneX)
+          (data)
+      })
+
+svg
+  .append("line")
+    .attr("class", "dash")
+    .attr("stroke", "#3791F1")
+    .attr("stroke-width", 1.9)
+    .attr("x1", x_axis(1996))
+    .attr("x2", x_axis(2001))
+    .attr('y1', y_axis(5.5))
+    .attr('y2', y_axis(7.3))
+    .attr("stroke-dasharray", "2")
+
+  svg.append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 0 - margin.left)
+      .attr("x",0 - (height / 2))
+      .attr("dy", "1em")
+      .style("text-anchor", "middle")
+      .text("Asthma Prevalence")
+      .attr("font-size", "10px")
+
+  svg.append("text")
+      .attr("id", "year-label")             
+      .attr("transform",
+            "translate(" + (width/2) + " ," + 
+                           (height + margin.top + 20) + ")")    
+      .style("text-anchor", "middle")
+      .text("Year")
+      .attr("font-size", "10px")
+
+})
+
+function update() {
+  var black_color = "#000862"
+  var white_color = "#F29D39"
+  var total_color = "#3791F1"
+  var total_line = d3.select('#total_line')
+  var lines = d3.selectAll('.line')
+  var xaxis = d3.select('.x_axis')
+  var yaxis = d3.select('.y_axis')
+  dash = d3.select('.dash')
+  var svg = d3.select('#my_dataviz').select("svg").select("g")
+
+  dash
+      .attr("stroke-opacity", 0)
+  lines
+    .attr("stroke-opacity", 1)
+  d3.csv('data/race_asthma.csv', function(error, data) {
+    x_axis
+      .domain(d3.extent(data, function(d) { return d.year; }))
+
+    y_axis
+      .domain([0, d3.max(data, function(d) { return +d.Black; })])
+
+    xaxis
+      .transition().duration(2000)
+      .call(d3.axisBottom(x_axis).tickFormat(d3.format("d")))
+
+    yaxis
+      .transition().duration(2000)
+      .call(d3.axisLeft(y_axis).tickFormat(d => d + "%"))
+
+    total_line
+        .transition()
+        .duration(1000)
+        .attr("class", "line")
+        .attr("d", d3.line()
+          .x(function(d) { return x_axis(d.year) })
+          .y(function(d) { return y_axis(+d.Total) })
+          .curve(d3.curveMonotoneX)
+          (data)
+        )
+        .attr("stroke", "#3791F1")
+
+    svg
+        .append("path")
+          .attr("class", "line")
+          .attr("fill", "none")
+          .attr("stroke", black_color)
+          .attr("stroke-width", 1.9)
+          .attr("d", function(d){
+            return d3.line()
+              .x(function(d) { return x_axis(d.year); })
+              .y(function(d) { return y_axis(+d.Black); })
+              .curve(d3.curveMonotoneX)
+              (data)})
+    svg
+        .append("path")
+          .attr("class", "line")
+          .attr("fill", "none")
+          .attr("stroke", "red")
+          .attr("stroke-width", 1.9)
+          .attr("d", function(d){
+            return d3.line()
+              .x(function(d) { return x_axis(d.year); })
+              .y(function(d) { return y_axis(+d.Hispanic); })
+              .curve(d3.curveMonotoneX)
+              (data)})
+
+      svg
+        .append("path")
+          .attr("class", "line")
+          .attr("fill", "none")
+          .attr("stroke", white_color)
+          .attr("stroke-width", 1.9)
+          .attr("d", function(d){
+            return d3.line()
+              .x(function(d) { return x_axis(d.year); })
+              .y(function(d) { return y_axis(+d.White); })
+              .curve(d3.curveMonotoneX)
+              (data)})
+
+    var anno = data.filter(function (d) {return d.year == 2018})
+      svg.append("text")
+       .data(anno)
+       // .append("text")
+       .attr("x", x_axis(2018))
+       .attr("class", "line-label")
+       .attr("y", function(d) {return y_axis(+d.Black)})
+       .attr("font-family", "Helvetica")
+       .attr("id", "b_label")
+       .text("Black")
+       .style("font-size", "10px")
+       .style("fill", black_color)
+       .attr("transform","translate(5,5)");
+
+       svg.append("text")
+        .data(anno)
+        // .append("text")
+        .attr("x", x_axis(2018))
+        .attr("class", "line-label")
+        .attr("y", function(d) {return y_axis(+d.White)})
+        .attr("font-family", "Helvetica")
+        .attr("id", "w_label")
+        .text("White")
+        .style("font-size", "10px")
+        .style("fill", white_color)
+        .attr("transform","translate(5,5)");
+
+      svg.append("text")
+         .data(anno)
+         // .append("text")
+         .attr("x", x_axis(2018))
+         .attr("class", "line-label")
+         .attr("y", function(d) {return y_axis(+d.Hispanic)})
+         .attr("font-family", "Helvetica")
+         .attr("id", "h_label")
+         .text("Hispanic")
+         .style("font-size", "10px")
+         .style("fill", "red")
+         .style("display", "inline")
+
+         .attr("transform","translate(5,5)");
+      svg.append("text")
+       .data(anno)
+       // .append("text")
+       .attr("x", x_axis(2018))
+       .attr("class", "line-label")
+       .attr("y", function(d) {return y_axis(+d.Total)})
+       .attr("font-family", "Helvetica")
+       .attr("id", "t_label")
+       .text("Total")
+       .style("font-size", "10px")
+       .style("fill", total_color)
+       .attr("transform","translate(5,5)");
+
+      // svg.selectAll("rect").remove()
+
+      })
+  }
+
+  function update2() {
+  var lines = d3.selectAll('.line')
+  var linelabels = d3.selectAll('.line-label')
+  var xaxis = d3.select('.x_axis')
+  var yaxis = d3.select('.y_axis')
+  var svg = d3.select('#my_dataviz').select("svg").select("g")
+  var label = d3.select('#year-label')
+  var dash = d3.select('.dash')
+  d3.csv('data/demog_asthma.csv', function(error, data) {
+    // x_axis
+    //   .domain(d3.extent(data, function(d) { return d.group; }))
+    lines
+      .attr("stroke-opacity", 0)
+    dash
+      .style("stroke-opacity", 0)
+    label.remove()
+    linelabels.remove()
+    console.log(lines)
+    var x_axis = d3.scaleBand()
+      .range([ 0, w ])
+      .domain(data.map(function(d) { return d.group; }))
+      .padding(0.2);
+
+    y_axis
+      .domain([0, d3.max(data, function(d) { return +d.Asth_Prev; })])
+
+    xaxis
+      .transition().duration(2000)
+      .call(d3.axisBottom(x_axis).tickSize(0))
+      .selectAll("text")
+        .attr("transform", "translate(-10,0)rotate(-45)")
+        .style("text-anchor", "end")
+
+    yaxis
+      .transition().duration(2000)
+      .call(d3.axisLeft(y_axis).tickFormat(d => d + "%"))
+
+        // Bars
+        svg.selectAll("mybar")
+          .data(data)
+          .enter()
+          .append("rect")
+            .attr("x", function(d) { return x_axis(d.group); })
+            .attr("width", x_axis.bandwidth())
+            .attr("fill", function(d) {
+              if (+d.Asth_Prev > 10) {return "#EBAB57"}
+              else {return "#7AACB2" }
+              })
+            // no bar at the beginning thus:
+            .attr("height", function(d) { return h - y_axis(0); }) // always equal to 0
+            .attr("y", function(d) { return y_axis(0); })
+
+        // Animation
+        svg.selectAll("rect")
+          .transition()
+          .duration(800)
+          .attr("y", function(d) { return y_axis(d.Asth_Prev); })
+          .attr("height", function(d) { return h - y_axis(d.Asth_Prev); })
+          .delay(function(d,i){ return(i*100)})
+
+
+      })
+
+  }
+
+    function update3() {
+      var svg = d3.select('#my_dataviz').select("svg").select("g")
+  d3.csv('data/demog_asthma.csv', function(error, data) {
+
+        // Animation
+        svg.selectAll("rect")
+          .transition()
+          .duration(800)
+          .attr("y", function(d) { return y_axis(0); })
+          .attr("height", function(d) { return h - y_axis(0); })
+          .delay(function(d,i){ return(i*10)})
+
+
+      })
+  }
+
+function update4() {
+  var lines = d3.selectAll('.line')
+  var linelabels = d3.selectAll('.line-label')
+  var xaxis = d3.select('.x_axis')
+  var yaxis = d3.select('.y_axis')
+  var svg = d3.select('#my_dataviz').select("svg").select("g")
+  var label = d3.select('#year-label')
+  var dash = d3.select('.dash')
+  var total_line = d3.select('#total_line')
+  d3.csv('/data/cdc_asthma_joined.csv', function(error, data) {
+    // x_axis
+    //   .domain(d3.extent(data, function(d) { return d.group; }))
+  x_axis
+    .domain(d3.extent(data, function(d) { return d.year; }))
+
+  y_axis
+    .domain([0, d3.max(data, function(d) { return +d.joined; })])
+
+    linelabels.remove()
+    lines
+      .attr("stroke-opacity", 0)
+    total_line
+        .attr("stroke-opacity", 1)
+        .transition()
+        .duration(1000)
+        .attr("class", "line")
+        .attr("d", d3.line()
+          .defined(function(d) { 
+            // console.log(+d.year);
+            return +d.joined > 0; })
+          .x(function(d) { return x_axis(d.year) })
+          .y(function(d) { return y_axis(+d.joined) })
+          .curve(d3.curveMonotoneX)
+          (data)
+        )
+        .attr("stroke", "#3791F1")
+    dash
+      .transition()
+      .duration(1000)
+      .style("stroke-opacity", 1)
+    console.log(dash)
+    // svg
+    //     .append("path")
+    //       .attr("id", "total_line")
+    //       .attr("fill", "none")
+    //       .attr("stroke", "#3791F1")
+    //       .attr("stroke-width", 1.9)
+    //       .attr("d", function(d){
+    //         return d3.line()
+    //           .defined(function(d) {
+    //             return +d.joined > 0; })
+    //           .x(function(d) { return x_axis(d.year); })
+    //           .y(function(d) { return y_axis(+d.joined); })
+    //           .curve(d3.curveMonotoneX)
+    //           (data)
+    //       })
+
+    // svg
+    //   .append("line")
+    //     .attr("class", "dash")
+    //     .attr("stroke", "#3791F1")
+    //     .attr("stroke-width", 1.9)
+    //     .attr("x1", x_axis(1996))
+    //     .attr("x2", x_axis(2001))
+    //     .attr('y1', y_axis(5.5))
+    //     .attr('y2', y_axis(7.3))
+    //     .attr("stroke-dasharray", "2")
+
+      })
+
+  }
+
+d3.select("#temp").on("click", function(d) {
+        // recover the option that has been chosen
+        // run the updateChart function with this selected option
+        update()
+    })      
+
+
+d3.select("#temp2").on("click", function(d) {
+        // recover the option that has been chosen
+        // run the updateChart function with this selected option
+        update2()
+    }) 
+
+</script>
+<!-- Scrollama javaScript -->
+  <script src="https://unpkg.com/intersection-observer"></script>
+  <script src="https://unpkg.com/scrollama"></script>
+
+  <!-- Scrollytelling JavaScript -->
+  <script>
+    var myScrollama = scrollama();
+    var scroller2 = scrollama();
+
+    const figureHeight = window.innerHeight * 0.8
+    const figureMarginTop = (window.innerHeight - figureHeight) / 2
+    const stepH = Math.floor(window.innerHeight * 1.8);
+
+
+    var figure = d3.select('figure');
+    var lines = figure.selectAll('.mid-line')
+    var regression = figure.selectAll('.regression')
+    var chart = figure.selectAll('.chartv1')
+    var chart2 = figure.selectAll('.chartv2')
+    var areas = figure.selectAll('.area')
+    var labels = figure.selectAll('.label')
+    var label2 = figure.selectAll('.label2')
+    var endlines = figure.selectAll('.end-line')
+    var viz = d3.select('#my_dataviz_best')
+
+    var article = d3.select('article');
+    var steps = d3.selectAll('.step');
+    //#endregion
+
+    // function handleResize() {
+      
+    //   console.log("handling resize")
+
+    //   // 1. update height of step elements
+    //   // steps.style('height', stepH + 'px');
+
+    //   // 2. update height, margin, and layering of the figure
+    //   figure
+    //     .style('height', figureHeight + 'px')
+    //     .style('top', figureMarginTop + 'px')
+    //   myScrollama.resize();
+
+    // }
+
+    function handleStepChange(response) {
+      switch(response.index) {
+        case 0:
+          // Set image to first version
+          lines.style("display", "inline")
+          // lines.style("stroke-opacity", 1)
+          chart.style("stroke-opacity", 0)
+          areas.style("display", "inline")
+          // lines.style("transition", "opacity 1s ease-in-out")
+          regression.style("display", "none")
+          labels.style("display", "inline")
+          break;
+
+        case 1:
+          areas.style("display", "none")
+          chart.style("stroke-opacity", 0.15)
+          chart2.style("display", "inline")
+          label2.style("display", "inline")
+          lines.style("display", 'none')
+          labels.style("display", "none")
+          endlines.style("display", "inline")          
+          
+          break;
+
+        case 2:
+          chart.style("stroke-opacity", 1)
+          regression.style("display", "inline")
+          break;
+
+        default:
+          // do nothing
+      }
+
+    }
+
+    function handleStepExit(response) {
+      if (response.direction == 'up') {
+        switch(response.index) {
+          case 0:
+            // Set image to first version
+            lines.style("display", "none")
+            chart.style("stroke-opacity", 1)
+            areas.style("display", "none")
+            // lines.style("transition", "opacity 1s ease-in-out")
+            regression.style("display", "inline")
+            labels.style("display", "none")
+            break;
+
+          case 1:
+            areas.style("display", "inline")
+            chart.style("stroke-opacity", 0)
+            chart2.style("display", "none")
+            lines.style("display", 'inline')
+            labels.style("display", "inline") 
+            label2.style("display", "none")  
+            endlines.style("display", "none")        
+            
+            break;
+
+          case 2:
+            regression.style('display', "none")
+            break;
+
+          default:
+            // do nothing
+        }
+      }
+    }
+    var temp = d3.select("#scrollytelling_CDC").select("figure").select("svg")
+    // var temp = d3.select("#my_dataviz")
+    console.log(temp)
+    var lines = temp.selectAll('.line')
+    var lines = d3.selectAll('.line')
+    var dash = temp.select('.dash')
+    var linelabels = d3.selectAll('.line-label')
+    console.log(lines)
+    console.log(dash)
+    function handleStepChange2(response) {
+      switch(response.index) {
+        case 0:
+          update()
+          dash.style("display", "none")
+          break;
+
+        case 1:
+          update2()
+          lines.style("display", "none")
+          // linelabels.style("display", "none")
+          break;
+
+        }
+    }
+    function handleStepExit2(response) {
+      if (response.direction == 'up') {
+        switch(response.index) {
+          case 0:
+            update4()
+            // Set image to first version
+            // lines.style("display", "none")
+            // chart.style("stroke-opacity", 1)
+            // areas.style("display", "none")
+            // // lines.style("transition", "opacity 1s ease-in-out")
+            // regression.style("display", "inline")
+            // labels.style("display", "none")
+            break;
+
+          case 1:
+            update3()      
+            
+            break;
+
+          default:
+            // do nothing
+        }
+      }
+    }
+
+
+    function init() {
+
+      // 1. force a resize on load to ensure proper dimensions are sent to scrollama
+      // handleResize();
+
+      // 2. Setup the scrollama
+      myScrollama
+        .setup({
+        step: '#scrollytelling_NOAA .step',
+        offset: 0.33,
+        // set to true to see debug horizontal line
+        debug: false
+      })
+        .onStepEnter(handleStepChange)
+        .onStepExit(handleStepExit)
+
+      scroller2
+        .setup({
+        step: '#scrollytelling_CDC .step',
+        offset: 0.33,
+        // set to true to see debug horizontal line
+        debug: false
+      })
+        .onStepEnter(handleStepChange2)
+        .onStepExit(handleStepExit2)
+        // .onStepExit(handleStepExit)
+
+        
+      // setup resize event
+      // window.addEventListener('resize', handleResize);
+    }
+    init();
+
+  </script>
+</html>
