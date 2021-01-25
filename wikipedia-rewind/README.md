@@ -1,7 +1,7 @@
-# Slang words of 2020
+# Wikipedia Rewind
 
-### 1-14-2021
-I used Google Trends data to determine the hottest "emerging" words of 2020.
+### 1-7-2021
+I used Wikipedia pageview data to create a 2020 rewind video.
 | Platform | Link |
 |-|-|
 | January-July 2020 | [https://www.youtube.com/watch?v=39nV7f3HZg0](https://www.youtube.com/watch?v=39nV7f3HZg0) |
