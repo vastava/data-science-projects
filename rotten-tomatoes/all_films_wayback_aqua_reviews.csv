@@ -1,0 +1,724 @@
+critic,audience,criticNum,audienceNum,date,film
+76%,97%,71,coming,2018-12-12,Aquaman
+74%,96%,87,coming,2018-12-13,Aquaman
+72%,96%,95,coming,2018-12-14,Aquaman
+70%,96%,107,coming,2018-12-15,Aquaman
+70%,96%,110,coming,2018-12-16,Aquaman
+71%,96%,117,coming,2018-12-17,Aquaman
+69%,96%,134,coming,2018-12-18,Aquaman
+68%,96%,150,coming,2018-12-19,Aquaman
+68%,96%,177,coming,2018-12-20,Aquaman
+64%,86%,236,,2018-12-21,Aquaman
+63%,86%,252,,2018-12-22,Aquaman
+64%,85%,255,,2018-12-23,Aquaman
+64%,84%,261,,2018-12-24,Aquaman
+64%,82%,263,Aquaman,2018-12-25,Aquaman
+64%,82%,270,,2018-12-26,Aquaman
+64%,82%,278,,2018-12-27,Aquaman
+64%,82%,288,Aquaman,2018-12-28,Aquaman
+64%,81%,290,,2018-12-29,Aquaman
+64%,81%,291,Aquaman,2018-12-30,Aquaman
+64%,81%,293,,2018-12-31,Aquaman
+64%,81%,295,Aquaman,2019-01-01,Aquaman
+64%,81%,295,Aquaman,2019-01-02,Aquaman
+64%,80%,298,Aquaman,2019-01-03,Aquaman
+64%,80%,306,Aquaman,2019-01-04,Aquaman
+64%,80%,307,Aquaman,2019-01-05,Aquaman
+64%,80%,307,,2019-01-06,Aquaman
+65%,80%,311,,2019-01-07,Aquaman
+65%,80%,312,,2019-01-08,Aquaman
+65%,80%,312,Aquaman,2019-01-09,Aquaman
+64%,80%,315,,2019-01-10,Aquaman
+64%,80%,316,,2019-01-11,Aquaman
+64%,79%,316,,2019-01-12,Aquaman
+64%,79%,316,Aquaman,2019-01-13,Aquaman
+64%,79%,316,Aquaman,2019-01-14,Aquaman
+64%,79%,317,Aquaman,2019-01-15,Aquaman
+64%,79%,317,,2019-01-16,Aquaman
+64%,79%,319,Aquaman,2019-01-17,Aquaman
+64%,79%,322,,2019-01-18,Aquaman
+64%,79%,322,,2019-01-19,Aquaman
+64%,79%,323,,2019-01-20,Aquaman
+64%,79%,323,,2019-01-21,Aquaman
+64%,79%,323,,2019-01-22,Aquaman
+64%,79%,324,Aquaman,2019-01-23,Aquaman
+64%,78%,325,,2019-01-24,Aquaman
+64%,78%,326,,2019-01-25,Aquaman
+64%,78%,327,,2019-01-26,Aquaman
+64%,78%,327,Aquaman,2019-01-27,Aquaman
+64%,78%,328,,2019-01-28,Aquaman
+64%,78%,330,,2019-01-29,Aquaman
+64%,78%,332,,2019-01-30,Aquaman
+64%,78%,332,,2019-01-31,Aquaman
+64%,78%,332,,2019-02-01,Aquaman
+65%,78%,333,,2019-02-02,Aquaman
+65%,78%,333,,2019-02-03,Aquaman
+65%,78%,334,,2019-02-04,Aquaman
+65%,78%,334,,2019-02-05,Aquaman
+65%,78%,334,,2019-02-06,Aquaman
+65%,78%,334,,2019-02-07,Aquaman
+65%,78%,334,,2019-02-08,Aquaman
+65%,78%,334,,2019-02-09,Aquaman
+65%,78%,334,,2019-02-10,Aquaman
+65%,78%,334,,2019-02-11,Aquaman
+65%,78%,334,,2019-02-12,Aquaman
+65%,78%,334,,2019-02-13,Aquaman
+65%,78%,334,,2019-02-14,Aquaman
+65%,78%,334,,2019-02-15,Aquaman
+65%,78%,334,,2019-02-16,Aquaman
+65%,78%,334,,2019-02-17,Aquaman
+65%,78%,334,,2019-02-18,Aquaman
+65%,78%,334,,2019-02-19,Aquaman
+65%,78%,334,,2019-02-20,Aquaman
+65%,77%,342,,2019-02-21,Aquaman
+65%,77%,347,,2019-02-22,Aquaman
+65%,77%,347,,2019-02-23,Aquaman
+65%,77%,347,,2019-02-24,Aquaman
+65%,77%,347,,2019-02-25,Aquaman
+error,error,347,liked it,2019-02-26,Aquaman
+error,error,347,liked it,2019-02-27,Aquaman
+error,error,347,liked it,2019-02-28,Aquaman
+error,error,347,liked it,2019-03-01,Aquaman
+error,error,348,liked it,2019-03-02,Aquaman
+error,error,348,liked it,2019-03-03,Aquaman
+error,error,348,liked it,2019-03-04,Aquaman
+error,error,351,liked it,2019-03-05,Aquaman
+error,error,351,liked it,2019-03-06,Aquaman
+error,error,351,liked it,2019-03-07,Aquaman
+error,error,351,liked it,2019-03-08,Aquaman
+error,error,351,liked it,2019-03-09,Aquaman
+error,error,351,liked it,2019-03-10,Aquaman
+error,error,351,liked it,2019-03-11,Aquaman
+94%,99%,129,coming,2017-12-12,The Last Jedi
+94%,99%,193,coming,2017-12-13,The Last Jedi
+95%,99%,202,coming,2017-12-14,The Last Jedi
+93%,57%,270,Star Wars: The Last Jedi,2017-12-15,The Last Jedi
+93%,57%,291,Star Wars: The Last Jedi,2017-12-16,The Last Jedi
+93%,56%,297,Star Wars: The Last Jedi,2017-12-17,The Last Jedi
+93%,56%,311,Star Wars: The Last Jedi,2017-12-18,The Last Jedi
+93%,55%,317,Star Wars: The Last Jedi,2017-12-19,The Last Jedi
+92%,54%,323,Star Wars: The Last Jedi,2017-12-20,The Last Jedi
+92%,54%,329,Star Wars: The Last Jedi,2017-12-21,The Last Jedi
+92%,53%,334,Star Wars: The Last Jedi,2017-12-22,The Last Jedi
+92%,53%,336,Star Wars: The Last Jedi,2017-12-23,The Last Jedi
+92%,52%,337,Star Wars: The Last Jedi,2017-12-24,The Last Jedi
+92%,52%,337,Star Wars: The Last Jedi,2017-12-25,The Last Jedi
+91%,52%,338,Star Wars: The Last Jedi,2017-12-26,The Last Jedi
+91%,51%,344,Star Wars: The Last Jedi,2017-12-27,The Last Jedi
+91%,51%,345,Star Wars: The Last Jedi,2017-12-28,The Last Jedi
+91%,51%,345,Star Wars: The Last Jedi,2017-12-29,The Last Jedi
+91%,51%,347,Star Wars: The Last Jedi,2017-12-30,The Last Jedi
+91%,51%,348,Star Wars: The Last Jedi,2017-12-31,The Last Jedi
+91%,51%,349,Star Wars: The Last Jedi,2018-01-01,The Last Jedi
+91%,50%,351,Star Wars: The Last Jedi,2018-01-02,The Last Jedi
+90%,50%,352,Star Wars: The Last Jedi,2018-01-03,The Last Jedi
+90%,50%,352,Star Wars: The Last Jedi,2018-01-04,The Last Jedi
+90%,50%,353,Star Wars: The Last Jedi,2018-01-05,The Last Jedi
+90%,50%,354,Star Wars: The Last Jedi,2018-01-06,The Last Jedi
+90%,50%,354,Star Wars: The Last Jedi,2018-01-07,The Last Jedi
+90%,50%,354,Star Wars: The Last Jedi,2018-01-08,The Last Jedi
+90%,49%,355,Star Wars: The Last Jedi,2018-01-09,The Last Jedi
+90%,49%,355,Star Wars: The Last Jedi,2018-01-10,The Last Jedi
+90%,49%,356,Star Wars: The Last Jedi,2018-01-11,The Last Jedi
+90%,49%,356,Star Wars: The Last Jedi,2018-01-12,The Last Jedi
+90%,49%,356,Star Wars: The Last Jedi,2018-01-13,The Last Jedi
+90%,49%,356,Star Wars: The Last Jedi,2018-01-14,The Last Jedi
+90%,49%,356,Star Wars: The Last Jedi,2018-01-15,The Last Jedi
+91%,49%,356,Star Wars: The Last Jedi,2018-01-16,The Last Jedi
+91%,49%,356,Star Wars: The Last Jedi,2018-01-17,The Last Jedi
+91%,49%,356,Star Wars: The Last Jedi,2018-01-18,The Last Jedi
+91%,49%,356,Star Wars: The Last Jedi,2018-01-19,The Last Jedi
+90%,49%,357,Star Wars: The Last Jedi,2018-01-20,The Last Jedi
+90%,49%,357,Star Wars: The Last Jedi,2018-01-21,The Last Jedi
+90%,49%,357,Star Wars: The Last Jedi,2018-01-22,The Last Jedi
+91%,49%,358,Star Wars: The Last Jedi,2018-01-23,The Last Jedi
+91%,49%,358,Star Wars: The Last Jedi,2018-01-24,The Last Jedi
+91%,49%,358,Star Wars: The Last Jedi,2018-01-25,The Last Jedi
+91%,49%,358,Star Wars: The Last Jedi,2018-01-26,The Last Jedi
+91%,49%,358,Star Wars: The Last Jedi,2018-01-27,The Last Jedi
+91%,49%,358,Star Wars: The Last Jedi,2018-01-28,The Last Jedi
+91%,48%,358,Star Wars: The Last Jedi,2018-01-29,The Last Jedi
+91%,48%,358,Star Wars: The Last Jedi,2018-01-30,The Last Jedi
+91%,48%,358,Star Wars: The Last Jedi,2018-01-31,The Last Jedi
+91%,48%,359,Star Wars: The Last Jedi,2018-02-01,The Last Jedi
+91%,48%,359,Star Wars: The Last Jedi,2018-02-02,The Last Jedi
+91%,48%,359,Star Wars: The Last Jedi,2018-02-03,The Last Jedi
+91%,48%,359,Star Wars: The Last Jedi,2018-02-04,The Last Jedi
+91%,48%,359,Star Wars: The Last Jedi,2018-02-05,The Last Jedi
+91%,48%,360,Star Wars: The Last Jedi,2018-02-06,The Last Jedi
+91%,48%,360,Star Wars: The Last Jedi,2018-02-07,The Last Jedi
+91%,48%,360,Star Wars: The Last Jedi,2018-02-08,The Last Jedi
+91%,48%,361,Star Wars: The Last Jedi,2018-02-09,The Last Jedi
+91%,48%,361,Star Wars: The Last Jedi,2018-02-10,The Last Jedi
+91%,48%,361,Star Wars: The Last Jedi,2018-02-11,The Last Jedi
+91%,48%,361,Star Wars: The Last Jedi,2018-02-12,The Last Jedi
+91%,48%,361,Star Wars: The Last Jedi,2018-02-13,The Last Jedi
+91%,48%,361,Star Wars: The Last Jedi,2018-02-14,The Last Jedi
+91%,48%,361,Star Wars: The Last Jedi,2018-02-15,The Last Jedi
+91%,48%,361,Star Wars: The Last Jedi,2018-02-16,The Last Jedi
+91%,48%,361,Star Wars: The Last Jedi,2018-02-17,The Last Jedi
+91%,48%,361,Star Wars: The Last Jedi,2018-02-18,The Last Jedi
+91%,48%,361,Star Wars: The Last Jedi,2018-02-19,The Last Jedi
+91%,48%,361,Star Wars: The Last Jedi,2018-02-20,The Last Jedi
+91%,48%,362,Star Wars: The Last Jedi,2018-02-21,The Last Jedi
+91%,48%,363,Star Wars: The Last Jedi,2018-02-22,The Last Jedi
+91%,48%,363,Star Wars: The Last Jedi,2018-02-23,The Last Jedi
+91%,48%,363,Star Wars: The Last Jedi,2018-02-24,The Last Jedi
+91%,48%,363,Star Wars: The Last Jedi,2018-02-25,The Last Jedi
+91%,48%,363,Star Wars: The Last Jedi,2018-02-26,The Last Jedi
+90%,48%,364,Star Wars: The Last Jedi,2018-02-27,The Last Jedi
+90%,48%,364,Star Wars: The Last Jedi,2018-02-28,The Last Jedi
+90%,48%,364,Star Wars: The Last Jedi,2018-03-01,The Last Jedi
+90%,48%,364,Star Wars: The Last Jedi,2018-03-02,The Last Jedi
+90%,48%,364,Star Wars: The Last Jedi,2018-03-03,The Last Jedi
+90%,48%,364,Star Wars: The Last Jedi,2018-03-04,The Last Jedi
+90%,48%,365,Star Wars: The Last Jedi,2018-03-05,The Last Jedi
+90%,48%,365,Star Wars: The Last Jedi,2018-03-06,The Last Jedi
+90%,48%,365,Star Wars: The Last Jedi,2018-03-07,The Last Jedi
+90%,48%,365,Star Wars: The Last Jedi,2018-03-08,The Last Jedi
+90%,48%,366,Star Wars: The Last Jedi,2018-03-09,The Last Jedi
+90%,48%,366,Star Wars: The Last Jedi,2018-03-10,The Last Jedi
+90%,48%,366,Star Wars: The Last Jedi,2018-03-11,The Last Jedi
+90%,48%,366,Star Wars: The Last Jedi,2018-03-12,The Last Jedi
+90%,48%,369,Star Wars: The Last Jedi,2018-03-13,The Last Jedi
+90%,48%,369,Star Wars: The Last Jedi,2018-03-14,The Last Jedi
+90%,48%,369,Star Wars: The Last Jedi,2018-03-15,The Last Jedi
+90%,48%,370,Star Wars: The Last Jedi,2018-03-16,The Last Jedi
+90%,48%,370,Star Wars: The Last Jedi,2018-03-17,The Last Jedi
+90%,48%,370,Star Wars: The Last Jedi,2018-03-18,The Last Jedi
+90%,48%,370,Star Wars: The Last Jedi,2018-03-19,The Last Jedi
+90%,48%,371,Star Wars: The Last Jedi,2018-03-20,The Last Jedi
+90%,48%,371,Star Wars: The Last Jedi,2018-03-21,The Last Jedi
+91%,48%,371,Star Wars: The Last Jedi,2018-03-22,The Last Jedi
+91%,48%,371,Star Wars: The Last Jedi,2018-03-23,The Last Jedi
+91%,48%,371,Star Wars: The Last Jedi,2018-03-24,The Last Jedi
+91%,48%,371,Star Wars: The Last Jedi,2018-03-25,The Last Jedi
+91%,48%,371,Star Wars: The Last Jedi,2018-03-26,The Last Jedi
+91%,48%,371,Star Wars: The Last Jedi,2018-03-28,The Last Jedi
+91%,48%,371,Star Wars: The Last Jedi,2018-03-29,The Last Jedi
+91%,47%,371,Star Wars: The Last Jedi,2018-03-30,The Last Jedi
+91%,47%,371,Star Wars: The Last Jedi,2018-03-31,The Last Jedi
+91%,47%,371,Star Wars: The Last Jedi,2018-04-01,The Last Jedi
+91%,47%,371,Star Wars: The Last Jedi,2018-04-02,The Last Jedi
+91%,47%,371,Star Wars: The Last Jedi,2018-04-03,The Last Jedi
+91%,47%,371,Star Wars: The Last Jedi,2018-04-04,The Last Jedi
+91%,47%,372,Star Wars: The Last Jedi,2018-04-05,The Last Jedi
+91%,47%,372,Star Wars: The Last Jedi,2018-04-06,The Last Jedi
+91%,47%,372,Star Wars: The Last Jedi,2018-04-07,The Last Jedi
+91%,47%,372,Star Wars: The Last Jedi,2018-04-08,The Last Jedi
+91%,47%,372,Star Wars: The Last Jedi,2018-04-09,The Last Jedi
+91%,47%,372,Star Wars: The Last Jedi,2018-04-10,The Last Jedi
+91%,47%,372,Star Wars: The Last Jedi,2018-04-11,The Last Jedi
+91%,47%,372,Star Wars: The Last Jedi,2018-04-12,The Last Jedi
+91%,47%,372,Star Wars: The Last Jedi,2018-04-13,The Last Jedi
+91%,47%,373,Star Wars: The Last Jedi,2018-04-14,The Last Jedi
+91%,47%,373,Star Wars: The Last Jedi,2018-04-15,The Last Jedi
+91%,47%,373,Star Wars: The Last Jedi,2018-04-16,The Last Jedi
+91%,47%,373,Star Wars: The Last Jedi,2018-04-17,The Last Jedi
+91%,47%,373,Star Wars: The Last Jedi,2018-04-18,The Last Jedi
+91%,47%,373,Star Wars: The Last Jedi,2018-04-19,The Last Jedi
+91%,47%,374,Star Wars: The Last Jedi,2018-04-20,The Last Jedi
+91%,47%,374,Star Wars: The Last Jedi,2018-04-21,The Last Jedi
+91%,47%,374,Star Wars: The Last Jedi,2018-04-22,The Last Jedi
+91%,47%,374,Star Wars: The Last Jedi,2018-04-23,The Last Jedi
+91%,47%,374,Star Wars: The Last Jedi,2018-04-24,The Last Jedi
+91%,47%,374,Star Wars: The Last Jedi,2018-04-25,The Last Jedi
+91%,47%,374,Star Wars: The Last Jedi,2018-04-26,The Last Jedi
+91%,47%,374,Star Wars: The Last Jedi,2018-04-27,The Last Jedi
+91%,47%,374,Star Wars: The Last Jedi,2018-04-28,The Last Jedi
+91%,47%,374,Star Wars: The Last Jedi,2018-04-29,The Last Jedi
+91%,47%,374,Star Wars: The Last Jedi,2018-04-30,The Last Jedi
+91%,47%,374,Star Wars: The Last Jedi,2018-05-01,The Last Jedi
+91%,47%,374,Star Wars: The Last Jedi,2018-05-02,The Last Jedi
+91%,47%,374,Star Wars: The Last Jedi,2018-05-03,The Last Jedi
+91%,47%,374,Star Wars: The Last Jedi,2018-05-04,The Last Jedi
+91%,47%,374,Star Wars: The Last Jedi,2018-05-05,The Last Jedi
+91%,47%,374,Star Wars: The Last Jedi,2018-05-06,The Last Jedi
+91%,47%,374,Star Wars: The Last Jedi,2018-05-07,The Last Jedi
+91%,47%,374,Star Wars: The Last Jedi,2018-05-08,The Last Jedi
+91%,47%,374,Star Wars: The Last Jedi,2018-05-09,The Last Jedi
+91%,47%,374,Star Wars: The Last Jedi,2018-05-10,The Last Jedi
+91%,47%,374,Star Wars: The Last Jedi,2018-05-11,The Last Jedi
+91%,47%,374,Star Wars: The Last Jedi,2018-05-12,The Last Jedi
+91%,47%,374,Star Wars: The Last Jedi,2018-05-13,The Last Jedi
+91%,47%,374,Star Wars: The Last Jedi,2018-05-14,The Last Jedi
+91%,47%,374,Star Wars: The Last Jedi,2018-05-15,The Last Jedi
+91%,47%,374,Star Wars: The Last Jedi,2018-05-16,The Last Jedi
+91%,47%,374,Star Wars: The Last Jedi,2018-05-17,The Last Jedi
+91%,47%,374,Star Wars: The Last Jedi,2018-05-18,The Last Jedi
+91%,47%,374,Star Wars: The Last Jedi,2018-05-19,The Last Jedi
+91%,46%,374,Star Wars: The Last Jedi,2018-05-20,The Last Jedi
+91%,46%,374,Star Wars: The Last Jedi,2018-05-21,The Last Jedi
+91%,46%,374,Star Wars: The Last Jedi,2018-05-22,The Last Jedi
+91%,46%,374,Star Wars: The Last Jedi,2018-05-23,The Last Jedi
+91%,46%,374,Star Wars: The Last Jedi,2018-05-24,The Last Jedi
+91%,46%,374,Star Wars: The Last Jedi,2018-05-25,The Last Jedi
+91%,46%,374,Star Wars: The Last Jedi,2018-05-26,The Last Jedi
+91%,46%,374,Star Wars: The Last Jedi,2018-05-27,The Last Jedi
+91%,46%,374,Star Wars: The Last Jedi,2018-05-28,The Last Jedi
+91%,46%,374,Star Wars: The Last Jedi,2018-05-29,The Last Jedi
+91%,46%,374,Star Wars: The Last Jedi,2018-05-30,The Last Jedi
+91%,46%,374,Star Wars: The Last Jedi,2018-05-31,The Last Jedi
+91%,46%,374,Star Wars: The Last Jedi,2018-06-01,The Last Jedi
+91%,46%,374,Star Wars: The Last Jedi,2018-06-02,The Last Jedi
+91%,46%,374,Star Wars: The Last Jedi,2018-06-03,The Last Jedi
+91%,46%,374,Star Wars: The Last Jedi,2018-06-04,The Last Jedi
+91%,46%,374,Star Wars: The Last Jedi,2018-06-05,The Last Jedi
+91%,46%,374,Star Wars: The Last Jedi,2018-06-06,The Last Jedi
+91%,46%,374,Star Wars: The Last Jedi,2018-06-07,The Last Jedi
+91%,46%,374,Star Wars: The Last Jedi,2018-06-08,The Last Jedi
+91%,46%,374,Star Wars: The Last Jedi,2018-06-09,The Last Jedi
+91%,46%,374,Star Wars: The Last Jedi,2018-06-10,The Last Jedi
+91%,46%,374,Star Wars: The Last Jedi,2018-06-11,The Last Jedi
+91%,46%,374,Star Wars: The Last Jedi,2018-06-12,The Last Jedi
+91%,46%,374,Star Wars: The Last Jedi,2018-06-13,The Last Jedi
+91%,46%,375,Star Wars: The Last Jedi,2018-06-14,The Last Jedi
+91%,46%,375,Star Wars: The Last Jedi,2018-06-15,The Last Jedi
+91%,46%,375,Star Wars: The Last Jedi,2018-06-16,The Last Jedi
+91%,46%,375,Star Wars: The Last Jedi,2018-06-17,The Last Jedi
+91%,46%,375,Star Wars: The Last Jedi,2018-06-18,The Last Jedi
+91%,46%,375,Star Wars: The Last Jedi,2018-06-19,The Last Jedi
+91%,46%,375,Star Wars: The Last Jedi,2018-06-20,The Last Jedi
+91%,46%,375,Star Wars: The Last Jedi,2018-06-21,The Last Jedi
+91%,46%,375,Star Wars: The Last Jedi,2018-06-22,The Last Jedi
+91%,46%,375,Star Wars: The Last Jedi,2018-06-23,The Last Jedi
+91%,46%,375,Star Wars: The Last Jedi,2018-06-24,The Last Jedi
+91%,46%,375,Star Wars: The Last Jedi,2018-06-25,The Last Jedi
+91%,46%,375,Star Wars: The Last Jedi,2018-06-26,The Last Jedi
+91%,46%,375,Star Wars: The Last Jedi,2018-06-27,The Last Jedi
+91%,46%,375,Star Wars: The Last Jedi,2018-06-28,The Last Jedi
+91%,46%,375,Star Wars: The Last Jedi,2018-06-29,The Last Jedi
+91%,46%,375,Star Wars: The Last Jedi,2018-06-30,The Last Jedi
+91%,46%,375,Star Wars: The Last Jedi,2018-07-01,The Last Jedi
+91%,46%,375,Star Wars: The Last Jedi,2018-07-02,The Last Jedi
+91%,46%,375,Star Wars: The Last Jedi,2018-07-03,The Last Jedi
+91%,46%,375,Star Wars: The Last Jedi,2018-07-04,The Last Jedi
+91%,46%,375,Star Wars: The Last Jedi,2018-07-05,The Last Jedi
+91%,46%,375,Star Wars: The Last Jedi,2018-07-06,The Last Jedi
+91%,46%,375,Star Wars: The Last Jedi,2018-07-07,The Last Jedi
+91%,46%,375,Star Wars: The Last Jedi,2018-07-08,The Last Jedi
+91%,46%,375,Star Wars: The Last Jedi,2018-07-09,The Last Jedi
+91%,46%,375,Star Wars: The Last Jedi,2018-07-10,The Last Jedi
+91%,46%,375,Star Wars: The Last Jedi,2018-07-11,The Last Jedi
+91%,46%,375,Star Wars: The Last Jedi,2018-07-12,The Last Jedi
+91%,46%,375,Star Wars: The Last Jedi,2018-07-13,The Last Jedi
+91%,46%,375,Star Wars: The Last Jedi,2018-07-14,The Last Jedi
+91%,46%,375,Star Wars: The Last Jedi,2018-07-15,The Last Jedi
+91%,46%,375,Star Wars: The Last Jedi,2018-07-16,The Last Jedi
+91%,46%,375,Star Wars: The Last Jedi,2018-07-17,The Last Jedi
+91%,46%,375,Star Wars: The Last Jedi,2018-07-18,The Last Jedi
+91%,46%,375,Star Wars: The Last Jedi,2018-07-19,The Last Jedi
+91%,46%,375,Star Wars: The Last Jedi,2018-07-20,The Last Jedi
+91%,46%,375,Star Wars: The Last Jedi,2018-07-21,The Last Jedi
+91%,46%,375,Star Wars: The Last Jedi,2018-07-22,The Last Jedi
+91%,46%,375,Star Wars: The Last Jedi,2018-07-23,The Last Jedi
+91%,46%,375,Star Wars: The Last Jedi,2018-07-24,The Last Jedi
+91%,46%,375,Star Wars: The Last Jedi,2018-07-25,The Last Jedi
+91%,46%,375,Star Wars: The Last Jedi,2018-07-26,The Last Jedi
+90%,46%,376,Star Wars: The Last Jedi,2018-07-27,The Last Jedi
+90%,46%,376,Star Wars: The Last Jedi,2018-07-28,The Last Jedi
+90%,46%,376,Star Wars: The Last Jedi,2018-07-29,The Last Jedi
+90%,46%,376,Star Wars: The Last Jedi,2018-07-30,The Last Jedi
+90%,46%,376,Star Wars: The Last Jedi,2018-07-31,The Last Jedi
+90%,46%,376,Star Wars: The Last Jedi,2018-08-01,The Last Jedi
+90%,46%,376,Star Wars: The Last Jedi,2018-08-02,The Last Jedi
+90%,46%,376,Star Wars: The Last Jedi,2018-08-03,The Last Jedi
+90%,46%,376,Star Wars: The Last Jedi,2018-08-04,The Last Jedi
+90%,46%,377,Star Wars: The Last Jedi,2018-08-05,The Last Jedi
+90%,46%,377,Star Wars: The Last Jedi,2018-08-06,The Last Jedi
+90%,46%,377,Star Wars: The Last Jedi,2018-08-07,The Last Jedi
+90%,46%,377,Star Wars: The Last Jedi,2018-08-08,The Last Jedi
+90%,46%,377,Star Wars: The Last Jedi,2018-08-09,The Last Jedi
+90%,46%,377,Star Wars: The Last Jedi,2018-08-10,The Last Jedi
+90%,46%,377,Star Wars: The Last Jedi,2018-08-11,The Last Jedi
+90%,46%,377,Star Wars: The Last Jedi,2018-08-12,The Last Jedi
+90%,46%,377,Star Wars: The Last Jedi,2018-08-13,The Last Jedi
+91%,46%,379,Star Wars: The Last Jedi,2018-08-15,The Last Jedi
+91%,46%,379,Star Wars: The Last Jedi,2018-08-16,The Last Jedi
+91%,46%,379,Star Wars: The Last Jedi,2018-08-17,The Last Jedi
+91%,46%,380,Star Wars: The Last Jedi,2018-08-18,The Last Jedi
+91%,46%,380,Star Wars: The Last Jedi,2018-08-19,The Last Jedi
+91%,46%,380,Star Wars: The Last Jedi,2018-08-20,The Last Jedi
+91%,46%,380,Star Wars: The Last Jedi,2018-08-21,The Last Jedi
+91%,46%,380,Star Wars: The Last Jedi,2018-08-22,The Last Jedi
+91%,46%,380,Star Wars: The Last Jedi,2018-08-23,The Last Jedi
+91%,46%,388,Star Wars: The Last Jedi,2018-08-24,The Last Jedi
+91%,46%,388,Star Wars: The Last Jedi,2018-08-25,The Last Jedi
+91%,46%,388,Star Wars: The Last Jedi,2018-08-26,The Last Jedi
+91%,46%,391,Star Wars: The Last Jedi,2018-08-27,The Last Jedi
+91%,46%,393,Star Wars: The Last Jedi,2018-08-28,The Last Jedi
+91%,46%,393,Star Wars: The Last Jedi,2018-08-29,The Last Jedi
+91%,46%,393,Star Wars: The Last Jedi,2018-08-30,The Last Jedi
+91%,46%,393,Star Wars: The Last Jedi,2018-08-31,The Last Jedi
+91%,46%,393,Star Wars: The Last Jedi,2018-09-01,The Last Jedi
+91%,46%,393,Star Wars: The Last Jedi,2018-09-02,The Last Jedi
+91%,46%,393,Star Wars: The Last Jedi,2018-09-03,The Last Jedi
+91%,46%,393,Star Wars: The Last Jedi,2018-09-04,The Last Jedi
+91%,46%,393,Star Wars: The Last Jedi,2018-09-05,The Last Jedi
+91%,46%,393,Star Wars: The Last Jedi,2018-09-06,The Last Jedi
+91%,45%,393,Star Wars: The Last Jedi,2018-09-07,The Last Jedi
+91%,45%,393,Star Wars: The Last Jedi,2018-09-08,The Last Jedi
+91%,45%,393,Star Wars: The Last Jedi,2018-09-09,The Last Jedi
+91%,45%,393,Star Wars: The Last Jedi,2018-09-10,The Last Jedi
+91%,45%,393,Star Wars: The Last Jedi,2018-09-11,The Last Jedi
+91%,45%,393,Star Wars: The Last Jedi,2018-09-13,The Last Jedi
+91%,45%,393,Star Wars: The Last Jedi,2018-09-14,The Last Jedi
+91%,45%,393,Star Wars: The Last Jedi,2018-09-15,The Last Jedi
+91%,45%,393,Star Wars: The Last Jedi,2018-09-16,The Last Jedi
+91%,45%,393,Star Wars: The Last Jedi,2018-09-17,The Last Jedi
+91%,45%,393,Star Wars: The Last Jedi,2018-09-18,The Last Jedi
+91%,45%,393,Star Wars: The Last Jedi,2018-09-19,The Last Jedi
+91%,45%,393,Star Wars: The Last Jedi,2018-09-20,The Last Jedi
+91%,45%,393,Star Wars: The Last Jedi,2018-09-21,The Last Jedi
+91%,45%,393,Star Wars: The Last Jedi,2018-09-22,The Last Jedi
+91%,45%,393,Star Wars: The Last Jedi,2018-09-23,The Last Jedi
+91%,45%,393,Star Wars: The Last Jedi,2018-09-24,The Last Jedi
+91%,45%,393,Star Wars: The Last Jedi,2018-09-25,The Last Jedi
+91%,45%,393,Star Wars: The Last Jedi,2018-09-26,The Last Jedi
+91%,45%,393,Star Wars: The Last Jedi,2018-09-27,The Last Jedi
+91%,45%,393,Star Wars: The Last Jedi,2018-09-28,The Last Jedi
+91%,45%,393,Star Wars: The Last Jedi,2018-09-29,The Last Jedi
+91%,45%,393,Star Wars: The Last Jedi,2018-09-30,The Last Jedi
+91%,45%,393,Star Wars: The Last Jedi,2018-10-01,The Last Jedi
+91%,45%,393,Star Wars: The Last Jedi,2018-10-02,The Last Jedi
+91%,45%,393,Star Wars: The Last Jedi,2018-10-03,The Last Jedi
+91%,45%,393,Star Wars: The Last Jedi,2018-10-04,The Last Jedi
+91%,45%,393,Star Wars: The Last Jedi,2018-10-05,The Last Jedi
+91%,45%,393,Star Wars: The Last Jedi,2018-10-06,The Last Jedi
+91%,45%,393,Star Wars: The Last Jedi,2018-10-07,The Last Jedi
+91%,45%,393,Star Wars: The Last Jedi,2018-10-08,The Last Jedi
+91%,45%,393,Star Wars: The Last Jedi,2018-10-09,The Last Jedi
+91%,45%,393,Star Wars: The Last Jedi,2018-10-10,The Last Jedi
+91%,45%,393,Star Wars: The Last Jedi,2018-10-11,The Last Jedi
+91%,45%,393,Star Wars: The Last Jedi,2018-10-12,The Last Jedi
+91%,45%,397,Star Wars: The Last Jedi,2018-10-13,The Last Jedi
+91%,45%,397,Star Wars: The Last Jedi,2018-10-14,The Last Jedi
+91%,45%,397,Star Wars: The Last Jedi,2018-10-15,The Last Jedi
+91%,45%,397,Star Wars: The Last Jedi,2018-10-16,The Last Jedi
+91%,45%,397,Star Wars: The Last Jedi,2018-10-17,The Last Jedi
+91%,45%,397,Star Wars: The Last Jedi,2018-10-18,The Last Jedi
+91%,45%,397,Star Wars: The Last Jedi,2018-10-19,The Last Jedi
+91%,45%,397,Star Wars: The Last Jedi,2018-10-20,The Last Jedi
+91%,45%,397,Star Wars: The Last Jedi,2018-10-21,The Last Jedi
+91%,45%,397,Star Wars: The Last Jedi,2018-10-22,The Last Jedi
+91%,45%,397,Star Wars: The Last Jedi,2018-10-23,The Last Jedi
+91%,45%,397,Star Wars: The Last Jedi,2018-10-24,The Last Jedi
+91%,45%,397,Star Wars: The Last Jedi,2018-10-25,The Last Jedi
+91%,45%,409,Star Wars: The Last Jedi,2018-10-26,The Last Jedi
+91%,45%,409,Star Wars: The Last Jedi,2018-10-27,The Last Jedi
+91%,45%,409,Star Wars: The Last Jedi,2018-10-28,The Last Jedi
+91%,45%,409,Star Wars: The Last Jedi,2018-10-29,The Last Jedi
+91%,45%,409,Star Wars: The Last Jedi,2018-10-30,The Last Jedi
+91%,45%,409,Star Wars: The Last Jedi,2018-10-31,The Last Jedi
+91%,45%,409,Star Wars: The Last Jedi,2018-11-01,The Last Jedi
+91%,45%,409,Star Wars: The Last Jedi,2018-11-02,The Last Jedi
+91%,45%,410,,2018-11-03,The Last Jedi
+91%,45%,410,Star Wars: The Last Jedi,2018-11-04,The Last Jedi
+91%,45%,411,Star Wars: The Last Jedi,2018-11-05,The Last Jedi
+91%,45%,411,,2018-11-06,The Last Jedi
+91%,45%,411,,2018-11-07,The Last Jedi
+91%,45%,411,Star Wars: The Last Jedi,2018-11-08,The Last Jedi
+91%,45%,411,Star Wars: The Last Jedi,2018-11-09,The Last Jedi
+91%,45%,411,Star Wars: The Last Jedi,2018-11-10,The Last Jedi
+91%,45%,411,Star Wars: The Last Jedi,2018-11-11,The Last Jedi
+91%,45%,411,Star Wars: The Last Jedi,2018-11-12,The Last Jedi
+91%,45%,412,,2018-11-13,The Last Jedi
+91%,45%,412,,2018-11-14,The Last Jedi
+91%,45%,413,,2018-11-15,The Last Jedi
+91%,45%,413,,2018-11-16,The Last Jedi
+91%,45%,413,Star Wars: The Last Jedi,2018-11-17,The Last Jedi
+91%,45%,414,,2018-11-18,The Last Jedi
+91%,45%,414,,2018-11-19,The Last Jedi
+91%,45%,414,Star Wars: The Last Jedi,2018-11-20,The Last Jedi
+91%,45%,414,,2018-11-22,The Last Jedi
+91%,45%,414,Star Wars: The Last Jedi,2018-11-23,The Last Jedi
+91%,45%,414,,2018-11-24,The Last Jedi
+91%,45%,414,,2018-11-25,The Last Jedi
+91%,45%,414,Star Wars: The Last Jedi,2018-11-26,The Last Jedi
+91%,45%,414,,2018-11-27,The Last Jedi
+91%,45%,414,,2018-11-28,The Last Jedi
+91%,45%,414,,2018-11-29,The Last Jedi
+91%,45%,414,Star Wars: The Last Jedi,2018-11-30,The Last Jedi
+91%,45%,414,,2018-12-01,The Last Jedi
+91%,45%,414,,2018-12-02,The Last Jedi
+91%,45%,414,,2018-12-03,The Last Jedi
+91%,45%,414,,2018-12-04,The Last Jedi
+91%,45%,414,Star Wars: The Last Jedi,2018-12-05,The Last Jedi
+91%,45%,414,Star Wars: The Last Jedi,2018-12-06,The Last Jedi
+91%,45%,414,,2018-12-07,The Last Jedi
+91%,45%,415,,2018-12-08,The Last Jedi
+91%,45%,415,Star Wars: The Last Jedi,2018-12-09,The Last Jedi
+91%,45%,415,,2018-12-10,The Last Jedi
+91%,45%,415,,2018-12-11,The Last Jedi
+91%,45%,416,,2018-12-12,The Last Jedi
+58%,Coming,184,Ratings: Not yet available,2019-12-18,The Rise of Skywalker
+57%,Coming,265,Ratings: Not yet available,2019-12-19,The Rise of Skywalker
+58%,86%,337,"11,591",2019-12-20,The Rise of Skywalker
+57%,86%,347,"20,814",2019-12-21,The Rise of Skywalker
+57%,86%,356,"31,127",2019-12-22,The Rise of Skywalker
+56%,86%,376,"39,473",2019-12-23,The Rise of Skywalker
+55%,86%,400,"45,331",2019-12-24,The Rise of Skywalker
+55%,86%,412,"49,191",2019-12-25,The Rise of Skywalker
+55%,86%,418,"54,495",2019-12-26,The Rise of Skywalker
+55%,86%,421,"58,761",2019-12-27,The Rise of Skywalker
+55%,86%,424,"62,842",2019-12-28,The Rise of Skywalker
+55%,86%,425,"65,685",2019-12-29,The Rise of Skywalker
+55%,86%,432,"70,543",2019-12-30,The Rise of Skywalker
+54%,86%,437,"72,859",2019-12-31,The Rise of Skywalker
+54%,86%,440,"75,438",2020-01-01,The Rise of Skywalker
+54%,86%,444,"78,888",2020-01-02,The Rise of Skywalker
+54%,86%,447,"80,224",2020-01-03,The Rise of Skywalker
+54%,86%,447,"81,254",2020-01-04,The Rise of Skywalker
+54%,86%,447,"83,297",2020-01-05,The Rise of Skywalker
+54%,86%,451,"85,154",2020-01-06,The Rise of Skywalker
+54%,86%,452,"86,182",2020-01-07,The Rise of Skywalker
+54%,86%,453,"86,999",2020-01-08,The Rise of Skywalker
+53%,86%,456,"87,763",2020-01-09,The Rise of Skywalker
+53%,86%,459,"88,396",2020-01-10,The Rise of Skywalker
+53%,86%,460,"89,157",2020-01-11,The Rise of Skywalker
+53%,86%,462,"90,069",2020-01-12,The Rise of Skywalker
+53%,86%,462,"90,378",2020-01-13,The Rise of Skywalker
+53%,86%,463,"91,144",2020-01-14,The Rise of Skywalker
+53%,86%,463,"91,144",2020-01-15,The Rise of Skywalker
+52%,86%,469,"92,307",2020-01-16,The Rise of Skywalker
+52%,86%,469,"92,307",2020-01-17,The Rise of Skywalker
+52%,86%,469,"92,486",2020-01-18,The Rise of Skywalker
+52%,86%,470,"93,290",2020-01-19,The Rise of Skywalker
+52%,86%,470,"93,290",2020-01-20,The Rise of Skywalker
+52%,86%,471,"94,724",2020-01-21,The Rise of Skywalker
+52%,86%,471,"94,735",2020-01-22,The Rise of Skywalker
+52%,86%,471,"94,939",2020-01-23,The Rise of Skywalker
+52%,86%,471,"95,151",2020-01-24,The Rise of Skywalker
+52%,86%,471,"95,528",2020-01-25,The Rise of Skywalker
+52%,86%,471,"95,797",2020-01-26,The Rise of Skywalker
+52%,86%,471,"95,999",2020-01-27,The Rise of Skywalker
+52%,86%,471,"96,164",2020-01-28,The Rise of Skywalker
+52%,86%,471,"96,267",2020-01-29,The Rise of Skywalker
+52%,86%,471,"96,389",2020-01-30,The Rise of Skywalker
+52%,86%,472,"96,485",2020-01-31,The Rise of Skywalker
+52%,86%,472,"96,485",2020-02-01,The Rise of Skywalker
+52%,86%,472,"96,694",2020-02-02,The Rise of Skywalker
+52%,86%,471,"96,921",2020-02-03,The Rise of Skywalker
+52%,86%,471,"96,921",2020-02-04,The Rise of Skywalker
+52%,86%,471,"97,013",2020-02-05,The Rise of Skywalker
+52%,86%,471,"97,070",2020-02-06,The Rise of Skywalker
+52%,86%,471,"97,155",2020-02-07,The Rise of Skywalker
+52%,86%,471,"97,265",2020-02-08,The Rise of Skywalker
+52%,86%,471,"97,265",2020-02-09,The Rise of Skywalker
+52%,86%,471,"97,265",2020-02-10,The Rise of Skywalker
+52%,86%,473,"97,512",2020-02-11,The Rise of Skywalker
+52%,86%,473,"97,512",2020-02-12,The Rise of Skywalker
+52%,86%,473,"97,512",2020-02-13,The Rise of Skywalker
+52%,86%,473,"97,512",2020-02-14,The Rise of Skywalker
+52%,86%,474,"97,847",2020-02-15,The Rise of Skywalker
+52%,86%,474,"97,847",2020-02-16,The Rise of Skywalker
+52%,86%,474,"97,847",2020-02-17,The Rise of Skywalker
+52%,86%,474,"97,856",2020-02-18,The Rise of Skywalker
+52%,86%,474,"97,856",2020-02-19,The Rise of Skywalker
+52%,86%,474,"97,856",2020-02-20,The Rise of Skywalker
+52%,86%,474,"97,856",2020-02-21,The Rise of Skywalker
+52%,86%,474,"97,856",2020-02-22,The Rise of Skywalker
+52%,86%,474,"97,856",2020-02-23,The Rise of Skywalker
+52%,86%,474,"97,856",2020-02-24,The Rise of Skywalker
+52%,86%,474,"97,856",2020-02-25,The Rise of Skywalker
+52%,86%,477,"98,136",2020-02-26,The Rise of Skywalker
+52%,86%,477,"98,136",2020-02-27,The Rise of Skywalker
+52%,86%,477,"98,136",2020-02-28,The Rise of Skywalker
+52%,86%,477,"98,136",2020-02-29,The Rise of Skywalker
+52%,86%,477,"98,136",2020-03-01,The Rise of Skywalker
+52%,86%,477,"98,136",2020-03-02,The Rise of Skywalker
+52%,86%,477,"98,136",2020-03-03,The Rise of Skywalker
+52%,86%,477,"98,136",2020-03-04,The Rise of Skywalker
+52%,86%,477,"98,136",2020-03-05,The Rise of Skywalker
+52%,86%,477,"98,137",2020-03-06,The Rise of Skywalker
+52%,86%,477,"98,154",2020-03-07,The Rise of Skywalker
+52%,86%,477,"98,154",2020-03-08,The Rise of Skywalker
+52%,86%,477,"98,167",2020-03-09,The Rise of Skywalker
+52%,86%,477,"98,167",2020-03-10,The Rise of Skywalker
+52%,86%,477,"98,172",2020-03-11,The Rise of Skywalker
+52%,86%,477,"98,172",2020-03-12,The Rise of Skywalker
+51%,86%,478,"98,178",2020-03-13,The Rise of Skywalker
+51%,86%,478,"98,179",2020-03-14,The Rise of Skywalker
+51%,86%,478,"98,179",2020-03-15,The Rise of Skywalker
+51%,86%,478,"98,179",2020-03-16,The Rise of Skywalker
+51%,86%,478,"98,195",2020-03-17,The Rise of Skywalker
+51%,86%,478,"98,195",2020-03-18,The Rise of Skywalker
+51%,86%,478,"98,195",2020-03-19,The Rise of Skywalker
+51%,86%,478,"98,195",2020-03-20,The Rise of Skywalker
+51%,86%,478,"98,205",2020-03-21,The Rise of Skywalker
+51%,86%,478,"98,205",2020-03-22,The Rise of Skywalker
+51%,86%,478,"98,205",2020-03-23,The Rise of Skywalker
+51%,86%,478,"98,205",2020-03-24,The Rise of Skywalker
+51%,86%,478,"98,205",2020-03-25,The Rise of Skywalker
+51%,86%,478,"98,205",2020-03-26,The Rise of Skywalker
+51%,86%,478,"98,205",2020-03-27,The Rise of Skywalker
+52%,86%,480,"98,214",2020-03-28,The Rise of Skywalker
+52%,86%,480,"98,214",2020-03-29,The Rise of Skywalker
+52%,86%,480,"98,214",2020-03-30,The Rise of Skywalker
+52%,86%,480,"98,214",2020-03-31,The Rise of Skywalker
+52%,86%,480,"98,214",2020-04-01,The Rise of Skywalker
+52%,86%,480,"98,214",2020-04-02,The Rise of Skywalker
+52%,86%,480,"98,214",2020-04-03,The Rise of Skywalker
+52%,86%,480,"98,214",2020-04-04,The Rise of Skywalker
+52%,86%,480,"98,214",2020-04-05,The Rise of Skywalker
+52%,86%,480,"98,214",2020-04-06,The Rise of Skywalker
+52%,86%,480,"98,214",2020-04-07,The Rise of Skywalker
+52%,86%,480,"98,214",2020-04-08,The Rise of Skywalker
+52%,86%,480,"98,214",2020-04-09,The Rise of Skywalker
+52%,86%,480,"98,214",2020-04-10,The Rise of Skywalker
+52%,86%,480,"98,214",2020-04-11,The Rise of Skywalker
+52%,86%,480,"98,214",2020-04-12,The Rise of Skywalker
+52%,86%,480,"98,214",2020-04-13,The Rise of Skywalker
+52%,86%,483,"98,218",2020-04-14,The Rise of Skywalker
+52%,86%,483,"98,218",2020-04-15,The Rise of Skywalker
+52%,86%,483,"98,218",2020-04-16,The Rise of Skywalker
+52%,86%,483,"98,218",2020-04-17,The Rise of Skywalker
+52%,86%,483,"98,218",2020-04-18,The Rise of Skywalker
+52%,86%,483,"98,218",2020-04-19,The Rise of Skywalker
+52%,86%,483,"98,218",2020-04-20,The Rise of Skywalker
+52%,86%,483,"98,218",2020-04-21,The Rise of Skywalker
+52%,86%,483,"98,218",2020-04-22,The Rise of Skywalker
+52%,86%,483,"98,218",2020-04-23,The Rise of Skywalker
+52%,86%,483,"98,218",2020-04-24,The Rise of Skywalker
+52%,86%,483,"98,218",2020-04-25,The Rise of Skywalker
+52%,86%,483,"98,218",2020-04-26,The Rise of Skywalker
+52%,86%,483,"98,219",2020-04-27,The Rise of Skywalker
+52%,86%,483,"98,219",2020-04-28,The Rise of Skywalker
+52%,86%,483,"98,219",2020-04-29,The Rise of Skywalker
+52%,86%,483,"98,219",2020-04-30,The Rise of Skywalker
+52%,86%,483,"98,219",2020-05-01,The Rise of Skywalker
+52%,86%,483,"98,221",2020-05-02,The Rise of Skywalker
+52%,86%,483,"98,221",2020-05-03,The Rise of Skywalker
+52%,86%,483,"98,221",2020-05-04,The Rise of Skywalker
+52%,86%,483,"98,221",2020-05-05,The Rise of Skywalker
+52%,86%,483,"98,221",2020-05-06,The Rise of Skywalker
+52%,86%,483,"98,221",2020-05-07,The Rise of Skywalker
+52%,86%,483,"98,221",2020-05-08,The Rise of Skywalker
+52%,86%,483,"98,226",2020-05-09,The Rise of Skywalker
+52%,86%,483,"98,226",2020-05-10,The Rise of Skywalker
+52%,86%,483,"98,226",2020-05-11,The Rise of Skywalker
+52%,86%,483,"98,226",2020-05-12,The Rise of Skywalker
+52%,86%,483,"98,226",2020-05-13,The Rise of Skywalker
+52%,86%,483,"98,226",2020-05-14,The Rise of Skywalker
+52%,86%,483,"98,226",2020-05-15,The Rise of Skywalker
+52%,86%,483,"98,226",2020-05-16,The Rise of Skywalker
+52%,86%,483,"98,226",2020-05-17,The Rise of Skywalker
+52%,86%,483,"98,226",2020-05-18,The Rise of Skywalker
+52%,86%,483,"98,226",2020-05-19,The Rise of Skywalker
+52%,86%,483,"98,226",2020-05-20,The Rise of Skywalker
+52%,86%,483,"98,226",2020-05-21,The Rise of Skywalker
+52%,86%,483,"98,226",2020-05-22,The Rise of Skywalker
+52%,86%,483,"98,226",2020-05-23,The Rise of Skywalker
+52%,86%,483,"98,226",2020-05-24,The Rise of Skywalker
+52%,86%,483,"98,226",2020-05-25,The Rise of Skywalker
+52%,86%,483,"98,233",2020-05-26,The Rise of Skywalker
+52%,86%,483,"98,233",2020-05-27,The Rise of Skywalker
+52%,86%,483,"98,233",2020-05-28,The Rise of Skywalker
+52%,86%,483,"98,233",2020-05-29,The Rise of Skywalker
+52%,86%,483,"98,233",2020-05-30,The Rise of Skywalker
+52%,86%,483,"98,233",2020-05-31,The Rise of Skywalker
+52%,86%,483,"98,233",2020-06-01,The Rise of Skywalker
+52%,86%,483,"98,233",2020-06-02,The Rise of Skywalker
+52%,86%,483,"98,233",2020-06-03,The Rise of Skywalker
+52%,86%,483,"98,233",2020-06-04,The Rise of Skywalker
+52%,86%,483,"98,233",2020-06-05,The Rise of Skywalker
+52%,86%,483,"98,233",2020-06-06,The Rise of Skywalker
+52%,86%,483,"98,233",2020-06-07,The Rise of Skywalker
+52%,86%,483,"98,233",2020-06-08,The Rise of Skywalker
+51%,86%,484,"98,234",2020-06-09,The Rise of Skywalker
+51%,86%,484,"98,234",2020-06-10,The Rise of Skywalker
+51%,86%,484,"98,234",2020-06-11,The Rise of Skywalker
+51%,86%,484,"98,234",2020-06-12,The Rise of Skywalker
+51%,86%,484,"98,234",2020-06-13,The Rise of Skywalker
+51%,86%,484,"98,234",2020-06-14,The Rise of Skywalker
+51%,86%,485,"98,235",2020-06-15,The Rise of Skywalker
+51%,86%,485,"98,235",2020-06-16,The Rise of Skywalker
+51%,86%,485,"98,235",2020-06-17,The Rise of Skywalker
+51%,86%,485,"98,235",2020-06-18,The Rise of Skywalker
+51%,86%,485,"98,235",2020-06-19,The Rise of Skywalker
+51%,86%,485,"98,235",2020-06-20,The Rise of Skywalker
+51%,86%,485,"98,235",2020-06-21,The Rise of Skywalker
+51%,86%,485,"98,235",2020-06-22,The Rise of Skywalker
+51%,86%,485,"98,235",2020-06-23,The Rise of Skywalker
+51%,86%,485,"98,235",2020-06-24,The Rise of Skywalker
+51%,86%,485,"98,235",2020-06-25,The Rise of Skywalker
+51%,86%,485,"98,235",2020-06-26,The Rise of Skywalker
+51%,86%,485,"98,235",2020-06-27,The Rise of Skywalker
+51%,86%,485,"98,235",2020-06-28,The Rise of Skywalker
+51%,86%,485,"98,235",2020-06-29,The Rise of Skywalker
+51%,86%,485,"98,235",2020-06-30,The Rise of Skywalker
+51%,86%,485,"98,235",2020-07-01,The Rise of Skywalker
+51%,86%,485,"98,235",2020-07-02,The Rise of Skywalker
+51%,86%,485,"98,235",2020-07-03,The Rise of Skywalker
+51%,86%,485,"98,235",2020-07-04,The Rise of Skywalker
+51%,86%,489,"98,236",2020-07-05,The Rise of Skywalker
+51%,86%,489,"98,236",2020-07-06,The Rise of Skywalker
+51%,86%,489,"98,236",2020-07-07,The Rise of Skywalker
+51%,86%,489,"98,236",2020-07-08,The Rise of Skywalker
+51%,86%,489,"98,236",2020-07-09,The Rise of Skywalker
+51%,86%,489,"98,236",2020-07-10,The Rise of Skywalker
+51%,86%,489,"98,236",2020-07-11,The Rise of Skywalker
+51%,86%,489,"98,236",2020-07-12,The Rise of Skywalker
+51%,86%,489,"98,236",2020-07-13,The Rise of Skywalker
+51%,86%,489,"98,236",2020-07-14,The Rise of Skywalker
+51%,86%,489,"98,236",2020-07-15,The Rise of Skywalker
+51%,86%,489,"98,236",2020-07-16,The Rise of Skywalker
+51%,86%,489,"98,236",2020-07-17,The Rise of Skywalker
+51%,86%,489,"98,236",2020-07-18,The Rise of Skywalker
+51%,86%,489,"98,236",2020-07-19,The Rise of Skywalker
+51%,86%,489,"98,236",2020-07-20,The Rise of Skywalker
+51%,86%,489,"98,236",2020-07-21,The Rise of Skywalker
+51%,86%,489,"98,236",2020-07-22,The Rise of Skywalker
+51%,86%,489,"98,236",2020-07-23,The Rise of Skywalker
+51%,86%,489,"98,236",2020-07-24,The Rise of Skywalker
+51%,86%,491,"98,236",2020-07-25,The Rise of Skywalker
+51%,86%,491,"98,236",2020-07-26,The Rise of Skywalker
+51%,86%,491,"98,236",2020-07-27,The Rise of Skywalker
+51%,86%,491,"98,236",2020-07-28,The Rise of Skywalker
+51%,86%,491,"98,236",2020-07-29,The Rise of Skywalker
+51%,86%,491,"98,236",2020-07-30,The Rise of Skywalker
+51%,86%,494,"98,236",2020-07-31,The Rise of Skywalker
+51%,86%,494,"98,236",2020-08-01,The Rise of Skywalker
+51%,86%,494,"98,236",2020-08-02,The Rise of Skywalker
+51%,86%,494,"98,236",2020-08-03,The Rise of Skywalker
+51%,86%,494,"98,236",2020-08-04,The Rise of Skywalker
+51%,86%,494,"98,236",2020-08-05,The Rise of Skywalker
+51%,86%,494,"98,236",2020-08-06,The Rise of Skywalker
+51%,86%,494,"98,236",2020-08-07,The Rise of Skywalker
+51%,86%,494,"98,236",2020-08-08,The Rise of Skywalker
+51%,86%,494,"98,236",2020-08-09,The Rise of Skywalker
+51%,86%,494,"98,236",2020-08-10,The Rise of Skywalker
+51%,86%,494,"98,236",2020-08-11,The Rise of Skywalker
+51%,86%,494,"98,238",2020-08-12,The Rise of Skywalker
+51%,86%,494,"98,238",2020-08-13,The Rise of Skywalker
+51%,86%,494,"98,238",2020-08-14,The Rise of Skywalker
+51%,86%,494,"98,238",2020-08-15,The Rise of Skywalker
+51%,86%,494,"98,238",2020-08-16,The Rise of Skywalker
+51%,86%,494,"98,238",2020-08-17,The Rise of Skywalker
+51%,86%,494,"98,238",2020-08-18,The Rise of Skywalker
+51%,86%,494,"98,238",2020-08-19,The Rise of Skywalker
+51%,86%,494,"98,238",2020-08-20,The Rise of Skywalker
+51%,86%,494,"98,238",2020-08-21,The Rise of Skywalker
+51%,86%,494,"98,238",2020-08-22,The Rise of Skywalker
+51%,86%,494,"98,238",2020-08-23,The Rise of Skywalker
+51%,86%,495,"98,242",2020-08-24,The Rise of Skywalker
+51%,86%,495,"98,242",2020-08-25,The Rise of Skywalker
+51%,86%,495,"98,242",2020-08-26,The Rise of Skywalker
+51%,86%,495,"98,242",2020-08-27,The Rise of Skywalker
+51%,86%,495,"98,242",2020-08-28,The Rise of Skywalker
+51%,86%,495,"98,242",2020-08-29,The Rise of Skywalker
+51%,86%,495,"98,242",2020-08-30,The Rise of Skywalker
+51%,86%,495,"98,242",2020-08-31,The Rise of Skywalker
+51%,86%,495,"98,242",2020-09-01,The Rise of Skywalker
+51%,86%,495,"98,242",2020-09-02,The Rise of Skywalker
+51%,86%,495,"98,242",2020-09-03,The Rise of Skywalker
+51%,86%,495,"98,242",2020-09-04,The Rise of Skywalker
+51%,86%,495,"98,242",2020-09-05,The Rise of Skywalker
+51%,86%,495,"98,242",2020-09-06,The Rise of Skywalker
+51%,86%,495,"98,254",2020-09-07,The Rise of Skywalker
+51%,86%,495,"98,254",2020-09-08,The Rise of Skywalker
+51%,86%,495,"98,254",2020-09-09,The Rise of Skywalker
+51%,86%,495,"98,254",2020-09-10,The Rise of Skywalker
+51%,86%,495,"98,254",2020-09-11,The Rise of Skywalker
+51%,86%,495,"98,254",2020-09-12,The Rise of Skywalker
+51%,86%,495,"98,254",2020-09-13,The Rise of Skywalker
