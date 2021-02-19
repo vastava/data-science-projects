@@ -5,4 +5,4 @@ Following news that Wonder Woman 1984 dropped from "Certfied Fresh" to "rotten" 
 | Platform | Link |
 |-|-|
 | Medium post | [Data Driven Investor: How to scrape Rotten Tomatoes for historic Tomatometer scores](https://medium.com/datadriveninvestor/how-to-scrape-rotten-tomatoes-for-historic-tomatometer-scores-426f01a55a0d) |
-| Youtube video | [Did 2020 break Rotten Tomatoes? | data analysis](https://www.youtube.com/watch?v=OMwlxH5p6A4) |
+| Youtube video | [Did 2020 break Rotten Tomatoes? data analysis](https://www.youtube.com/watch?v=OMwlxH5p6A4) |
